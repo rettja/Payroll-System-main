@@ -305,6 +305,7 @@ Partial Class Form1
         'tax
         '
         Me.tax.BackColor = System.Drawing.Color.White
+        Me.tax.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.tax.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tax.Location = New System.Drawing.Point(416, 105)
         Me.tax.Name = "tax"
@@ -315,6 +316,7 @@ Partial Class Form1
         'phil
         '
         Me.phil.BackColor = System.Drawing.Color.White
+        Me.phil.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.phil.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.phil.Location = New System.Drawing.Point(415, 174)
         Me.phil.Name = "phil"
@@ -325,6 +327,7 @@ Partial Class Form1
         's
         '
         Me.s.BackColor = System.Drawing.Color.White
+        Me.s.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.s.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.s.Location = New System.Drawing.Point(415, 245)
         Me.s.Name = "s"
