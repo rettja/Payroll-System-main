@@ -71,9 +71,9 @@ Partial Class Dashboard
         Me.Panel2.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.Panel2.BackColor = System.Drawing.Color.SteelBlue
         Me.Panel2.Controls.Add(Me.exit1)
-        Me.Panel2.Location = New System.Drawing.Point(236, -13)
+        Me.Panel2.Location = New System.Drawing.Point(236, -9)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1135, 53)
+        Me.Panel2.Size = New System.Drawing.Size(1135, 50)
         Me.Panel2.TabIndex = 1
         '
         'exit1
@@ -85,7 +85,7 @@ Partial Class Dashboard
         Me.exit1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.exit1.Location = New System.Drawing.Point(1088, 0)
         Me.exit1.Name = "exit1"
-        Me.exit1.Size = New System.Drawing.Size(47, 53)
+        Me.exit1.Size = New System.Drawing.Size(47, 50)
         Me.exit1.TabIndex = 9
         Me.exit1.UseVisualStyleBackColor = True
         '
