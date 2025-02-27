@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Dashboard
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,16 +20,19 @@ Partial Class Dashboard
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.exit1 = New System.Windows.Forms.Button()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel1.SuspendLayout()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel2.SuspendLayout()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -41,7 +44,7 @@ Partial Class Dashboard
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Margin = New System.Windows.Forms.Padding(15)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(248, 502)
+        Me.Panel1.Size = New System.Drawing.Size(238, 749)
         Me.Panel1.TabIndex = 0
         '
         'Button1
@@ -53,25 +56,6 @@ Partial Class Dashboard
         Me.Button1.Text = "Salary"
         Me.Button1.UseVisualStyleBackColor = True
         '
-        'Panel2
-        '
-        Me.Panel2.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.Panel2.BackColor = System.Drawing.Color.SteelBlue
-        Me.Panel2.Location = New System.Drawing.Point(247, 0)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1137, 100)
-        Me.Panel2.TabIndex = 1
-        '
-        'PictureBox2
-        '
-        Me.PictureBox2.Image = Global.Payroll_System.My.Resources.Resources.Cube360_Banner_Bottom_Right_Corner_3
-        Me.PictureBox2.Location = New System.Drawing.Point(247, 96)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(582, 406)
-        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox2.TabIndex = 3
-        Me.PictureBox2.TabStop = False
-        '
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.Payroll_System.My.Resources.Resources.download
@@ -82,12 +66,55 @@ Partial Class Dashboard
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
+        'Panel2
+        '
+        Me.Panel2.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.Panel2.BackColor = System.Drawing.Color.SteelBlue
+        Me.Panel2.Controls.Add(Me.exit1)
+        Me.Panel2.Location = New System.Drawing.Point(236, -13)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(1135, 53)
+        Me.Panel2.TabIndex = 1
+        '
+        'exit1
+        '
+        Me.exit1.BackgroundImage = Global.Payroll_System.My.Resources.Resources._5244832
+        Me.exit1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.exit1.Dock = System.Windows.Forms.DockStyle.Right
+        Me.exit1.FlatAppearance.BorderSize = 0
+        Me.exit1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.exit1.Location = New System.Drawing.Point(1088, 0)
+        Me.exit1.Name = "exit1"
+        Me.exit1.Size = New System.Drawing.Size(47, 53)
+        Me.exit1.TabIndex = 9
+        Me.exit1.UseVisualStyleBackColor = True
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.Image = Global.Payroll_System.My.Resources.Resources.Cube360_Banner_Bottom_Right_Corner_3
+        Me.PictureBox2.Location = New System.Drawing.Point(659, 174)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(525, 383)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox2.TabIndex = 3
+        Me.PictureBox2.TabStop = False
+        '
+        'Panel3
+        '
+        Me.Panel3.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.Panel3.BackColor = System.Drawing.Color.SteelBlue
+        Me.Panel3.Location = New System.Drawing.Point(236, 35)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(1155, 90)
+        Me.Panel3.TabIndex = 4
+        '
         'Dashboard
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightGray
-        Me.ClientSize = New System.Drawing.Size(1326, 502)
+        Me.ClientSize = New System.Drawing.Size(1370, 749)
+        Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
@@ -98,8 +125,9 @@ Partial Class Dashboard
         Me.Text = "Dashboard"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.Panel1.ResumeLayout(False)
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel2.ResumeLayout(False)
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -109,4 +137,6 @@ Partial Class Dashboard
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Panel2 As Panel
     Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents exit1 As Button
+    Friend WithEvents Panel3 As Panel
 End Class

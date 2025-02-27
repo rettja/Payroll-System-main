@@ -23,18 +23,18 @@ Partial Class Form2
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Login = New System.Windows.Forms.Button()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Login = New System.Windows.Forms.Button()
-        Me.Label4 = New System.Windows.Forms.Label()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.exit1 = New System.Windows.Forms.Button()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.exit1 = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -57,21 +57,35 @@ Partial Class Form2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Log in to continue."
         '
-        'Label1
+        'Label4
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(41, 91)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(61, 13)
-        Me.Label1.TabIndex = 1
-        Me.Label1.Text = "User name:"
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.Color.RoyalBlue
+        Me.Label4.Location = New System.Drawing.Point(154, 31)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(111, 33)
+        Me.Label4.TabIndex = 7
+        Me.Label4.Text = "LOGIN"
         '
-        'TextBox1
+        'Login
         '
-        Me.TextBox1.Location = New System.Drawing.Point(99, 88)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(226, 20)
-        Me.TextBox1.TabIndex = 2
+        Me.Login.Location = New System.Drawing.Point(99, 164)
+        Me.Login.Name = "Login"
+        Me.Login.Size = New System.Drawing.Size(226, 23)
+        Me.Login.TabIndex = 6
+        Me.Login.Text = "Login"
+        Me.Login.UseVisualStyleBackColor = True
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.ForeColor = System.Drawing.Color.Navy
+        Me.Label3.Location = New System.Drawing.Point(170, 137)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(86, 13)
+        Me.Label3.TabIndex = 5
+        Me.Label3.Text = "Forgot Password"
         '
         'TextBox2
         '
@@ -89,35 +103,21 @@ Partial Class Form2
         Me.Label2.TabIndex = 3
         Me.Label2.Text = "Password:"
         '
-        'Label3
+        'TextBox1
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.ForeColor = System.Drawing.Color.Navy
-        Me.Label3.Location = New System.Drawing.Point(170, 137)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(86, 13)
-        Me.Label3.TabIndex = 5
-        Me.Label3.Text = "Forgot Password"
+        Me.TextBox1.Location = New System.Drawing.Point(99, 88)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(226, 20)
+        Me.TextBox1.TabIndex = 2
         '
-        'Login
+        'Label1
         '
-        Me.Login.Location = New System.Drawing.Point(99, 164)
-        Me.Login.Name = "Login"
-        Me.Login.Size = New System.Drawing.Size(226, 23)
-        Me.Login.TabIndex = 6
-        Me.Login.Text = "Login"
-        Me.Login.UseVisualStyleBackColor = True
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.Label4.Location = New System.Drawing.Point(154, 31)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(111, 33)
-        Me.Label4.TabIndex = 7
-        Me.Label4.Text = "LOGIN"
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(41, 91)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(61, 13)
+        Me.Label1.TabIndex = 1
+        Me.Label1.Text = "User name:"
         '
         'Label5
         '
@@ -129,18 +129,6 @@ Partial Class Form2
         Me.Label5.Size = New System.Drawing.Size(297, 37)
         Me.Label5.TabIndex = 8
         Me.Label5.Text = "PAYROLL SYSTEM"
-        '
-        'exit1
-        '
-        Me.exit1.BackgroundImage = Global.Payroll_System.My.Resources.Resources._5244832
-        Me.exit1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.exit1.FlatAppearance.BorderSize = 0
-        Me.exit1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.exit1.Location = New System.Drawing.Point(709, 5)
-        Me.exit1.Name = "exit1"
-        Me.exit1.Size = New System.Drawing.Size(47, 41)
-        Me.exit1.TabIndex = 8
-        Me.exit1.UseVisualStyleBackColor = True
         '
         'PictureBox2
         '
@@ -161,6 +149,18 @@ Partial Class Form2
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 9
         Me.PictureBox1.TabStop = False
+        '
+        'exit1
+        '
+        Me.exit1.BackgroundImage = Global.Payroll_System.My.Resources.Resources._5244832
+        Me.exit1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.exit1.FlatAppearance.BorderSize = 0
+        Me.exit1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.exit1.Location = New System.Drawing.Point(709, 5)
+        Me.exit1.Name = "exit1"
+        Me.exit1.Size = New System.Drawing.Size(47, 41)
+        Me.exit1.TabIndex = 8
+        Me.exit1.UseVisualStyleBackColor = True
         '
         'Form2
         '
