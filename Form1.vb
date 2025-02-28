@@ -1,9 +1,10 @@
-﻿Imports System.Windows.Forms.VisualStyles.VisualStyleElement
-
-Public Class Form1
+﻿Public Class Form1
 
     Dim ans As Integer
     Dim deduc As Integer
+    Dim tax As Integer
+    Dim phil As Integer
+    Dim s As Integer
     Dim net As Integer
     Dim ot As Integer
 
@@ -23,19 +24,20 @@ Public Class Form1
         ans = (((HourPerDay.Text * NumberOfDaysWorked.Text) * RatePerHour.Text) + ot)
         GrossSalary1.Text = ans
         GrossSalary2.Text = ans
-        tax.Text = ans * 0.15
-        phil.Text = ans * 0.05
-        s.Text = ans * 0.02
+        tax = ans * 0.15
+        MonthlyWageTax.Text = tax
+        phil = ans * 0.05
+        PhilHealth.Text = phil
+        s = ans * 0.02
+        SSS.Text = s
         ot = RatePerHour.Text * 3 * 2.3 * Overtime.Text
 
 
-        deduc = tax.Text + phil.Text + s.Text
+        deduc = tax + phil + s
         TotalDeduction.Text = deduc
         Deduction.Text = deduc
 
         net = GrossSalary2.Text - Deduction.Text
         NetSalary.Text = net
     End Sub
-
-
 End Class

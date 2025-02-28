@@ -49,9 +49,9 @@ Partial Class Form1
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Overtime = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
-        Me.tax = New System.Windows.Forms.Label()
-        Me.phil = New System.Windows.Forms.Label()
-        Me.s = New System.Windows.Forms.Label()
+        Me.MonthlyWageTax = New System.Windows.Forms.Label()
+        Me.PhilHealth = New System.Windows.Forms.Label()
+        Me.SSS = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'EmployeeName
@@ -141,6 +141,7 @@ Partial Class Form1
         Me.TotalDeduction.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TotalDeduction.Location = New System.Drawing.Point(415, 493)
         Me.TotalDeduction.Name = "TotalDeduction"
+        Me.TotalDeduction.ReadOnly = True
         Me.TotalDeduction.Size = New System.Drawing.Size(204, 30)
         Me.TotalDeduction.TabIndex = 17
         '
@@ -149,6 +150,7 @@ Partial Class Form1
         Me.GrossSalary1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GrossSalary1.Location = New System.Drawing.Point(74, 493)
         Me.GrossSalary1.Name = "GrossSalary1"
+        Me.GrossSalary1.ReadOnly = True
         Me.GrossSalary1.Size = New System.Drawing.Size(204, 30)
         Me.GrossSalary1.TabIndex = 27
         '
@@ -217,6 +219,7 @@ Partial Class Form1
         Me.Deduction.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Deduction.Location = New System.Drawing.Point(736, 174)
         Me.Deduction.Name = "Deduction"
+        Me.Deduction.ReadOnly = True
         Me.Deduction.Size = New System.Drawing.Size(204, 30)
         Me.Deduction.TabIndex = 38
         '
@@ -243,6 +246,7 @@ Partial Class Form1
         Me.GrossSalary2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GrossSalary2.Location = New System.Drawing.Point(736, 105)
         Me.GrossSalary2.Name = "GrossSalary2"
+        Me.GrossSalary2.ReadOnly = True
         Me.GrossSalary2.Size = New System.Drawing.Size(204, 30)
         Me.GrossSalary2.TabIndex = 36
         '
@@ -261,6 +265,7 @@ Partial Class Form1
         Me.NetSalary.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.NetSalary.Location = New System.Drawing.Point(736, 493)
         Me.NetSalary.Name = "NetSalary"
+        Me.NetSalary.ReadOnly = True
         Me.NetSalary.Size = New System.Drawing.Size(204, 30)
         Me.NetSalary.TabIndex = 43
         '
@@ -302,38 +307,38 @@ Partial Class Form1
         Me.Label14.TabIndex = 48
         Me.Label14.Text = "GROSS SALARY"
         '
-        'tax
+        'MonthlyWageTax
         '
-        Me.tax.BackColor = System.Drawing.Color.White
-        Me.tax.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.tax.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tax.Location = New System.Drawing.Point(416, 105)
-        Me.tax.Name = "tax"
-        Me.tax.Size = New System.Drawing.Size(204, 30)
-        Me.tax.TabIndex = 49
-        Me.tax.Text = "15%"
+        Me.MonthlyWageTax.BackColor = System.Drawing.Color.White
+        Me.MonthlyWageTax.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.MonthlyWageTax.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MonthlyWageTax.Location = New System.Drawing.Point(416, 105)
+        Me.MonthlyWageTax.Name = "MonthlyWageTax"
+        Me.MonthlyWageTax.Size = New System.Drawing.Size(204, 30)
+        Me.MonthlyWageTax.TabIndex = 49
+        Me.MonthlyWageTax.Text = "15%"
         '
-        'phil
+        'PhilHealth
         '
-        Me.phil.BackColor = System.Drawing.Color.White
-        Me.phil.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.phil.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.phil.Location = New System.Drawing.Point(415, 174)
-        Me.phil.Name = "phil"
-        Me.phil.Size = New System.Drawing.Size(204, 30)
-        Me.phil.TabIndex = 49
-        Me.phil.Text = "5%"
+        Me.PhilHealth.BackColor = System.Drawing.Color.White
+        Me.PhilHealth.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PhilHealth.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.PhilHealth.Location = New System.Drawing.Point(415, 174)
+        Me.PhilHealth.Name = "PhilHealth"
+        Me.PhilHealth.Size = New System.Drawing.Size(204, 30)
+        Me.PhilHealth.TabIndex = 49
+        Me.PhilHealth.Text = "5%"
         '
-        's
+        'SSS
         '
-        Me.s.BackColor = System.Drawing.Color.White
-        Me.s.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.s.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.s.Location = New System.Drawing.Point(415, 245)
-        Me.s.Name = "s"
-        Me.s.Size = New System.Drawing.Size(204, 30)
-        Me.s.TabIndex = 49
-        Me.s.Text = "2%"
+        Me.SSS.BackColor = System.Drawing.Color.White
+        Me.SSS.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.SSS.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SSS.Location = New System.Drawing.Point(415, 245)
+        Me.SSS.Name = "SSS"
+        Me.SSS.Size = New System.Drawing.Size(204, 30)
+        Me.SSS.TabIndex = 49
+        Me.SSS.Text = "2%"
         '
         'Form1
         '
@@ -341,9 +346,9 @@ Partial Class Form1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightGray
         Me.ClientSize = New System.Drawing.Size(1043, 664)
-        Me.Controls.Add(Me.s)
-        Me.Controls.Add(Me.phil)
-        Me.Controls.Add(Me.tax)
+        Me.Controls.Add(Me.SSS)
+        Me.Controls.Add(Me.PhilHealth)
+        Me.Controls.Add(Me.MonthlyWageTax)
         Me.Controls.Add(Me.Label14)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.Overtime)
@@ -404,7 +409,7 @@ Partial Class Form1
     Friend WithEvents Label10 As Label
     Friend WithEvents Overtime As TextBox
     Friend WithEvents Label14 As Label
-    Friend WithEvents tax As Label
-    Friend WithEvents phil As Label
-    Friend WithEvents s As Label
+    Friend WithEvents MonthlyWageTax As Label
+    Friend WithEvents PhilHealth As Label
+    Friend WithEvents SSS As Label
 End Class
