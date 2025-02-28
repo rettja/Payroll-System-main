@@ -176,6 +176,7 @@
     <None Include="Resources\Cube360-Banner-Bottom-Right-Corner-3.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\AUABC.jpg" />
     <Content Include="Testdatabase.accdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

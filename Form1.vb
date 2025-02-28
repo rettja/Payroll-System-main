@@ -8,18 +8,6 @@
     Dim net As Integer
     Dim ot As Integer
 
-    Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
-
-    End Sub
-
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
-
-    Private Sub TextBox15_TextChanged(sender As Object, e As EventArgs) Handles GrossSalary2.TextChanged
-
-    End Sub
-
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         ans = (((HourPerDay.Text * NumberOfDaysWorked.Text) * RatePerHour.Text) + ot)
         GrossSalary1.Text = ans

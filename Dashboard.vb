@@ -30,9 +30,9 @@
 
 
     Private Function GetStoredPassword(username As String) As String
-        If username = "Francisco" Then
+        If username = "Admin" Then
 
-            Return "Nicosupot"
+            Return "Password"
         End If
         Return Nothing
     End Function

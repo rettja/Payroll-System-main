@@ -121,6 +121,9 @@
   <data name="2dabb694e9bfccef713863a4a6543c79" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\2dabb694e9bfccef713863a4a6543c79.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Cube360-Banner-Bottom-Right-Corner-3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Cube360-Banner-Bottom-Right-Corner-3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="5179820" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\5179820.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -136,7 +139,7 @@
   <data name="download" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\download.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Cube360-Banner-Bottom-Right-Corner-3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Cube360-Banner-Bottom-Right-Corner-3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="AUABC" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AUABC.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
