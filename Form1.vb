@@ -13,7 +13,7 @@
         GrossSalary1.Text = ans
         GrossSalary2.Text = ans
         If GrossSalary1.Text <= 250000 Then
-            tax = ans * 1
+            tax = ans * 0
             Taxpercent.Text = "0%"
         ElseIf GrossSalary1.Text >= 250000 Or GrossSalary1.Text <= 400000 Then
             tax = ans * 0.15
@@ -38,7 +38,7 @@
         SSS.Text = s
         ot = RatePerHour.Text * 3 * 2.3 * Overtime.Text
 
-        deduc = tax + phil + s
+        deduc = Val(tax) + Val(phil) + Val(s)
         TotalDeduction.Text = deduc
         Deduction.Text = deduc
 
