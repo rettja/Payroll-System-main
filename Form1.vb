@@ -59,12 +59,19 @@
         Payslip.Text = "Ang tagal gumawa ng resibo hahahahahhahahahahhahahah -"
         PrintPreviewDialog1.ShowDialog()
 
+        EmployeeName.Clear()
         HourPerDay.Clear()
         RatePerHour.Clear()
         NumberOfDaysWorked.Clear()
+        Overtime.Clear()
         MonthlyWageTax.Clear()
         Philhealth.Clear()
         SSS.Clear()
+        Deduction.Clear()
+        TotalDeduction.Clear()
+        GrossSalary1.Clear()
+        GrossSalary2.Clear()
+        NetSalary.Clear()
     End Sub
 
     Private Sub Add_Click(sender As Object, e As EventArgs) Handles Add.Click
