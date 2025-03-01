@@ -12,14 +12,31 @@
         ans = (((HourPerDay.Text * NumberOfDaysWorked.Text) * RatePerHour.Text) + ot)
         GrossSalary1.Text = ans
         GrossSalary2.Text = ans
-        tax = ans * 0.15
+        If GrossSalary1.Text <= 250000 Then
+            tax = ans * 1
+            Taxpercent.Text = "0%"
+        ElseIf GrossSalary1.Text >= 250000 Or GrossSalary1.Text <= 400000 Then
+            tax = ans * 0.15
+            Taxpercent.Text = "15%"
+        ElseIf GrossSalary1.Text >= 400000 Or GrossSalary1.Text <= 800000 Then
+            tax = ans * 0.2
+            Taxpercent.Text = "20%"
+        ElseIf GrossSalary1.Text >= 800000 Or GrossSalary1.Text <= 2000000 Then
+            tax = ans * 0.25
+            Taxpercent.Text = "25%"
+        ElseIf GrossSalary1.Text >= 2000000 Or GrossSalary1.Text <= 8000000 Then
+            tax = ans * 0.3
+            Taxpercent.Text = "30%"
+        ElseIf GrossSalary1.Text > 800000 Then
+            tax = ans * 0.35
+            Taxpercent.Text = "35%"
+        End If
         MonthlyWageTax.Text = tax
         phil = ans * 0.05
         Philhealth.Text = phil
-        s = ans * 0.02
+        s = ans * 0.14
         SSS.Text = s
         ot = RatePerHour.Text * 3 * 2.3 * Overtime.Text
-
 
         deduc = tax + phil + s
         TotalDeduction.Text = deduc
@@ -28,15 +45,13 @@
         net = GrossSalary2.Text - Deduction.Text
         NetSalary.Text = net
 
-
-
-
+        philhealthdeduc.Text = "5%"
+        sssdeduc.Text = "14%"
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the 'DatabaseDataSet.Employees' table. You can move, or remove it, as needed.
         Me.EmployeesTableAdapter.Fill(Me.DatabaseDataSet.Employees)
-
     End Sub
 
     Private Sub clear_Click(sender As Object, e As EventArgs) Handles print.Click
@@ -71,5 +86,4 @@
         e.Graphics.DrawString(Payslip.Text, Font, Brushes.Black, 160, 160)
         e.Graphics.DrawImage(AUlogo.Image, 0, 0, AUlogo.Image.Width - 10, AUlogo.Image.Height - 15)
     End Sub
-
 End Class

@@ -75,6 +75,9 @@ Partial Class Form1
         Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog()
         Me.AUlogo = New System.Windows.Forms.PictureBox()
         Me.TableAdapterManager1 = New Payroll_System.DatabaseDataSetTableAdapters.TableAdapterManager()
+        Me.Taxpercent = New System.Windows.Forms.Label()
+        Me.philhealthdeduc = New System.Windows.Forms.Label()
+        Me.sssdeduc = New System.Windows.Forms.Label()
         CType(Me.EmployeesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DatabaseDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Tab.SuspendLayout()
@@ -536,6 +539,33 @@ Partial Class Form1
         Me.TableAdapterManager1.EmployeesTableAdapter = Nothing
         Me.TableAdapterManager1.UpdateOrder = Payroll_System.DatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
+        'Taxpercent
+        '
+        Me.Taxpercent.AutoSize = True
+        Me.Taxpercent.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
+        Me.Taxpercent.Location = New System.Drawing.Point(435, 84)
+        Me.Taxpercent.Name = "Taxpercent"
+        Me.Taxpercent.Size = New System.Drawing.Size(0, 17)
+        Me.Taxpercent.TabIndex = 30
+        '
+        'philhealthdeduc
+        '
+        Me.philhealthdeduc.AutoSize = True
+        Me.philhealthdeduc.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
+        Me.philhealthdeduc.Location = New System.Drawing.Point(435, 153)
+        Me.philhealthdeduc.Name = "philhealthdeduc"
+        Me.philhealthdeduc.Size = New System.Drawing.Size(0, 17)
+        Me.philhealthdeduc.TabIndex = 33
+        '
+        'sssdeduc
+        '
+        Me.sssdeduc.AutoSize = True
+        Me.sssdeduc.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
+        Me.sssdeduc.Location = New System.Drawing.Point(435, 224)
+        Me.sssdeduc.Name = "sssdeduc"
+        Me.sssdeduc.Size = New System.Drawing.Size(0, 17)
+        Me.sssdeduc.TabIndex = 35
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -559,8 +589,11 @@ Partial Class Form1
         Me.Controls.Add(Me.TextBox12)
         Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.GrossSalary2)
+        Me.Controls.Add(Me.sssdeduc)
         Me.Controls.Add(Me.Label7)
+        Me.Controls.Add(Me.philhealthdeduc)
         Me.Controls.Add(Me.Label8)
+        Me.Controls.Add(Me.Taxpercent)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.GrossSalary1)
         Me.Controls.Add(Me.Label3)
@@ -642,4 +675,7 @@ Partial Class Form1
     Friend WithEvents PrintPreviewDialog1 As PrintPreviewDialog
     Friend WithEvents AUlogo As PictureBox
     Friend WithEvents TableAdapterManager1 As DatabaseDataSetTableAdapters.TableAdapterManager
+    Friend WithEvents Taxpercent As Label
+    Friend WithEvents philhealthdeduc As Label
+    Friend WithEvents sssdeduc As Label
 End Class
