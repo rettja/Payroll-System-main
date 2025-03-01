@@ -28,6 +28,9 @@
         net = GrossSalary2.Text - Deduction.Text
         NetSalary.Text = net
 
+
+
+
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -39,6 +42,7 @@
     Private Sub clear_Click(sender As Object, e As EventArgs) Handles print.Click
         Payslip.Text = ""
         Payslip.Text = "Ang tagal gumawa ng resibo hahahahahhahahahahhahahah -"
+        PrintPreviewDialog1.ShowDialog()
 
         HourPerDay.Clear()
         RatePerHour.Clear()
@@ -64,8 +68,8 @@
     End Sub
 
     Private Sub PrintDocument1_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles PrintDocument1.PrintPage
-        e.Graphics.DrawString(Payslip.Text, Font, Brushes.Black, 100, 100)
-        e.Graphics.DrawImage(AUlogo.Image, 100, 100)
+        e.Graphics.DrawString(Payslip.Text, Font, Brushes.Black, 160, 160)
+        e.Graphics.DrawImage(AUlogo.Image, 20, 20, AUlogo.Image.Width - 10, AUlogo.Image.Height - 15)
     End Sub
 
 End Class
