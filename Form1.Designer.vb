@@ -91,7 +91,7 @@ Partial Class Form1
         Me.EmployeeName.Location = New System.Drawing.Point(24, 104)
         Me.EmployeeName.Name = "EmployeeName"
         Me.EmployeeName.Size = New System.Drawing.Size(204, 30)
-        Me.EmployeeName.TabIndex = 1
+        Me.EmployeeName.TabIndex = 2
         '
         'EmployeesBindingSource
         '
@@ -140,7 +140,7 @@ Partial Class Form1
         Me.HourPerDay.Location = New System.Drawing.Point(24, 244)
         Me.HourPerDay.Name = "HourPerDay"
         Me.HourPerDay.Size = New System.Drawing.Size(204, 30)
-        Me.HourPerDay.TabIndex = 7
+        Me.HourPerDay.TabIndex = 4
         '
         'Label6
         '
@@ -159,7 +159,7 @@ Partial Class Form1
         Me.NumberOfDaysWorked.Location = New System.Drawing.Point(24, 314)
         Me.NumberOfDaysWorked.Name = "NumberOfDaysWorked"
         Me.NumberOfDaysWorked.Size = New System.Drawing.Size(204, 30)
-        Me.NumberOfDaysWorked.TabIndex = 9
+        Me.NumberOfDaysWorked.TabIndex = 5
         '
         'Label3
         '
@@ -196,7 +196,7 @@ Partial Class Form1
         Me.RatePerHour.Location = New System.Drawing.Point(24, 173)
         Me.RatePerHour.Name = "RatePerHour"
         Me.RatePerHour.Size = New System.Drawing.Size(204, 30)
-        Me.RatePerHour.TabIndex = 5
+        Me.RatePerHour.TabIndex = 3
         '
         'Label1
         '
@@ -311,7 +311,7 @@ Partial Class Form1
         Me.Button1.Location = New System.Drawing.Point(256, 553)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(204, 53)
-        Me.Button1.TabIndex = 45
+        Me.Button1.TabIndex = 7
         Me.Button1.Text = "COMPUTE"
         Me.Button1.UseVisualStyleBackColor = True
         '
@@ -332,7 +332,7 @@ Partial Class Form1
         Me.Overtime.Location = New System.Drawing.Point(24, 384)
         Me.Overtime.Name = "Overtime"
         Me.Overtime.Size = New System.Drawing.Size(204, 30)
-        Me.Overtime.TabIndex = 46
+        Me.Overtime.TabIndex = 6
         '
         'Label14
         '
@@ -350,7 +350,7 @@ Partial Class Form1
         Me.print.Location = New System.Drawing.Point(1064, 553)
         Me.print.Name = "print"
         Me.print.Size = New System.Drawing.Size(204, 53)
-        Me.print.TabIndex = 45
+        Me.print.TabIndex = 10
         Me.print.Text = "Print"
         Me.print.UseVisualStyleBackColor = True
         '
@@ -361,7 +361,7 @@ Partial Class Form1
         Me.MonthlyWageTax.Name = "MonthlyWageTax"
         Me.MonthlyWageTax.ReadOnly = True
         Me.MonthlyWageTax.Size = New System.Drawing.Size(204, 30)
-        Me.MonthlyWageTax.TabIndex = 1
+        Me.MonthlyWageTax.TabIndex = 46
         '
         'Philhealth
         '
@@ -370,7 +370,7 @@ Partial Class Form1
         Me.Philhealth.Name = "Philhealth"
         Me.Philhealth.ReadOnly = True
         Me.Philhealth.Size = New System.Drawing.Size(204, 30)
-        Me.Philhealth.TabIndex = 5
+        Me.Philhealth.TabIndex = 47
         '
         'SSS
         '
@@ -379,7 +379,7 @@ Partial Class Form1
         Me.SSS.Name = "SSS"
         Me.SSS.ReadOnly = True
         Me.SSS.Size = New System.Drawing.Size(204, 30)
-        Me.SSS.TabIndex = 7
+        Me.SSS.TabIndex = 48
         '
         'Tab
         '
@@ -479,7 +479,7 @@ Partial Class Form1
         Me.Insert.Location = New System.Drawing.Point(490, 553)
         Me.Insert.Name = "Insert"
         Me.Insert.Size = New System.Drawing.Size(204, 53)
-        Me.Insert.TabIndex = 45
+        Me.Insert.TabIndex = 8
         Me.Insert.Text = "INSERT"
         Me.Insert.UseVisualStyleBackColor = True
         '
@@ -489,7 +489,7 @@ Partial Class Form1
         Me.save.Location = New System.Drawing.Point(841, 553)
         Me.save.Name = "save"
         Me.save.Size = New System.Drawing.Size(204, 53)
-        Me.save.TabIndex = 45
+        Me.save.TabIndex = 9
         Me.save.Text = "SAVE"
         Me.save.UseVisualStyleBackColor = True
         '
@@ -499,7 +499,7 @@ Partial Class Form1
         Me.Add.Location = New System.Drawing.Point(24, 553)
         Me.Add.Name = "Add"
         Me.Add.Size = New System.Drawing.Size(204, 53)
-        Me.Add.TabIndex = 45
+        Me.Add.TabIndex = 1
         Me.Add.Text = "NEW"
         Me.Add.UseVisualStyleBackColor = True
         '

@@ -69,7 +69,7 @@
 
     Private Sub PrintDocument1_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles PrintDocument1.PrintPage
         e.Graphics.DrawString(Payslip.Text, Font, Brushes.Black, 160, 160)
-        e.Graphics.DrawImage(AUlogo.Image, 20, 20, AUlogo.Image.Width - 10, AUlogo.Image.Height - 15)
+        e.Graphics.DrawImage(AUlogo.Image, 0, 0, AUlogo.Image.Width - 10, AUlogo.Image.Height - 15)
     End Sub
 
 End Class
