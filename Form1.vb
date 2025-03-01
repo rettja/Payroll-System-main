@@ -8,6 +8,8 @@
     Dim net As Integer
     Dim ot As Integer
 
+
+
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         ans = (((HourPerDay.Text * NumberOfDaysWorked.Text) * RatePerHour.Text) + ot)
         GrossSalary1.Text = ans
@@ -81,6 +83,9 @@
     Private Sub Insert_Click(sender As Object, e As EventArgs) Handles Insert.Click
         EmployeesBindingSource.EndEdit()
         EmployeesTableAdapter.Update(DatabaseDataSet.Employees)
+
+        Payslip.Text = ""
+        Payslip.Text = "Ang tagal gumawa ng resibo hahahahahhahahahahhahahah -ang pangit nung pagkaka sulat ko dito parang parinig wtf"
     End Sub
 
     Private Sub save_Click(sender As Object, e As EventArgs) Handles save.Click
@@ -90,7 +95,7 @@
     End Sub
 
     Private Sub PrintDocument1_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles PrintDocument1.PrintPage
-        e.Graphics.DrawString(Payslip.Text, Font, Brushes.Black, 160, 160)
-        e.Graphics.DrawImage(AUlogo.Image, 0, 0, AUlogo.Image.Width - 10, AUlogo.Image.Height - 15)
+        e.Graphics.DrawString(Payslip.Text, Font, Brushes.Black, 120, 120)
+        e.Graphics.DrawImage(AUlogo.Image, 120, 130, AUlogo.Image.Width - 10, AUlogo.Image.Height - 15)
     End Sub
 End Class
