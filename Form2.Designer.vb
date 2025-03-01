@@ -32,11 +32,11 @@ Partial Class Form2
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Login = New System.Windows.Forms.Button()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.AUlogo = New System.Windows.Forms.PictureBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.AUlogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -135,16 +135,16 @@ Partial Class Form2
         Me.Login.Text = "Login"
         Me.Login.UseVisualStyleBackColor = True
         '
-        'PictureBox1
+        'AUlogo
         '
-        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox1.Image = Global.Payroll_System.My.Resources.Resources.download
-        Me.PictureBox1.Location = New System.Drawing.Point(520, 8)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(81, 76)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 9
-        Me.PictureBox1.TabStop = False
+        Me.AUlogo.BackColor = System.Drawing.Color.Transparent
+        Me.AUlogo.Image = Global.Payroll_System.My.Resources.Resources.download
+        Me.AUlogo.Location = New System.Drawing.Point(520, 8)
+        Me.AUlogo.Name = "AUlogo"
+        Me.AUlogo.Size = New System.Drawing.Size(81, 76)
+        Me.AUlogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.AUlogo.TabIndex = 9
+        Me.AUlogo.TabStop = False
         '
         'Label4
         '
@@ -183,7 +183,7 @@ Partial Class Form2
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.exit1)
-        Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.AUlogo)
         Me.Controls.Add(Me.Login)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label3)
@@ -194,7 +194,7 @@ Partial Class Form2
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form2"
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.AUlogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
@@ -211,7 +211,7 @@ Partial Class Form2
     Friend WithEvents Label3 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Login As Button
-    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents AUlogo As PictureBox
     Friend WithEvents Label4 As Label
     Friend WithEvents GroupBox1 As GroupBox
 End Class

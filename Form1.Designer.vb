@@ -23,6 +23,7 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.EmployeeName = New System.Windows.Forms.TextBox()
         Me.EmployeesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DatabaseDataSet = New Payroll_System.DatabaseDataSet()
@@ -51,21 +52,43 @@ Partial Class Form1
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Overtime = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
-        Me.EmployeesTableAdapter = New Payroll_System.DatabaseDataSetTableAdapters.EmployeesTableAdapter()
-        Me.TableAdapterManager = New Payroll_System.DatabaseDataSetTableAdapters.TableAdapterManager()
-        Me.clear = New System.Windows.Forms.Button()
+        Me.print = New System.Windows.Forms.Button()
         Me.MonthlyWageTax = New System.Windows.Forms.TextBox()
         Me.Philhealth = New System.Windows.Forms.TextBox()
         Me.SSS = New System.Windows.Forms.TextBox()
+        Me.Tab = New System.Windows.Forms.TabControl()
+        Me.Database = New System.Windows.Forms.TabPage()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.IDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PayDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.HoursDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DaysDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.Payslip = New System.Windows.Forms.TextBox()
+        Me.EmployeesTableAdapter = New Payroll_System.DatabaseDataSetTableAdapters.EmployeesTableAdapter()
+        Me.TableAdapterManager = New Payroll_System.DatabaseDataSetTableAdapters.TableAdapterManager()
+        Me.Insert = New System.Windows.Forms.Button()
+        Me.save = New System.Windows.Forms.Button()
+        Me.Add = New System.Windows.Forms.Button()
+        Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
+        Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog()
+        Me.AUlogo = New System.Windows.Forms.PictureBox()
+        Me.TableAdapterManager1 = New Payroll_System.DatabaseDataSetTableAdapters.TableAdapterManager()
         CType(Me.EmployeesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DatabaseDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Tab.SuspendLayout()
+        Me.Database.SuspendLayout()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabPage2.SuspendLayout()
+        CType(Me.AUlogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'EmployeeName
         '
         Me.EmployeeName.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmployeesBindingSource, "Name", True))
         Me.EmployeeName.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.EmployeeName.Location = New System.Drawing.Point(74, 105)
+        Me.EmployeeName.Location = New System.Drawing.Point(24, 104)
         Me.EmployeeName.Name = "EmployeeName"
         Me.EmployeeName.Size = New System.Drawing.Size(204, 30)
         Me.EmployeeName.TabIndex = 1
@@ -84,7 +107,7 @@ Partial Class Form1
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.Label2.Location = New System.Drawing.Point(71, 85)
+        Me.Label2.Location = New System.Drawing.Point(21, 84)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(126, 17)
         Me.Label2.TabIndex = 2
@@ -94,7 +117,7 @@ Partial Class Form1
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.Label4.Location = New System.Drawing.Point(71, 154)
+        Me.Label4.Location = New System.Drawing.Point(21, 153)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(122, 17)
         Me.Label4.TabIndex = 6
@@ -104,7 +127,7 @@ Partial Class Form1
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.Label5.Location = New System.Drawing.Point(71, 225)
+        Me.Label5.Location = New System.Drawing.Point(21, 224)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(113, 17)
         Me.Label5.TabIndex = 8
@@ -114,7 +137,7 @@ Partial Class Form1
         '
         Me.HourPerDay.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmployeesBindingSource, "Hours", True))
         Me.HourPerDay.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.HourPerDay.Location = New System.Drawing.Point(74, 245)
+        Me.HourPerDay.Location = New System.Drawing.Point(24, 244)
         Me.HourPerDay.Name = "HourPerDay"
         Me.HourPerDay.Size = New System.Drawing.Size(204, 30)
         Me.HourPerDay.TabIndex = 7
@@ -123,7 +146,7 @@ Partial Class Form1
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.Label6.Location = New System.Drawing.Point(71, 295)
+        Me.Label6.Location = New System.Drawing.Point(21, 294)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(163, 17)
         Me.Label6.TabIndex = 10
@@ -133,7 +156,7 @@ Partial Class Form1
         '
         Me.NumberOfDaysWorked.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmployeesBindingSource, "Days", True))
         Me.NumberOfDaysWorked.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.NumberOfDaysWorked.Location = New System.Drawing.Point(74, 315)
+        Me.NumberOfDaysWorked.Location = New System.Drawing.Point(24, 314)
         Me.NumberOfDaysWorked.Name = "NumberOfDaysWorked"
         Me.NumberOfDaysWorked.Size = New System.Drawing.Size(204, 30)
         Me.NumberOfDaysWorked.TabIndex = 9
@@ -142,7 +165,7 @@ Partial Class Form1
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.Label3.Location = New System.Drawing.Point(412, 473)
+        Me.Label3.Location = New System.Drawing.Point(253, 472)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(154, 17)
         Me.Label3.TabIndex = 18
@@ -151,7 +174,7 @@ Partial Class Form1
         'TotalDeduction
         '
         Me.TotalDeduction.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TotalDeduction.Location = New System.Drawing.Point(415, 493)
+        Me.TotalDeduction.Location = New System.Drawing.Point(256, 492)
         Me.TotalDeduction.Name = "TotalDeduction"
         Me.TotalDeduction.ReadOnly = True
         Me.TotalDeduction.Size = New System.Drawing.Size(204, 30)
@@ -160,7 +183,7 @@ Partial Class Form1
         'GrossSalary1
         '
         Me.GrossSalary1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GrossSalary1.Location = New System.Drawing.Point(74, 493)
+        Me.GrossSalary1.Location = New System.Drawing.Point(24, 492)
         Me.GrossSalary1.Name = "GrossSalary1"
         Me.GrossSalary1.ReadOnly = True
         Me.GrossSalary1.Size = New System.Drawing.Size(204, 30)
@@ -170,7 +193,7 @@ Partial Class Form1
         '
         Me.RatePerHour.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmployeesBindingSource, "Pay", True))
         Me.RatePerHour.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RatePerHour.Location = New System.Drawing.Point(74, 174)
+        Me.RatePerHour.Location = New System.Drawing.Point(24, 173)
         Me.RatePerHour.Name = "RatePerHour"
         Me.RatePerHour.Size = New System.Drawing.Size(204, 30)
         Me.RatePerHour.TabIndex = 5
@@ -182,7 +205,7 @@ Partial Class Form1
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Bold)
         Me.Label1.Location = New System.Drawing.Point(0, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(1043, 69)
+        Me.Label1.Size = New System.Drawing.Size(1339, 69)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "PAYROLL SYSTEM"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -191,7 +214,7 @@ Partial Class Form1
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.Label7.Location = New System.Drawing.Point(412, 225)
+        Me.Label7.Location = New System.Drawing.Point(253, 224)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(35, 17)
         Me.Label7.TabIndex = 35
@@ -201,7 +224,7 @@ Partial Class Form1
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.Label8.Location = New System.Drawing.Point(412, 154)
+        Me.Label8.Location = New System.Drawing.Point(253, 153)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(97, 17)
         Me.Label8.TabIndex = 33
@@ -211,7 +234,7 @@ Partial Class Form1
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.Label9.Location = New System.Drawing.Point(412, 85)
+        Me.Label9.Location = New System.Drawing.Point(253, 84)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(176, 17)
         Me.Label9.TabIndex = 30
@@ -221,7 +244,7 @@ Partial Class Form1
         '
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.Label11.Location = New System.Drawing.Point(733, 154)
+        Me.Label11.Location = New System.Drawing.Point(487, 153)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(89, 17)
         Me.Label11.TabIndex = 40
@@ -230,7 +253,7 @@ Partial Class Form1
         'Deduction
         '
         Me.Deduction.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Deduction.Location = New System.Drawing.Point(736, 174)
+        Me.Deduction.Location = New System.Drawing.Point(490, 173)
         Me.Deduction.Name = "Deduction"
         Me.Deduction.ReadOnly = True
         Me.Deduction.Size = New System.Drawing.Size(204, 30)
@@ -239,7 +262,7 @@ Partial Class Form1
         'TextBox12
         '
         Me.TextBox12.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox12.Location = New System.Drawing.Point(736, 174)
+        Me.TextBox12.Location = New System.Drawing.Point(490, 173)
         Me.TextBox12.Name = "TextBox12"
         Me.TextBox12.Size = New System.Drawing.Size(204, 30)
         Me.TextBox12.TabIndex = 39
@@ -248,7 +271,7 @@ Partial Class Form1
         '
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.Label12.Location = New System.Drawing.Point(733, 85)
+        Me.Label12.Location = New System.Drawing.Point(487, 84)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(116, 17)
         Me.Label12.TabIndex = 37
@@ -257,7 +280,7 @@ Partial Class Form1
         'GrossSalary2
         '
         Me.GrossSalary2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GrossSalary2.Location = New System.Drawing.Point(736, 105)
+        Me.GrossSalary2.Location = New System.Drawing.Point(490, 104)
         Me.GrossSalary2.Name = "GrossSalary2"
         Me.GrossSalary2.ReadOnly = True
         Me.GrossSalary2.Size = New System.Drawing.Size(204, 30)
@@ -267,7 +290,7 @@ Partial Class Form1
         '
         Me.Label13.AutoSize = True
         Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.Label13.Location = New System.Drawing.Point(733, 473)
+        Me.Label13.Location = New System.Drawing.Point(487, 472)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(104, 17)
         Me.Label13.TabIndex = 44
@@ -276,7 +299,7 @@ Partial Class Form1
         'NetSalary
         '
         Me.NetSalary.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.NetSalary.Location = New System.Drawing.Point(736, 493)
+        Me.NetSalary.Location = New System.Drawing.Point(490, 492)
         Me.NetSalary.Name = "NetSalary"
         Me.NetSalary.ReadOnly = True
         Me.NetSalary.Size = New System.Drawing.Size(204, 30)
@@ -285,7 +308,7 @@ Partial Class Form1
         'Button1
         '
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
-        Me.Button1.Location = New System.Drawing.Point(415, 566)
+        Me.Button1.Location = New System.Drawing.Point(256, 553)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(204, 53)
         Me.Button1.TabIndex = 45
@@ -296,7 +319,7 @@ Partial Class Form1
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.Label10.Location = New System.Drawing.Point(71, 365)
+        Me.Label10.Location = New System.Drawing.Point(21, 364)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(133, 17)
         Me.Label10.TabIndex = 47
@@ -304,8 +327,9 @@ Partial Class Form1
         '
         'Overtime
         '
+        Me.Overtime.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmployeesBindingSource, "Overtime", True))
         Me.Overtime.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Overtime.Location = New System.Drawing.Point(74, 385)
+        Me.Overtime.Location = New System.Drawing.Point(24, 384)
         Me.Overtime.Name = "Overtime"
         Me.Overtime.Size = New System.Drawing.Size(204, 30)
         Me.Overtime.TabIndex = 46
@@ -314,11 +338,129 @@ Partial Class Form1
         '
         Me.Label14.AutoSize = True
         Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold)
-        Me.Label14.Location = New System.Drawing.Point(71, 473)
+        Me.Label14.Location = New System.Drawing.Point(21, 472)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(128, 17)
         Me.Label14.TabIndex = 48
         Me.Label14.Text = "GROSS SALARY"
+        '
+        'print
+        '
+        Me.print.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
+        Me.print.Location = New System.Drawing.Point(1064, 553)
+        Me.print.Name = "print"
+        Me.print.Size = New System.Drawing.Size(204, 53)
+        Me.print.TabIndex = 45
+        Me.print.Text = "Print"
+        Me.print.UseVisualStyleBackColor = True
+        '
+        'MonthlyWageTax
+        '
+        Me.MonthlyWageTax.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MonthlyWageTax.Location = New System.Drawing.Point(256, 104)
+        Me.MonthlyWageTax.Name = "MonthlyWageTax"
+        Me.MonthlyWageTax.ReadOnly = True
+        Me.MonthlyWageTax.Size = New System.Drawing.Size(204, 30)
+        Me.MonthlyWageTax.TabIndex = 1
+        '
+        'Philhealth
+        '
+        Me.Philhealth.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Philhealth.Location = New System.Drawing.Point(256, 173)
+        Me.Philhealth.Name = "Philhealth"
+        Me.Philhealth.ReadOnly = True
+        Me.Philhealth.Size = New System.Drawing.Size(204, 30)
+        Me.Philhealth.TabIndex = 5
+        '
+        'SSS
+        '
+        Me.SSS.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SSS.Location = New System.Drawing.Point(256, 244)
+        Me.SSS.Name = "SSS"
+        Me.SSS.ReadOnly = True
+        Me.SSS.Size = New System.Drawing.Size(204, 30)
+        Me.SSS.TabIndex = 7
+        '
+        'Tab
+        '
+        Me.Tab.Controls.Add(Me.Database)
+        Me.Tab.Controls.Add(Me.TabPage2)
+        Me.Tab.Location = New System.Drawing.Point(767, 104)
+        Me.Tab.Name = "Tab"
+        Me.Tab.SelectedIndex = 0
+        Me.Tab.Size = New System.Drawing.Size(555, 418)
+        Me.Tab.TabIndex = 49
+        '
+        'Database
+        '
+        Me.Database.Controls.Add(Me.DataGridView1)
+        Me.Database.Location = New System.Drawing.Point(4, 22)
+        Me.Database.Name = "Database"
+        Me.Database.Padding = New System.Windows.Forms.Padding(3)
+        Me.Database.Size = New System.Drawing.Size(547, 392)
+        Me.Database.TabIndex = 0
+        Me.Database.Text = "Database"
+        Me.Database.UseVisualStyleBackColor = True
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.AutoGenerateColumns = False
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IDDataGridViewTextBoxColumn, Me.NameDataGridViewTextBoxColumn, Me.PayDataGridViewTextBoxColumn, Me.HoursDataGridViewTextBoxColumn, Me.DaysDataGridViewTextBoxColumn})
+        Me.DataGridView1.DataSource = Me.EmployeesBindingSource
+        Me.DataGridView1.Location = New System.Drawing.Point(0, 0)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.Size = New System.Drawing.Size(547, 392)
+        Me.DataGridView1.TabIndex = 0
+        '
+        'IDDataGridViewTextBoxColumn
+        '
+        Me.IDDataGridViewTextBoxColumn.DataPropertyName = "ID"
+        Me.IDDataGridViewTextBoxColumn.HeaderText = "ID"
+        Me.IDDataGridViewTextBoxColumn.Name = "IDDataGridViewTextBoxColumn"
+        '
+        'NameDataGridViewTextBoxColumn
+        '
+        Me.NameDataGridViewTextBoxColumn.DataPropertyName = "Name"
+        Me.NameDataGridViewTextBoxColumn.HeaderText = "Name"
+        Me.NameDataGridViewTextBoxColumn.Name = "NameDataGridViewTextBoxColumn"
+        '
+        'PayDataGridViewTextBoxColumn
+        '
+        Me.PayDataGridViewTextBoxColumn.DataPropertyName = "Pay"
+        Me.PayDataGridViewTextBoxColumn.HeaderText = "Pay"
+        Me.PayDataGridViewTextBoxColumn.Name = "PayDataGridViewTextBoxColumn"
+        '
+        'HoursDataGridViewTextBoxColumn
+        '
+        Me.HoursDataGridViewTextBoxColumn.DataPropertyName = "Hours"
+        Me.HoursDataGridViewTextBoxColumn.HeaderText = "Hours"
+        Me.HoursDataGridViewTextBoxColumn.Name = "HoursDataGridViewTextBoxColumn"
+        '
+        'DaysDataGridViewTextBoxColumn
+        '
+        Me.DaysDataGridViewTextBoxColumn.DataPropertyName = "Days"
+        Me.DaysDataGridViewTextBoxColumn.HeaderText = "Days"
+        Me.DaysDataGridViewTextBoxColumn.Name = "DaysDataGridViewTextBoxColumn"
+        '
+        'TabPage2
+        '
+        Me.TabPage2.Controls.Add(Me.Payslip)
+        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage2.Name = "TabPage2"
+        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage2.Size = New System.Drawing.Size(547, 392)
+        Me.TabPage2.TabIndex = 1
+        Me.TabPage2.Text = "Payslip"
+        Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'Payslip
+        '
+        Me.Payslip.Location = New System.Drawing.Point(0, 0)
+        Me.Payslip.Multiline = True
+        Me.Payslip.Name = "Payslip"
+        Me.Payslip.Size = New System.Drawing.Size(547, 392)
+        Me.Payslip.TabIndex = 0
         '
         'EmployeesTableAdapter
         '
@@ -331,53 +473,84 @@ Partial Class Form1
         Me.TableAdapterManager.EmployeesTableAdapter = Me.EmployeesTableAdapter
         Me.TableAdapterManager.UpdateOrder = Payroll_System.DatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
-        'clear
+        'Insert
         '
-        Me.clear.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
-        Me.clear.Location = New System.Drawing.Point(736, 566)
-        Me.clear.Name = "clear"
-        Me.clear.Size = New System.Drawing.Size(204, 53)
-        Me.clear.TabIndex = 45
-        Me.clear.Text = "Next"
-        Me.clear.UseVisualStyleBackColor = True
+        Me.Insert.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
+        Me.Insert.Location = New System.Drawing.Point(490, 553)
+        Me.Insert.Name = "Insert"
+        Me.Insert.Size = New System.Drawing.Size(204, 53)
+        Me.Insert.TabIndex = 45
+        Me.Insert.Text = "INSERT"
+        Me.Insert.UseVisualStyleBackColor = True
         '
-        'MonthlyWageTax
+        'save
         '
-        Me.MonthlyWageTax.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MonthlyWageTax.Location = New System.Drawing.Point(415, 105)
-        Me.MonthlyWageTax.Name = "MonthlyWageTax"
-        Me.MonthlyWageTax.ReadOnly = True
-        Me.MonthlyWageTax.Size = New System.Drawing.Size(204, 30)
-        Me.MonthlyWageTax.TabIndex = 1
+        Me.save.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
+        Me.save.Location = New System.Drawing.Point(841, 553)
+        Me.save.Name = "save"
+        Me.save.Size = New System.Drawing.Size(204, 53)
+        Me.save.TabIndex = 45
+        Me.save.Text = "SAVE"
+        Me.save.UseVisualStyleBackColor = True
         '
-        'Philhealth
+        'Add
         '
-        Me.Philhealth.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Philhealth.Location = New System.Drawing.Point(415, 174)
-        Me.Philhealth.Name = "Philhealth"
-        Me.Philhealth.ReadOnly = True
-        Me.Philhealth.Size = New System.Drawing.Size(204, 30)
-        Me.Philhealth.TabIndex = 5
+        Me.Add.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
+        Me.Add.Location = New System.Drawing.Point(24, 553)
+        Me.Add.Name = "Add"
+        Me.Add.Size = New System.Drawing.Size(204, 53)
+        Me.Add.TabIndex = 45
+        Me.Add.Text = "NEW"
+        Me.Add.UseVisualStyleBackColor = True
         '
-        'SSS
+        'PrintDocument1
         '
-        Me.SSS.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SSS.Location = New System.Drawing.Point(415, 245)
-        Me.SSS.Name = "SSS"
-        Me.SSS.ReadOnly = True
-        Me.SSS.Size = New System.Drawing.Size(204, 30)
-        Me.SSS.TabIndex = 7
+        '
+        'PrintPreviewDialog1
+        '
+        Me.PrintPreviewDialog1.AutoScrollMargin = New System.Drawing.Size(0, 0)
+        Me.PrintPreviewDialog1.AutoScrollMinSize = New System.Drawing.Size(0, 0)
+        Me.PrintPreviewDialog1.ClientSize = New System.Drawing.Size(400, 300)
+        Me.PrintPreviewDialog1.Document = Me.PrintDocument1
+        Me.PrintPreviewDialog1.Enabled = True
+        Me.PrintPreviewDialog1.Icon = CType(resources.GetObject("PrintPreviewDialog1.Icon"), System.Drawing.Icon)
+        Me.PrintPreviewDialog1.Name = "PrintPreviewDialog1"
+        Me.PrintPreviewDialog1.Visible = False
+        '
+        'AUlogo
+        '
+        Me.AUlogo.BackColor = System.Drawing.Color.SteelBlue
+        Me.AUlogo.Image = Global.Payroll_System.My.Resources.Resources.download
+        Me.AUlogo.Location = New System.Drawing.Point(5, 0)
+        Me.AUlogo.Name = "AUlogo"
+        Me.AUlogo.Size = New System.Drawing.Size(68, 69)
+        Me.AUlogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.AUlogo.TabIndex = 50
+        Me.AUlogo.TabStop = False
+        '
+        'TableAdapterManager1
+        '
+        Me.TableAdapterManager1.AdminsTableAdapter = Nothing
+        Me.TableAdapterManager1.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager1.Connection = Nothing
+        Me.TableAdapterManager1.EmployeesTableAdapter = Nothing
+        Me.TableAdapterManager1.UpdateOrder = Payroll_System.DatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightGray
-        Me.ClientSize = New System.Drawing.Size(1043, 664)
+        Me.ClientSize = New System.Drawing.Size(1339, 645)
+        Me.Controls.Add(Me.AUlogo)
+        Me.Controls.Add(Me.Tab)
         Me.Controls.Add(Me.Label14)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.Overtime)
-        Me.Controls.Add(Me.clear)
+        Me.Controls.Add(Me.save)
+        Me.Controls.Add(Me.print)
+        Me.Controls.Add(Me.Insert)
+        Me.Controls.Add(Me.Add)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label13)
         Me.Controls.Add(Me.NetSalary)
@@ -408,6 +581,12 @@ Partial Class Form1
         Me.Text = "Main"
         CType(Me.EmployeesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DatabaseDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Tab.ResumeLayout(False)
+        Me.Database.ResumeLayout(False)
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabPage2.ResumeLayout(False)
+        Me.TabPage2.PerformLayout()
+        CType(Me.AUlogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -442,8 +621,25 @@ Partial Class Form1
     Friend WithEvents EmployeesBindingSource As BindingSource
     Friend WithEvents EmployeesTableAdapter As DatabaseDataSetTableAdapters.EmployeesTableAdapter
     Friend WithEvents TableAdapterManager As DatabaseDataSetTableAdapters.TableAdapterManager
-    Friend WithEvents clear As Button
+    Friend WithEvents print As Button
     Friend WithEvents MonthlyWageTax As TextBox
     Friend WithEvents Philhealth As TextBox
     Friend WithEvents SSS As TextBox
+    Friend WithEvents Tab As TabControl
+    Friend WithEvents Database As TabPage
+    Friend WithEvents TabPage2 As TabPage
+    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents IDDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents NameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents PayDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents HoursDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents DaysDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents Payslip As TextBox
+    Friend WithEvents Insert As Button
+    Friend WithEvents save As Button
+    Friend WithEvents Add As Button
+    Friend WithEvents PrintDocument1 As Printing.PrintDocument
+    Friend WithEvents PrintPreviewDialog1 As PrintPreviewDialog
+    Friend WithEvents AUlogo As PictureBox
+    Friend WithEvents TableAdapterManager1 As DatabaseDataSetTableAdapters.TableAdapterManager
 End Class

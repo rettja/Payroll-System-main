@@ -15,7 +15,7 @@
         tax = ans * 0.15
         MonthlyWageTax.Text = tax
         phil = ans * 0.05
-        PhilHealth.Text = phil
+        Philhealth.Text = phil
         s = ans * 0.02
         SSS.Text = s
         ot = RatePerHour.Text * 3 * 2.3 * Overtime.Text
@@ -27,6 +27,7 @@
 
         net = GrossSalary2.Text - Deduction.Text
         NetSalary.Text = net
+
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -35,19 +36,36 @@
 
     End Sub
 
-    Private Sub clear_Click(sender As Object, e As EventArgs) Handles clear.Click
+    Private Sub clear_Click(sender As Object, e As EventArgs) Handles print.Click
+        Payslip.Text = ""
+        Payslip.Text = "Ang tagal gumawa ng resibo hahahahahhahahahahhahahah -"
+
         HourPerDay.Clear()
         RatePerHour.Clear()
         NumberOfDaysWorked.Clear()
         MonthlyWageTax.Clear()
-        PhilHealth.Clear()
+        Philhealth.Clear()
         SSS.Clear()
-
-        EmployeesBindingSource.MoveNext()
     End Sub
 
-    Private Sub RatePerHour_TextChanged(sender As Object, e As EventArgs) Handles RatePerHour.TextChanged, Philhealth.TextChanged
+    Private Sub Add_Click(sender As Object, e As EventArgs) Handles Add.Click
+        EmployeesBindingSource.AddNew()
+    End Sub
 
+    Private Sub Insert_Click(sender As Object, e As EventArgs) Handles Insert.Click
+        EmployeesBindingSource.EndEdit()
+        EmployeesTableAdapter.Update(DatabaseDataSet.Employees)
+    End Sub
+
+    Private Sub save_Click(sender As Object, e As EventArgs) Handles save.Click
+        Me.Validate()
+        Me.EmployeesBindingSource.EndEdit()
+        Me.TableAdapterManager.UpdateAll(Me.DatabaseDataSet)
+    End Sub
+
+    Private Sub PrintDocument1_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles PrintDocument1.PrintPage
+        e.Graphics.DrawString(Payslip.Text, Font, Brushes.Black, 100, 100)
+        e.Graphics.DrawImage(AUlogo.Image, 100, 100)
     End Sub
 
 End Class
