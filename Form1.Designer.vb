@@ -22,10 +22,12 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.EmployeeName = New System.Windows.Forms.TextBox()
+        Me.EmployeesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DatabaseDataSet = New Payroll_System.DatabaseDataSet()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.HourPerDay = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -49,18 +51,34 @@ Partial Class Form1
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Overtime = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
-        Me.MonthlyWageTax = New System.Windows.Forms.Label()
-        Me.PhilHealth = New System.Windows.Forms.Label()
-        Me.SSS = New System.Windows.Forms.Label()
+        Me.EmployeesTableAdapter = New Payroll_System.DatabaseDataSetTableAdapters.EmployeesTableAdapter()
+        Me.TableAdapterManager = New Payroll_System.DatabaseDataSetTableAdapters.TableAdapterManager()
+        Me.clear = New System.Windows.Forms.Button()
+        Me.MonthlyWageTax = New System.Windows.Forms.TextBox()
+        Me.Philhealth = New System.Windows.Forms.TextBox()
+        Me.SSS = New System.Windows.Forms.TextBox()
+        CType(Me.EmployeesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DatabaseDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'EmployeeName
         '
+        Me.EmployeeName.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmployeesBindingSource, "Name", True))
         Me.EmployeeName.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.EmployeeName.Location = New System.Drawing.Point(74, 105)
         Me.EmployeeName.Name = "EmployeeName"
         Me.EmployeeName.Size = New System.Drawing.Size(204, 30)
         Me.EmployeeName.TabIndex = 1
+        '
+        'EmployeesBindingSource
+        '
+        Me.EmployeesBindingSource.DataMember = "Employees"
+        Me.EmployeesBindingSource.DataSource = Me.DatabaseDataSet
+        '
+        'DatabaseDataSet
+        '
+        Me.DatabaseDataSet.DataSetName = "DatabaseDataSet"
+        Me.DatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'Label2
         '
@@ -82,14 +100,6 @@ Partial Class Form1
         Me.Label4.TabIndex = 6
         Me.Label4.Text = "RATE PER HOUR"
         '
-        'TextBox3
-        '
-        Me.TextBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox3.Location = New System.Drawing.Point(74, 174)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(204, 30)
-        Me.TextBox3.TabIndex = 5
-        '
         'Label5
         '
         Me.Label5.AutoSize = True
@@ -102,6 +112,7 @@ Partial Class Form1
         '
         'HourPerDay
         '
+        Me.HourPerDay.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmployeesBindingSource, "Hours", True))
         Me.HourPerDay.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.HourPerDay.Location = New System.Drawing.Point(74, 245)
         Me.HourPerDay.Name = "HourPerDay"
@@ -120,6 +131,7 @@ Partial Class Form1
         '
         'NumberOfDaysWorked
         '
+        Me.NumberOfDaysWorked.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmployeesBindingSource, "Days", True))
         Me.NumberOfDaysWorked.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.NumberOfDaysWorked.Location = New System.Drawing.Point(74, 315)
         Me.NumberOfDaysWorked.Name = "NumberOfDaysWorked"
@@ -156,6 +168,7 @@ Partial Class Form1
         '
         'RatePerHour
         '
+        Me.RatePerHour.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmployeesBindingSource, "Pay", True))
         Me.RatePerHour.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RatePerHour.Location = New System.Drawing.Point(74, 174)
         Me.RatePerHour.Name = "RatePerHour"
@@ -307,38 +320,53 @@ Partial Class Form1
         Me.Label14.TabIndex = 48
         Me.Label14.Text = "GROSS SALARY"
         '
+        'EmployeesTableAdapter
+        '
+        Me.EmployeesTableAdapter.ClearBeforeFill = True
+        '
+        'TableAdapterManager
+        '
+        Me.TableAdapterManager.AdminsTableAdapter = Nothing
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.EmployeesTableAdapter = Me.EmployeesTableAdapter
+        Me.TableAdapterManager.UpdateOrder = Payroll_System.DatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        '
+        'clear
+        '
+        Me.clear.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
+        Me.clear.Location = New System.Drawing.Point(736, 566)
+        Me.clear.Name = "clear"
+        Me.clear.Size = New System.Drawing.Size(204, 53)
+        Me.clear.TabIndex = 45
+        Me.clear.Text = "Next"
+        Me.clear.UseVisualStyleBackColor = True
+        '
         'MonthlyWageTax
         '
-        Me.MonthlyWageTax.BackColor = System.Drawing.Color.White
-        Me.MonthlyWageTax.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.MonthlyWageTax.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.MonthlyWageTax.Location = New System.Drawing.Point(416, 105)
+        Me.MonthlyWageTax.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MonthlyWageTax.Location = New System.Drawing.Point(415, 105)
         Me.MonthlyWageTax.Name = "MonthlyWageTax"
+        Me.MonthlyWageTax.ReadOnly = True
         Me.MonthlyWageTax.Size = New System.Drawing.Size(204, 30)
-        Me.MonthlyWageTax.TabIndex = 49
-        Me.MonthlyWageTax.Text = "15%"
+        Me.MonthlyWageTax.TabIndex = 1
         '
-        'PhilHealth
+        'Philhealth
         '
-        Me.PhilHealth.BackColor = System.Drawing.Color.White
-        Me.PhilHealth.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.PhilHealth.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.PhilHealth.Location = New System.Drawing.Point(415, 174)
-        Me.PhilHealth.Name = "PhilHealth"
-        Me.PhilHealth.Size = New System.Drawing.Size(204, 30)
-        Me.PhilHealth.TabIndex = 49
-        Me.PhilHealth.Text = "5%"
+        Me.Philhealth.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Philhealth.Location = New System.Drawing.Point(415, 174)
+        Me.Philhealth.Name = "Philhealth"
+        Me.Philhealth.ReadOnly = True
+        Me.Philhealth.Size = New System.Drawing.Size(204, 30)
+        Me.Philhealth.TabIndex = 5
         '
         'SSS
         '
-        Me.SSS.BackColor = System.Drawing.Color.White
-        Me.SSS.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.SSS.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SSS.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SSS.Location = New System.Drawing.Point(415, 245)
         Me.SSS.Name = "SSS"
+        Me.SSS.ReadOnly = True
         Me.SSS.Size = New System.Drawing.Size(204, 30)
-        Me.SSS.TabIndex = 49
-        Me.SSS.Text = "2%"
+        Me.SSS.TabIndex = 7
         '
         'Form1
         '
@@ -346,12 +374,10 @@ Partial Class Form1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightGray
         Me.ClientSize = New System.Drawing.Size(1043, 664)
-        Me.Controls.Add(Me.SSS)
-        Me.Controls.Add(Me.PhilHealth)
-        Me.Controls.Add(Me.MonthlyWageTax)
         Me.Controls.Add(Me.Label14)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.Overtime)
+        Me.Controls.Add(Me.clear)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label13)
         Me.Controls.Add(Me.NetSalary)
@@ -369,15 +395,19 @@ Partial Class Form1
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.NumberOfDaysWorked)
         Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.SSS)
         Me.Controls.Add(Me.HourPerDay)
         Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.Philhealth)
         Me.Controls.Add(Me.RatePerHour)
-        Me.Controls.Add(Me.TextBox3)
         Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.MonthlyWageTax)
         Me.Controls.Add(Me.EmployeeName)
         Me.Controls.Add(Me.Label1)
         Me.Name = "Form1"
         Me.Text = "Main"
+        CType(Me.EmployeesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DatabaseDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -385,7 +415,6 @@ Partial Class Form1
     Friend WithEvents EmployeeName As TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents Label4 As Label
-    Friend WithEvents TextBox3 As TextBox
     Friend WithEvents Label5 As Label
     Friend WithEvents HourPerDay As TextBox
     Friend WithEvents Label6 As Label
@@ -409,7 +438,12 @@ Partial Class Form1
     Friend WithEvents Label10 As Label
     Friend WithEvents Overtime As TextBox
     Friend WithEvents Label14 As Label
-    Friend WithEvents MonthlyWageTax As Label
-    Friend WithEvents PhilHealth As Label
-    Friend WithEvents SSS As Label
+    Friend WithEvents DatabaseDataSet As DatabaseDataSet
+    Friend WithEvents EmployeesBindingSource As BindingSource
+    Friend WithEvents EmployeesTableAdapter As DatabaseDataSetTableAdapters.EmployeesTableAdapter
+    Friend WithEvents TableAdapterManager As DatabaseDataSetTableAdapters.TableAdapterManager
+    Friend WithEvents clear As Button
+    Friend WithEvents MonthlyWageTax As TextBox
+    Friend WithEvents Philhealth As TextBox
+    Friend WithEvents SSS As TextBox
 End Class

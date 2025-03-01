@@ -28,4 +28,26 @@
         net = GrossSalary2.Text - Deduction.Text
         NetSalary.Text = net
     End Sub
+
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'DatabaseDataSet.Employees' table. You can move, or remove it, as needed.
+        Me.EmployeesTableAdapter.Fill(Me.DatabaseDataSet.Employees)
+
+    End Sub
+
+    Private Sub clear_Click(sender As Object, e As EventArgs) Handles clear.Click
+        HourPerDay.Clear()
+        RatePerHour.Clear()
+        NumberOfDaysWorked.Clear()
+        MonthlyWageTax.Clear()
+        PhilHealth.Clear()
+        SSS.Clear()
+
+        EmployeesBindingSource.MoveNext()
+    End Sub
+
+    Private Sub RatePerHour_TextChanged(sender As Object, e As EventArgs) Handles RatePerHour.TextChanged, Philhealth.TextChanged
+
+    End Sub
+
 End Class
