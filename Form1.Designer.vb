@@ -25,8 +25,6 @@ Partial Class Form1
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.EmployeeName = New System.Windows.Forms.TextBox()
-        Me.EmployeesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DatabaseDataSet = New Payroll_System.DatabaseDataSet()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -67,12 +65,16 @@ Partial Class Form1
         Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
         Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog()
         Me.AUlogo = New System.Windows.Forms.PictureBox()
-        Me.EmployeesTableAdapter = New Payroll_System.DatabaseDataSetTableAdapters.EmployeesTableAdapter()
-        Me.TableAdapterManager = New Payroll_System.DatabaseDataSetTableAdapters.TableAdapterManager()
-        Me.TableAdapterManager1 = New Payroll_System.DatabaseDataSetTableAdapters.TableAdapterManager()
         Me.Taxpercent = New System.Windows.Forms.TextBox()
         Me.philhealthdeduc = New System.Windows.Forms.TextBox()
         Me.sssdeduc = New System.Windows.Forms.TextBox()
+        Me.FillByToolStrip = New System.Windows.Forms.ToolStrip()
+        Me.FillByToolStripButton = New System.Windows.Forms.ToolStripButton()
+        Me.EmployeesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DatabaseDataSet = New Payroll_System.DatabaseDataSet()
+        Me.EmployeesTableAdapter = New Payroll_System.DatabaseDataSetTableAdapters.EmployeesTableAdapter()
+        Me.TableAdapterManager = New Payroll_System.DatabaseDataSetTableAdapters.TableAdapterManager()
+        Me.TableAdapterManager1 = New Payroll_System.DatabaseDataSetTableAdapters.TableAdapterManager()
         Me.IDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PayDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -85,13 +87,14 @@ Partial Class Form1
         Me.SSSContributionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TotalDeductionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NetSalaryDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        CType(Me.EmployeesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DatabaseDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Tab.SuspendLayout()
         Me.Database.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage2.SuspendLayout()
         CType(Me.AUlogo, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.FillByToolStrip.SuspendLayout()
+        CType(Me.EmployeesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DatabaseDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'EmployeeName
@@ -102,16 +105,6 @@ Partial Class Form1
         Me.EmployeeName.Name = "EmployeeName"
         Me.EmployeeName.Size = New System.Drawing.Size(204, 30)
         Me.EmployeeName.TabIndex = 2
-        '
-        'EmployeesBindingSource
-        '
-        Me.EmployeesBindingSource.DataMember = "Employees"
-        Me.EmployeesBindingSource.DataSource = Me.DatabaseDataSet
-        '
-        'DatabaseDataSet
-        '
-        Me.DatabaseDataSet.DataSetName = "DatabaseDataSet"
-        Me.DatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'Label2
         '
@@ -406,6 +399,7 @@ Partial Class Form1
         '
         'Database
         '
+        Me.Database.AutoScroll = True
         Me.Database.Controls.Add(Me.DataGridView1)
         Me.Database.Location = New System.Drawing.Point(4, 22)
         Me.Database.Name = "Database"
@@ -422,7 +416,6 @@ Partial Class Form1
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IDDataGridViewTextBoxColumn, Me.NameDataGridViewTextBoxColumn, Me.PayDataGridViewTextBoxColumn, Me.HoursDataGridViewTextBoxColumn, Me.DaysDataGridViewTextBoxColumn, Me.OvertimeDataGridViewTextBoxColumn, Me.GrossSalaryDataGridViewTextBoxColumn, Me.TaxDeductionDataGridViewTextBoxColumn, Me.DataGridViewTextBoxColumn1, Me.SSSContributionDataGridViewTextBoxColumn, Me.TotalDeductionDataGridViewTextBoxColumn, Me.NetSalaryDataGridViewTextBoxColumn})
         Me.DataGridView1.DataSource = Me.EmployeesBindingSource
-        Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView1.Location = New System.Drawing.Point(3, 3)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.Size = New System.Drawing.Size(541, 386)
@@ -503,25 +496,6 @@ Partial Class Form1
         Me.AUlogo.TabIndex = 50
         Me.AUlogo.TabStop = False
         '
-        'EmployeesTableAdapter
-        '
-        Me.EmployeesTableAdapter.ClearBeforeFill = True
-        '
-        'TableAdapterManager
-        '
-        Me.TableAdapterManager.AdminsTableAdapter = Nothing
-        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager.EmployeesTableAdapter = Me.EmployeesTableAdapter
-        Me.TableAdapterManager.UpdateOrder = Payroll_System.DatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
-        '
-        'TableAdapterManager1
-        '
-        Me.TableAdapterManager1.AdminsTableAdapter = Nothing
-        Me.TableAdapterManager1.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager1.Connection = Nothing
-        Me.TableAdapterManager1.EmployeesTableAdapter = Nothing
-        Me.TableAdapterManager1.UpdateOrder = Payroll_System.DatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
-        '
         'Taxpercent
         '
         Me.Taxpercent.BackColor = System.Drawing.Color.LightGray
@@ -551,6 +525,51 @@ Partial Class Form1
         Me.sssdeduc.Name = "sssdeduc"
         Me.sssdeduc.Size = New System.Drawing.Size(24, 13)
         Me.sssdeduc.TabIndex = 51
+        '
+        'FillByToolStrip
+        '
+        Me.FillByToolStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FillByToolStripButton})
+        Me.FillByToolStrip.Location = New System.Drawing.Point(0, 69)
+        Me.FillByToolStrip.Name = "FillByToolStrip"
+        Me.FillByToolStrip.Size = New System.Drawing.Size(1370, 25)
+        Me.FillByToolStrip.TabIndex = 52
+        Me.FillByToolStrip.Text = "FillByToolStrip"
+        '
+        'FillByToolStripButton
+        '
+        Me.FillByToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.FillByToolStripButton.Name = "FillByToolStripButton"
+        Me.FillByToolStripButton.Size = New System.Drawing.Size(39, 22)
+        Me.FillByToolStripButton.Text = "FillBy"
+        '
+        'EmployeesBindingSource
+        '
+        Me.EmployeesBindingSource.DataMember = "Employees"
+        Me.EmployeesBindingSource.DataSource = Me.DatabaseDataSet
+        '
+        'DatabaseDataSet
+        '
+        Me.DatabaseDataSet.DataSetName = "DatabaseDataSet"
+        Me.DatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'EmployeesTableAdapter
+        '
+        Me.EmployeesTableAdapter.ClearBeforeFill = True
+        '
+        'TableAdapterManager
+        '
+        Me.TableAdapterManager.AdminsTableAdapter = Nothing
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.EmployeesTableAdapter = Me.EmployeesTableAdapter
+        Me.TableAdapterManager.UpdateOrder = Payroll_System.DatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        '
+        'TableAdapterManager1
+        '
+        Me.TableAdapterManager1.AdminsTableAdapter = Nothing
+        Me.TableAdapterManager1.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager1.Connection = Nothing
+        Me.TableAdapterManager1.EmployeesTableAdapter = Nothing
+        Me.TableAdapterManager1.UpdateOrder = Payroll_System.DatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
         'IDDataGridViewTextBoxColumn
         '
@@ -630,6 +649,7 @@ Partial Class Form1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightGray
         Me.ClientSize = New System.Drawing.Size(1370, 749)
+        Me.Controls.Add(Me.FillByToolStrip)
         Me.Controls.Add(Me.sssdeduc)
         Me.Controls.Add(Me.philhealthdeduc)
         Me.Controls.Add(Me.Taxpercent)
@@ -670,14 +690,16 @@ Partial Class Form1
         Me.Controls.Add(Me.Label1)
         Me.Name = "Form1"
         Me.Text = "Main"
-        CType(Me.EmployeesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DatabaseDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Tab.ResumeLayout(False)
         Me.Database.ResumeLayout(False)
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage2.PerformLayout()
         CType(Me.AUlogo, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.FillByToolStrip.ResumeLayout(False)
+        Me.FillByToolStrip.PerformLayout()
+        CType(Me.EmployeesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DatabaseDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -732,6 +754,8 @@ Partial Class Form1
     Friend WithEvents Taxpercent As TextBox
     Friend WithEvents philhealthdeduc As TextBox
     Friend WithEvents sssdeduc As TextBox
+    Friend WithEvents FillByToolStrip As ToolStrip
+    Friend WithEvents FillByToolStripButton As ToolStripButton
     Friend WithEvents IDDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents NameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents PayDataGridViewTextBoxColumn As DataGridViewTextBoxColumn

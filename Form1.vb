@@ -98,8 +98,21 @@
     End Sub
 
     Private Sub save_Click(sender As Object, e As EventArgs) Handles save.Click
-        Me.Validate()
-        Me.EmployeesBindingSource.EndEdit()
-        Me.TableAdapterManager.UpdateAll(DatabaseDataSet)
+        Try
+            EmployeesBindingSource.EndEdit()
+            EmployeesTableAdapter.Update(DatabaseDataSet.Employees)
+            MessageBox.Show("Saved successfully")
+        Catch ex As Exception
+            MessageBox.Show("Not Saved")
+        End Try
+    End Sub
+
+    Private Sub FillByToolStripButton_Click(sender As Object, e As EventArgs) Handles FillByToolStripButton.Click
+        Try
+            Me.EmployeesTableAdapter.FillBy(Me.DatabaseDataSet.Employees)
+        Catch ex As System.Exception
+            System.Windows.Forms.MessageBox.Show(ex.Message)
+        End Try
+
     End Sub
 End Class

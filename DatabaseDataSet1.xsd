@@ -174,28 +174,37 @@
               <Mapping SourceColumn="Total Deduction" DataSetColumn="Total Deduction" />
               <Mapping SourceColumn="Net Salary" DataSetColumn="Net Salary" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="DatabaseConnectionString (MySettings)" DbObjectName="Employees" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT ID, Name, Pay, Hours, Days, Overtime, [Gross salary], [Tax Deduction], [Philhealth Contribution], [SSS Contribution], [Total Deduction], [Net Salary] FROM Employees</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="DatabaseDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_UserDSName="DatabaseDataSet" msprop:Generator_DataSetName="DatabaseDataSet">
+  <xs:element name="DatabaseDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DatabaseDataSet" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DatabaseDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Admins" msprop:Generator_RowEvHandlerName="AdminsRowChangeEventHandler" msprop:Generator_RowDeletedName="AdminsRowDeleted" msprop:Generator_RowDeletingName="AdminsRowDeleting" msprop:Generator_RowEvArgName="AdminsRowChangeEvent" msprop:Generator_TablePropName="Admins" msprop:Generator_RowChangedName="AdminsRowChanged" msprop:Generator_RowChangingName="AdminsRowChanging" msprop:Generator_TableClassName="AdminsDataTable" msprop:Generator_RowClassName="AdminsRow" msprop:Generator_TableVarName="tableAdmins" msprop:Generator_UserTableName="Admins">
+        <xs:element name="Admins" msprop:Generator_RowClassName="AdminsRow" msprop:Generator_RowEvHandlerName="AdminsRowChangeEventHandler" msprop:Generator_RowDeletedName="AdminsRowDeleted" msprop:Generator_RowDeletingName="AdminsRowDeleting" msprop:Generator_RowEvArgName="AdminsRowChangeEvent" msprop:Generator_TablePropName="Admins" msprop:Generator_RowChangedName="AdminsRowChanged" msprop:Generator_UserTableName="Admins" msprop:Generator_RowChangingName="AdminsRowChanging" msprop:Generator_TableClassName="AdminsDataTable" msprop:Generator_TableVarName="tableAdmins">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_UserColumnName="ID" type="xs:int" />
-              <xs:element name="Username" msprop:Generator_ColumnPropNameInRow="Username" msprop:Generator_ColumnPropNameInTable="UsernameColumn" msprop:Generator_ColumnVarNameInTable="columnUsername" msprop:Generator_UserColumnName="Username" minOccurs="0">
+              <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnVarNameInTable="columnID" type="xs:int" />
+              <xs:element name="Username" msprop:Generator_UserColumnName="Username" msprop:Generator_ColumnPropNameInTable="UsernameColumn" msprop:Generator_ColumnPropNameInRow="Username" msprop:Generator_ColumnVarNameInTable="columnUsername" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Password" msprop:Generator_ColumnPropNameInRow="Password" msprop:Generator_ColumnPropNameInTable="PasswordColumn" msprop:Generator_ColumnVarNameInTable="columnPassword" msprop:Generator_UserColumnName="Password" minOccurs="0">
+              <xs:element name="Password" msprop:Generator_UserColumnName="Password" msprop:Generator_ColumnPropNameInTable="PasswordColumn" msprop:Generator_ColumnPropNameInRow="Password" msprop:Generator_ColumnVarNameInTable="columnPassword" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
@@ -205,45 +214,45 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Employees" msprop:Generator_RowEvHandlerName="EmployeesRowChangeEventHandler" msprop:Generator_RowDeletedName="EmployeesRowDeleted" msprop:Generator_RowDeletingName="EmployeesRowDeleting" msprop:Generator_RowEvArgName="EmployeesRowChangeEvent" msprop:Generator_TablePropName="Employees" msprop:Generator_RowChangedName="EmployeesRowChanged" msprop:Generator_RowChangingName="EmployeesRowChanging" msprop:Generator_TableClassName="EmployeesDataTable" msprop:Generator_RowClassName="EmployeesRow" msprop:Generator_TableVarName="tableEmployees" msprop:Generator_UserTableName="Employees">
+        <xs:element name="Employees" msprop:Generator_RowClassName="EmployeesRow" msprop:Generator_RowEvHandlerName="EmployeesRowChangeEventHandler" msprop:Generator_RowDeletedName="EmployeesRowDeleted" msprop:Generator_RowDeletingName="EmployeesRowDeleting" msprop:Generator_RowEvArgName="EmployeesRowChangeEvent" msprop:Generator_TablePropName="Employees" msprop:Generator_RowChangedName="EmployeesRowChanged" msprop:Generator_UserTableName="Employees" msprop:Generator_RowChangingName="EmployeesRowChanging" msprop:Generator_TableClassName="EmployeesDataTable" msprop:Generator_TableVarName="tableEmployees">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_UserColumnName="ID" type="xs:int" />
-              <xs:element name="Name" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_UserColumnName="Name" minOccurs="0">
+              <xs:element name="ID" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnVarNameInTable="columnID" type="xs:int" />
+              <xs:element name="Name" msprop:Generator_UserColumnName="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnVarNameInTable="columnName" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Pay" msprop:Generator_ColumnPropNameInRow="Pay" msprop:Generator_ColumnPropNameInTable="PayColumn" msprop:Generator_ColumnVarNameInTable="columnPay" msprop:Generator_UserColumnName="Pay" type="xs:int" minOccurs="0" />
-              <xs:element name="Hours" msprop:Generator_ColumnPropNameInRow="Hours" msprop:Generator_ColumnPropNameInTable="HoursColumn" msprop:Generator_ColumnVarNameInTable="columnHours" msprop:Generator_UserColumnName="Hours" type="xs:int" minOccurs="0" />
-              <xs:element name="Days" msprop:Generator_ColumnPropNameInRow="Days" msprop:Generator_ColumnPropNameInTable="DaysColumn" msprop:Generator_ColumnVarNameInTable="columnDays" msprop:Generator_UserColumnName="Days" type="xs:int" minOccurs="0" />
-              <xs:element name="Overtime" msprop:Generator_ColumnPropNameInRow="Overtime" msprop:Generator_ColumnPropNameInTable="OvertimeColumn" msprop:Generator_ColumnVarNameInTable="columnOvertime" msprop:Generator_UserColumnName="Overtime" type="xs:int" minOccurs="0" />
-              <xs:element name="Gross_x0020_salary" msprop:Generator_ColumnPropNameInRow="Gross_salary" msprop:Generator_ColumnPropNameInTable="Gross_salaryColumn" msprop:Generator_ColumnVarNameInTable="columnGross_salary" msprop:Generator_UserColumnName="Gross salary" type="xs:int" minOccurs="0" />
-              <xs:element name="Tax_x0020_Deduction" msprop:Generator_ColumnPropNameInRow="Tax_Deduction" msprop:Generator_ColumnPropNameInTable="Tax_DeductionColumn" msprop:Generator_ColumnVarNameInTable="columnTax_Deduction" msprop:Generator_UserColumnName="Tax Deduction" minOccurs="0">
+              <xs:element name="Pay" msprop:Generator_UserColumnName="Pay" msprop:Generator_ColumnPropNameInTable="PayColumn" msprop:Generator_ColumnPropNameInRow="Pay" msprop:Generator_ColumnVarNameInTable="columnPay" type="xs:int" minOccurs="0" />
+              <xs:element name="Hours" msprop:Generator_UserColumnName="Hours" msprop:Generator_ColumnPropNameInTable="HoursColumn" msprop:Generator_ColumnPropNameInRow="Hours" msprop:Generator_ColumnVarNameInTable="columnHours" type="xs:int" minOccurs="0" />
+              <xs:element name="Days" msprop:Generator_UserColumnName="Days" msprop:Generator_ColumnPropNameInTable="DaysColumn" msprop:Generator_ColumnPropNameInRow="Days" msprop:Generator_ColumnVarNameInTable="columnDays" type="xs:int" minOccurs="0" />
+              <xs:element name="Overtime" msprop:Generator_UserColumnName="Overtime" msprop:Generator_ColumnPropNameInTable="OvertimeColumn" msprop:Generator_ColumnPropNameInRow="Overtime" msprop:Generator_ColumnVarNameInTable="columnOvertime" type="xs:int" minOccurs="0" />
+              <xs:element name="Gross_x0020_salary" msprop:Generator_UserColumnName="Gross salary" msprop:Generator_ColumnPropNameInTable="Gross_salaryColumn" msprop:Generator_ColumnPropNameInRow="Gross_salary" msprop:Generator_ColumnVarNameInTable="columnGross_salary" type="xs:int" minOccurs="0" />
+              <xs:element name="Tax_x0020_Deduction" msprop:Generator_UserColumnName="Tax Deduction" msprop:Generator_ColumnPropNameInTable="Tax_DeductionColumn" msprop:Generator_ColumnPropNameInRow="Tax_Deduction" msprop:Generator_ColumnVarNameInTable="columnTax_Deduction" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Philhealth_x0020_Contribution" msprop:Generator_ColumnPropNameInRow="Philhealth_Contribution" msprop:Generator_ColumnPropNameInTable="Philhealth_ContributionColumn" msprop:Generator_ColumnVarNameInTable="columnPhilhealth_Contribution" msprop:Generator_UserColumnName="Philhealth Contribution" minOccurs="0">
+              <xs:element name="Philhealth_x0020_Contribution" msprop:Generator_UserColumnName="Philhealth Contribution" msprop:Generator_ColumnPropNameInTable="Philhealth_ContributionColumn" msprop:Generator_ColumnPropNameInRow="Philhealth_Contribution" msprop:Generator_ColumnVarNameInTable="columnPhilhealth_Contribution" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="SSS_x0020_Contribution" msprop:Generator_ColumnPropNameInRow="SSS_Contribution" msprop:Generator_ColumnPropNameInTable="SSS_ContributionColumn" msprop:Generator_ColumnVarNameInTable="columnSSS_Contribution" msprop:Generator_UserColumnName="SSS Contribution" minOccurs="0">
+              <xs:element name="SSS_x0020_Contribution" msprop:Generator_UserColumnName="SSS Contribution" msprop:Generator_ColumnPropNameInTable="SSS_ContributionColumn" msprop:Generator_ColumnPropNameInRow="SSS_Contribution" msprop:Generator_ColumnVarNameInTable="columnSSS_Contribution" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="255" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Total_x0020_Deduction" msprop:Generator_ColumnPropNameInRow="Total_Deduction" msprop:Generator_ColumnPropNameInTable="Total_DeductionColumn" msprop:Generator_ColumnVarNameInTable="columnTotal_Deduction" msprop:Generator_UserColumnName="Total Deduction" type="xs:int" minOccurs="0" />
-              <xs:element name="Net_x0020_Salary" msprop:Generator_ColumnPropNameInRow="Net_Salary" msprop:Generator_ColumnPropNameInTable="Net_SalaryColumn" msprop:Generator_ColumnVarNameInTable="columnNet_Salary" msprop:Generator_UserColumnName="Net Salary" type="xs:int" minOccurs="0" />
+              <xs:element name="Total_x0020_Deduction" msprop:Generator_UserColumnName="Total Deduction" msprop:Generator_ColumnPropNameInTable="Total_DeductionColumn" msprop:Generator_ColumnPropNameInRow="Total_Deduction" msprop:Generator_ColumnVarNameInTable="columnTotal_Deduction" type="xs:int" minOccurs="0" />
+              <xs:element name="Net_x0020_Salary" msprop:Generator_UserColumnName="Net Salary" msprop:Generator_ColumnPropNameInTable="Net_SalaryColumn" msprop:Generator_ColumnPropNameInRow="Net_Salary" msprop:Generator_ColumnVarNameInTable="columnNet_Salary" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
