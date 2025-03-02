@@ -153,15 +153,16 @@
     End Sub
 
     Private Sub Add_Click(sender As Object, e As EventArgs) Handles Add.Click
-        EmployeeName.Text = unpaidemployees.Text
         EmployeesBindingSource.AddNew()
         EmployeeName.Clear()
+        EmployeeName.Text = unpaidemployees.Text
     End Sub
 
     Private Sub Insert_Click(sender As Object, e As EventArgs) Handles Insert.Click
         EmployeesBindingSource.EndEdit()
         EmployeesTableAdapter.Update(DatabaseDataSet.Employees)
 
+        Employees_Unpaid_BindingSource.RemoveCurrent()
     End Sub
 
     Private Sub PrintDocument1_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles PrintDocument1.PrintPage
