@@ -108,7 +108,7 @@
         End Try
     End Sub
 
-    Private Sub FillByToolStripButton_Click(sender As Object, e As EventArgs) Handles FillByToolStripButton.Click
+    Private Sub FillByToolStripButton_Click(sender As Object, e As EventArgs)
         Try
             Me.EmployeesTableAdapter.FillBy(Me.DatabaseDataSet.Employees)
         Catch ex As System.Exception
