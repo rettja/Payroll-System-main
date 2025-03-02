@@ -59,18 +59,6 @@ Partial Class Form1
         Me.Tab = New System.Windows.Forms.TabControl()
         Me.Database = New System.Windows.Forms.TabPage()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.IDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PayDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.HoursDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DaysDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.OvertimeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.GrossSalaryDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TaxDeductionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PhilhealthContributionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.SSSContributionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TotalDeductionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NetSalaryDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.Payslip = New System.Windows.Forms.TextBox()
         Me.Insert = New System.Windows.Forms.Button()
@@ -85,6 +73,18 @@ Partial Class Form1
         Me.Taxpercent = New System.Windows.Forms.TextBox()
         Me.philhealthdeduc = New System.Windows.Forms.TextBox()
         Me.sssdeduc = New System.Windows.Forms.TextBox()
+        Me.IDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PayDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.HoursDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DaysDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.OvertimeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.GrossSalaryDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TaxDeductionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SSSContributionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TotalDeductionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.NetSalaryDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.EmployeesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DatabaseDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Tab.SuspendLayout()
@@ -420,85 +420,13 @@ Partial Class Form1
         Me.DataGridView1.AllowUserToOrderColumns = True
         Me.DataGridView1.AutoGenerateColumns = False
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IDDataGridViewTextBoxColumn, Me.NameDataGridViewTextBoxColumn, Me.PayDataGridViewTextBoxColumn, Me.HoursDataGridViewTextBoxColumn, Me.DaysDataGridViewTextBoxColumn, Me.OvertimeDataGridViewTextBoxColumn, Me.GrossSalaryDataGridViewTextBoxColumn, Me.TaxDeductionDataGridViewTextBoxColumn, Me.PhilhealthContributionDataGridViewTextBoxColumn, Me.SSSContributionDataGridViewTextBoxColumn, Me.TotalDeductionDataGridViewTextBoxColumn, Me.NetSalaryDataGridViewTextBoxColumn})
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IDDataGridViewTextBoxColumn, Me.NameDataGridViewTextBoxColumn, Me.PayDataGridViewTextBoxColumn, Me.HoursDataGridViewTextBoxColumn, Me.DaysDataGridViewTextBoxColumn, Me.OvertimeDataGridViewTextBoxColumn, Me.GrossSalaryDataGridViewTextBoxColumn, Me.TaxDeductionDataGridViewTextBoxColumn, Me.DataGridViewTextBoxColumn1, Me.SSSContributionDataGridViewTextBoxColumn, Me.TotalDeductionDataGridViewTextBoxColumn, Me.NetSalaryDataGridViewTextBoxColumn})
         Me.DataGridView1.DataSource = Me.EmployeesBindingSource
         Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView1.Location = New System.Drawing.Point(3, 3)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.Size = New System.Drawing.Size(541, 386)
         Me.DataGridView1.TabIndex = 0
-        '
-        'IDDataGridViewTextBoxColumn
-        '
-        Me.IDDataGridViewTextBoxColumn.DataPropertyName = "ID"
-        Me.IDDataGridViewTextBoxColumn.HeaderText = "ID"
-        Me.IDDataGridViewTextBoxColumn.Name = "IDDataGridViewTextBoxColumn"
-        '
-        'NameDataGridViewTextBoxColumn
-        '
-        Me.NameDataGridViewTextBoxColumn.DataPropertyName = "Name"
-        Me.NameDataGridViewTextBoxColumn.HeaderText = "Name"
-        Me.NameDataGridViewTextBoxColumn.Name = "NameDataGridViewTextBoxColumn"
-        '
-        'PayDataGridViewTextBoxColumn
-        '
-        Me.PayDataGridViewTextBoxColumn.DataPropertyName = "Pay"
-        Me.PayDataGridViewTextBoxColumn.HeaderText = "Pay"
-        Me.PayDataGridViewTextBoxColumn.Name = "PayDataGridViewTextBoxColumn"
-        '
-        'HoursDataGridViewTextBoxColumn
-        '
-        Me.HoursDataGridViewTextBoxColumn.DataPropertyName = "Hours"
-        Me.HoursDataGridViewTextBoxColumn.HeaderText = "Hours"
-        Me.HoursDataGridViewTextBoxColumn.Name = "HoursDataGridViewTextBoxColumn"
-        '
-        'DaysDataGridViewTextBoxColumn
-        '
-        Me.DaysDataGridViewTextBoxColumn.DataPropertyName = "Days"
-        Me.DaysDataGridViewTextBoxColumn.HeaderText = "Days"
-        Me.DaysDataGridViewTextBoxColumn.Name = "DaysDataGridViewTextBoxColumn"
-        '
-        'OvertimeDataGridViewTextBoxColumn
-        '
-        Me.OvertimeDataGridViewTextBoxColumn.DataPropertyName = "Overtime"
-        Me.OvertimeDataGridViewTextBoxColumn.HeaderText = "Overtime"
-        Me.OvertimeDataGridViewTextBoxColumn.Name = "OvertimeDataGridViewTextBoxColumn"
-        '
-        'GrossSalaryDataGridViewTextBoxColumn
-        '
-        Me.GrossSalaryDataGridViewTextBoxColumn.DataPropertyName = "Gross salary"
-        Me.GrossSalaryDataGridViewTextBoxColumn.HeaderText = "Gross salary"
-        Me.GrossSalaryDataGridViewTextBoxColumn.Name = "GrossSalaryDataGridViewTextBoxColumn"
-        '
-        'TaxDeductionDataGridViewTextBoxColumn
-        '
-        Me.TaxDeductionDataGridViewTextBoxColumn.DataPropertyName = "Tax Deduction"
-        Me.TaxDeductionDataGridViewTextBoxColumn.HeaderText = "Tax Deduction"
-        Me.TaxDeductionDataGridViewTextBoxColumn.Name = "TaxDeductionDataGridViewTextBoxColumn"
-        '
-        'PhilhealthContributionDataGridViewTextBoxColumn
-        '
-        Me.PhilhealthContributionDataGridViewTextBoxColumn.DataPropertyName = "Philhealth contribution\"
-        Me.PhilhealthContributionDataGridViewTextBoxColumn.HeaderText = "Philhealth contribution\"
-        Me.PhilhealthContributionDataGridViewTextBoxColumn.Name = "PhilhealthContributionDataGridViewTextBoxColumn"
-        '
-        'SSSContributionDataGridViewTextBoxColumn
-        '
-        Me.SSSContributionDataGridViewTextBoxColumn.DataPropertyName = "SSS Contribution"
-        Me.SSSContributionDataGridViewTextBoxColumn.HeaderText = "SSS Contribution"
-        Me.SSSContributionDataGridViewTextBoxColumn.Name = "SSSContributionDataGridViewTextBoxColumn"
-        '
-        'TotalDeductionDataGridViewTextBoxColumn
-        '
-        Me.TotalDeductionDataGridViewTextBoxColumn.DataPropertyName = "Total Deduction"
-        Me.TotalDeductionDataGridViewTextBoxColumn.HeaderText = "Total Deduction"
-        Me.TotalDeductionDataGridViewTextBoxColumn.Name = "TotalDeductionDataGridViewTextBoxColumn"
-        '
-        'NetSalaryDataGridViewTextBoxColumn
-        '
-        Me.NetSalaryDataGridViewTextBoxColumn.DataPropertyName = "Net Salary"
-        Me.NetSalaryDataGridViewTextBoxColumn.HeaderText = "Net Salary"
-        Me.NetSalaryDataGridViewTextBoxColumn.Name = "NetSalaryDataGridViewTextBoxColumn"
         '
         'TabPage2
         '
@@ -608,7 +536,7 @@ Partial Class Form1
         '
         Me.philhealthdeduc.BackColor = System.Drawing.Color.LightGray
         Me.philhealthdeduc.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.philhealthdeduc.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmployeesBindingSource, "Tax Deduction", True))
+        Me.philhealthdeduc.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmployeesBindingSource, "Philhealth Contribution", True))
         Me.philhealthdeduc.Location = New System.Drawing.Point(436, 153)
         Me.philhealthdeduc.Name = "philhealthdeduc"
         Me.philhealthdeduc.Size = New System.Drawing.Size(24, 13)
@@ -618,11 +546,83 @@ Partial Class Form1
         '
         Me.sssdeduc.BackColor = System.Drawing.Color.LightGray
         Me.sssdeduc.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.sssdeduc.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmployeesBindingSource, "Tax Deduction", True))
+        Me.sssdeduc.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmployeesBindingSource, "SSS Contribution", True))
         Me.sssdeduc.Location = New System.Drawing.Point(436, 224)
         Me.sssdeduc.Name = "sssdeduc"
         Me.sssdeduc.Size = New System.Drawing.Size(24, 13)
         Me.sssdeduc.TabIndex = 51
+        '
+        'IDDataGridViewTextBoxColumn
+        '
+        Me.IDDataGridViewTextBoxColumn.DataPropertyName = "ID"
+        Me.IDDataGridViewTextBoxColumn.HeaderText = "ID"
+        Me.IDDataGridViewTextBoxColumn.Name = "IDDataGridViewTextBoxColumn"
+        '
+        'NameDataGridViewTextBoxColumn
+        '
+        Me.NameDataGridViewTextBoxColumn.DataPropertyName = "Name"
+        Me.NameDataGridViewTextBoxColumn.HeaderText = "Name"
+        Me.NameDataGridViewTextBoxColumn.Name = "NameDataGridViewTextBoxColumn"
+        '
+        'PayDataGridViewTextBoxColumn
+        '
+        Me.PayDataGridViewTextBoxColumn.DataPropertyName = "Pay"
+        Me.PayDataGridViewTextBoxColumn.HeaderText = "Pay"
+        Me.PayDataGridViewTextBoxColumn.Name = "PayDataGridViewTextBoxColumn"
+        '
+        'HoursDataGridViewTextBoxColumn
+        '
+        Me.HoursDataGridViewTextBoxColumn.DataPropertyName = "Hours"
+        Me.HoursDataGridViewTextBoxColumn.HeaderText = "Hours"
+        Me.HoursDataGridViewTextBoxColumn.Name = "HoursDataGridViewTextBoxColumn"
+        '
+        'DaysDataGridViewTextBoxColumn
+        '
+        Me.DaysDataGridViewTextBoxColumn.DataPropertyName = "Days"
+        Me.DaysDataGridViewTextBoxColumn.HeaderText = "Days"
+        Me.DaysDataGridViewTextBoxColumn.Name = "DaysDataGridViewTextBoxColumn"
+        '
+        'OvertimeDataGridViewTextBoxColumn
+        '
+        Me.OvertimeDataGridViewTextBoxColumn.DataPropertyName = "Overtime"
+        Me.OvertimeDataGridViewTextBoxColumn.HeaderText = "Overtime"
+        Me.OvertimeDataGridViewTextBoxColumn.Name = "OvertimeDataGridViewTextBoxColumn"
+        '
+        'GrossSalaryDataGridViewTextBoxColumn
+        '
+        Me.GrossSalaryDataGridViewTextBoxColumn.DataPropertyName = "Gross salary"
+        Me.GrossSalaryDataGridViewTextBoxColumn.HeaderText = "Gross salary"
+        Me.GrossSalaryDataGridViewTextBoxColumn.Name = "GrossSalaryDataGridViewTextBoxColumn"
+        '
+        'TaxDeductionDataGridViewTextBoxColumn
+        '
+        Me.TaxDeductionDataGridViewTextBoxColumn.DataPropertyName = "Tax Deduction"
+        Me.TaxDeductionDataGridViewTextBoxColumn.HeaderText = "Tax Deduction"
+        Me.TaxDeductionDataGridViewTextBoxColumn.Name = "TaxDeductionDataGridViewTextBoxColumn"
+        '
+        'DataGridViewTextBoxColumn1
+        '
+        Me.DataGridViewTextBoxColumn1.DataPropertyName = "Philhealth Contribution"
+        Me.DataGridViewTextBoxColumn1.HeaderText = "Philhealth Contribution"
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        '
+        'SSSContributionDataGridViewTextBoxColumn
+        '
+        Me.SSSContributionDataGridViewTextBoxColumn.DataPropertyName = "SSS Contribution"
+        Me.SSSContributionDataGridViewTextBoxColumn.HeaderText = "SSS Contribution"
+        Me.SSSContributionDataGridViewTextBoxColumn.Name = "SSSContributionDataGridViewTextBoxColumn"
+        '
+        'TotalDeductionDataGridViewTextBoxColumn
+        '
+        Me.TotalDeductionDataGridViewTextBoxColumn.DataPropertyName = "Total Deduction"
+        Me.TotalDeductionDataGridViewTextBoxColumn.HeaderText = "Total Deduction"
+        Me.TotalDeductionDataGridViewTextBoxColumn.Name = "TotalDeductionDataGridViewTextBoxColumn"
+        '
+        'NetSalaryDataGridViewTextBoxColumn
+        '
+        Me.NetSalaryDataGridViewTextBoxColumn.DataPropertyName = "Net Salary"
+        Me.NetSalaryDataGridViewTextBoxColumn.HeaderText = "Net Salary"
+        Me.NetSalaryDataGridViewTextBoxColumn.Name = "NetSalaryDataGridViewTextBoxColumn"
         '
         'Form1
         '
@@ -727,6 +727,11 @@ Partial Class Form1
     Friend WithEvents PrintPreviewDialog1 As PrintPreviewDialog
     Friend WithEvents AUlogo As PictureBox
     Friend WithEvents TableAdapterManager1 As DatabaseDataSetTableAdapters.TableAdapterManager
+    Friend WithEvents PhilhealthContributionDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Public WithEvents SSS As TextBox
+    Friend WithEvents Taxpercent As TextBox
+    Friend WithEvents philhealthdeduc As TextBox
+    Friend WithEvents sssdeduc As TextBox
     Friend WithEvents IDDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents NameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents PayDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
@@ -735,12 +740,8 @@ Partial Class Form1
     Friend WithEvents OvertimeDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents GrossSalaryDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents TaxDeductionDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents PhilhealthContributionDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
     Friend WithEvents SSSContributionDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents TotalDeductionDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents NetSalaryDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Public WithEvents SSS As TextBox
-    Friend WithEvents Taxpercent As TextBox
-    Friend WithEvents philhealthdeduc As TextBox
-    Friend WithEvents sssdeduc As TextBox
 End Class
