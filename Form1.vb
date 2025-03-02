@@ -8,6 +8,9 @@
     Dim net As Integer
     Dim ot As Integer
 
+
+
+
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Try
             ans = (((HourPerDay.Text * NumberOfDaysWorked.Text) * RatePerHour.Text) + ot)
@@ -33,6 +36,7 @@
                 tax = ans * 0.35
                 Taxpercent.Text = "35%"
             End If
+
             MonthlyWageTax.Text = FormatCurrency(tax)
             phil = ans * 0.05
             Philhealth.Text = FormatCurrency(phil)
@@ -54,7 +58,13 @@
         End Try
     End Sub
 
+
+
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'DatabaseDataSet._Employees_Unpaid_' table. You can move, or remove it, as needed.
+        Me.Employees_Unpaid_TableAdapter.Fill(Me.DatabaseDataSet._Employees_Unpaid_)
+        'TODO: This line of code loads data into the 'DatabaseDataSet._Employees_Unpaid_' table. You can move, or remove it, as needed.
+        Me.Employees_Unpaid_TableAdapter.Fill(Me.DatabaseDataSet._Employees_Unpaid_)
         'TODO: This line of code loads data into the 'DatabaseDataSet.Employees' table. You can move, or remove it, as needed.
         Me.EmployeesTableAdapter.Fill(Me.DatabaseDataSet.Employees)
     End Sub
@@ -143,12 +153,14 @@
 
     Private Sub Add_Click(sender As Object, e As EventArgs) Handles Add.Click
         EmployeesBindingSource.AddNew()
+        EmployeeName.Text = unpaidemployees.Text
         EmployeeName.Clear()
     End Sub
 
     Private Sub Insert_Click(sender As Object, e As EventArgs) Handles Insert.Click
         EmployeesBindingSource.EndEdit()
         EmployeesTableAdapter.Update(DatabaseDataSet.Employees)
+
     End Sub
 
     Private Sub PrintDocument1_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles PrintDocument1.PrintPage
@@ -163,5 +175,19 @@
         Catch ex As Exception
             MessageBox.Show("Not Saved")
         End Try
+    End Sub
+
+    Private Sub GroupBox1_Enter(sender As Object, e As EventArgs) Handles GroupBox1.Enter
+
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Employees_Unpaid_BindingSource.MoveNext()
+        EmployeeName.Text = unpaidemployees.Text
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Employees_Unpaid_BindingSource.MovePrevious()
+        EmployeeName.Text = unpaidemployees.Text
     End Sub
 End Class
