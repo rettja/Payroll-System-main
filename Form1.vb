@@ -68,7 +68,7 @@
         Payslip.Text = "Ang tagal gumawa ng resibo hahahahahhahahahahhahahah -"
         PrintPreviewDialog1.ShowDialog()
 
-        EmployeeName.Clear()
+
         HourPerDay.Clear()
         RatePerHour.Clear()
         NumberOfDaysWorked.Clear()
@@ -85,6 +85,7 @@
 
     Private Sub Add_Click(sender As Object, e As EventArgs) Handles Add.Click
         EmployeesBindingSource.AddNew()
+        EmployeeName.Clear()
     End Sub
 
     Private Sub Insert_Click(sender As Object, e As EventArgs) Handles Insert.Click
