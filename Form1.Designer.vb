@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Form1
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Form1
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
@@ -79,12 +79,12 @@ Partial Class Form1
         Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
         Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog()
         Me.AUlogo = New System.Windows.Forms.PictureBox()
-        Me.Taxpercent = New System.Windows.Forms.Label()
-        Me.philhealthdeduc = New System.Windows.Forms.Label()
-        Me.sssdeduc = New System.Windows.Forms.Label()
         Me.EmployeesTableAdapter = New Payroll_System.DatabaseDataSetTableAdapters.EmployeesTableAdapter()
         Me.TableAdapterManager = New Payroll_System.DatabaseDataSetTableAdapters.TableAdapterManager()
         Me.TableAdapterManager1 = New Payroll_System.DatabaseDataSetTableAdapters.TableAdapterManager()
+        Me.Taxpercent = New System.Windows.Forms.TextBox()
+        Me.philhealthdeduc = New System.Windows.Forms.TextBox()
+        Me.sssdeduc = New System.Windows.Forms.TextBox()
         CType(Me.EmployeesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DatabaseDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Tab.SuspendLayout()
@@ -217,7 +217,7 @@ Partial Class Form1
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Bold)
         Me.Label1.Location = New System.Drawing.Point(0, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(1339, 69)
+        Me.Label1.Size = New System.Drawing.Size(1370, 69)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "PAYROLL SYSTEM"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -575,36 +575,6 @@ Partial Class Form1
         Me.AUlogo.TabIndex = 50
         Me.AUlogo.TabStop = False
         '
-        'Taxpercent
-        '
-        Me.Taxpercent.AutoSize = True
-        Me.Taxpercent.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmployeesBindingSource, "Tax Deduction", True))
-        Me.Taxpercent.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.Taxpercent.Location = New System.Drawing.Point(435, 84)
-        Me.Taxpercent.Name = "Taxpercent"
-        Me.Taxpercent.Size = New System.Drawing.Size(0, 17)
-        Me.Taxpercent.TabIndex = 30
-        '
-        'philhealthdeduc
-        '
-        Me.philhealthdeduc.AutoSize = True
-        Me.philhealthdeduc.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmployeesBindingSource, "Philhealth contribution\", True))
-        Me.philhealthdeduc.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.philhealthdeduc.Location = New System.Drawing.Point(435, 153)
-        Me.philhealthdeduc.Name = "philhealthdeduc"
-        Me.philhealthdeduc.Size = New System.Drawing.Size(0, 17)
-        Me.philhealthdeduc.TabIndex = 33
-        '
-        'sssdeduc
-        '
-        Me.sssdeduc.AutoSize = True
-        Me.sssdeduc.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmployeesBindingSource, "SSS Contribution", True))
-        Me.sssdeduc.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.sssdeduc.Location = New System.Drawing.Point(435, 224)
-        Me.sssdeduc.Name = "sssdeduc"
-        Me.sssdeduc.Size = New System.Drawing.Size(0, 17)
-        Me.sssdeduc.TabIndex = 35
-        '
         'EmployeesTableAdapter
         '
         Me.EmployeesTableAdapter.ClearBeforeFill = True
@@ -624,12 +594,45 @@ Partial Class Form1
         Me.TableAdapterManager1.EmployeesTableAdapter = Nothing
         Me.TableAdapterManager1.UpdateOrder = Payroll_System.DatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
+        'Taxpercent
+        '
+        Me.Taxpercent.BackColor = System.Drawing.Color.LightGray
+        Me.Taxpercent.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.Taxpercent.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmployeesBindingSource, "Tax Deduction", True))
+        Me.Taxpercent.Location = New System.Drawing.Point(436, 84)
+        Me.Taxpercent.Name = "Taxpercent"
+        Me.Taxpercent.Size = New System.Drawing.Size(24, 13)
+        Me.Taxpercent.TabIndex = 51
+        '
+        'philhealthdeduc
+        '
+        Me.philhealthdeduc.BackColor = System.Drawing.Color.LightGray
+        Me.philhealthdeduc.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.philhealthdeduc.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmployeesBindingSource, "Tax Deduction", True))
+        Me.philhealthdeduc.Location = New System.Drawing.Point(436, 153)
+        Me.philhealthdeduc.Name = "philhealthdeduc"
+        Me.philhealthdeduc.Size = New System.Drawing.Size(24, 13)
+        Me.philhealthdeduc.TabIndex = 51
+        '
+        'sssdeduc
+        '
+        Me.sssdeduc.BackColor = System.Drawing.Color.LightGray
+        Me.sssdeduc.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.sssdeduc.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmployeesBindingSource, "Tax Deduction", True))
+        Me.sssdeduc.Location = New System.Drawing.Point(436, 224)
+        Me.sssdeduc.Name = "sssdeduc"
+        Me.sssdeduc.Size = New System.Drawing.Size(24, 13)
+        Me.sssdeduc.TabIndex = 51
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightGray
-        Me.ClientSize = New System.Drawing.Size(1339, 645)
+        Me.ClientSize = New System.Drawing.Size(1370, 749)
+        Me.Controls.Add(Me.sssdeduc)
+        Me.Controls.Add(Me.philhealthdeduc)
+        Me.Controls.Add(Me.Taxpercent)
         Me.Controls.Add(Me.AUlogo)
         Me.Controls.Add(Me.Tab)
         Me.Controls.Add(Me.Label14)
@@ -647,11 +650,8 @@ Partial Class Form1
         Me.Controls.Add(Me.TextBox12)
         Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.GrossSalary2)
-        Me.Controls.Add(Me.sssdeduc)
         Me.Controls.Add(Me.Label7)
-        Me.Controls.Add(Me.philhealthdeduc)
         Me.Controls.Add(Me.Label8)
-        Me.Controls.Add(Me.Taxpercent)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.GrossSalary1)
         Me.Controls.Add(Me.Label3)
@@ -727,8 +727,6 @@ Partial Class Form1
     Friend WithEvents PrintPreviewDialog1 As PrintPreviewDialog
     Friend WithEvents AUlogo As PictureBox
     Friend WithEvents TableAdapterManager1 As DatabaseDataSetTableAdapters.TableAdapterManager
-    Friend WithEvents Taxpercent As Label
-    Friend WithEvents sssdeduc As Label
     Friend WithEvents IDDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents NameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents PayDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
@@ -741,6 +739,8 @@ Partial Class Form1
     Friend WithEvents SSSContributionDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents TotalDeductionDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents NetSalaryDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents philhealthdeduc As Label
     Public WithEvents SSS As TextBox
+    Friend WithEvents Taxpercent As TextBox
+    Friend WithEvents philhealthdeduc As TextBox
+    Friend WithEvents sssdeduc As TextBox
 End Class

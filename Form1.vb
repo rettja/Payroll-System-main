@@ -10,8 +10,8 @@
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         ans = (((HourPerDay.Text * NumberOfDaysWorked.Text) * RatePerHour.Text) + ot)
-        GrossSalary1.Text = ans
-        GrossSalary2.Text = ans
+        GrossSalary1.Text = FormatCurrency(ans)
+        GrossSalary2.Text = FormatCurrency(ans)
         If GrossSalary1.Text <= 250000 Then
             tax = ans * 0
             Taxpercent.Text = "0%"
@@ -39,11 +39,11 @@
         ot = RatePerHour.Text * 3 * 2.3 * Overtime.Text
 
         deduc = Val(tax) + Val(phil) + Val(s)
-        TotalDeduction.Text = deduc
-        Deduction.Text = deduc
+        TotalDeduction.Text = FormatCurrency(deduc)
+        Deduction.Text = FormatCurrency(deduc)
 
         net = GrossSalary2.Text - Deduction.Text
-        NetSalary.Text = net
+        NetSalary.Text = FormatCurrency(net)
 
         philhealthdeduc.Text = "5%"
         sssdeduc.Text = "14%"
@@ -92,15 +92,14 @@
         EmployeesTableAdapter.Update(DatabaseDataSet.Employees)
     End Sub
 
-    Private Sub save_Click(sender As Object, e As EventArgs) Handles save.Click
-        Me.Validate()
-        Me.EmployeesBindingSource.EndEdit()
-        Me.TableAdapterManager.UpdateAll(Me.DatabaseDataSet)
-    End Sub
-
     Private Sub PrintDocument1_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles PrintDocument1.PrintPage
         e.Graphics.DrawString(Payslip.Text, Font, Brushes.Black, 120, 120)
         e.Graphics.DrawImage(AUlogo.Image, 120, 130, AUlogo.Image.Width - 10, AUlogo.Image.Height - 15)
     End Sub
 
+    Private Sub save_Click(sender As Object, e As EventArgs) Handles save.Click
+        Me.Validate()
+        Me.EmployeesBindingSource.EndEdit()
+        Me.TableAdapterManager.UpdateAll(DatabaseDataSet)
+    End Sub
 End Class
