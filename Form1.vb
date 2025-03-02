@@ -8,8 +8,6 @@
     Dim net As Integer
     Dim ot As Integer
 
-
-
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         ans = (((HourPerDay.Text * NumberOfDaysWorked.Text) * RatePerHour.Text) + ot)
         GrossSalary1.Text = ans
@@ -33,11 +31,11 @@
             tax = ans * 0.35
             Taxpercent.Text = "35%"
         End If
-        MonthlyWageTax.Text = tax
+        MonthlyWageTax.Text = FormatCurrency(tax)
         phil = ans * 0.05
-        Philhealth.Text = phil
+        Philhealth.Text = FormatCurrency(phil)
         s = ans * 0.14
-        SSS.Text = s
+        SSS.Text = FormatCurrency(s)
         ot = RatePerHour.Text * 3 * 2.3 * Overtime.Text
 
         deduc = Val(tax) + Val(phil) + Val(s)
@@ -58,6 +56,15 @@
 
     Private Sub clear_Click(sender As Object, e As EventArgs) Handles print.Click
         Payslip.Text = ""
+        Payslip.Text = vbNewLine
+        Payslip.Text = vbNewLine
+        Payslip.Text = vbNewLine
+        Payslip.Text = vbNewLine
+        Payslip.Text = vbNewLine
+        Payslip.Text = vbNewLine
+        Payslip.Text = vbNewLine
+        Payslip.Text = vbNewLine
+        Payslip.Text = vbNewLine
         Payslip.Text = "Ang tagal gumawa ng resibo hahahahahhahahahahhahahah -"
         PrintPreviewDialog1.ShowDialog()
 
@@ -83,9 +90,6 @@
     Private Sub Insert_Click(sender As Object, e As EventArgs) Handles Insert.Click
         EmployeesBindingSource.EndEdit()
         EmployeesTableAdapter.Update(DatabaseDataSet.Employees)
-
-        Payslip.Text = ""
-        Payslip.Text = "Ang tagal gumawa ng resibo hahahahahhahahahahhahahah -ang pangit nung pagkaka sulat ko dito parang parinig wtf"
     End Sub
 
     Private Sub save_Click(sender As Object, e As EventArgs) Handles save.Click
@@ -98,4 +102,5 @@
         e.Graphics.DrawString(Payslip.Text, Font, Brushes.Black, 120, 120)
         e.Graphics.DrawImage(AUlogo.Image, 120, 130, AUlogo.Image.Width - 10, AUlogo.Image.Height - 15)
     End Sub
+
 End Class

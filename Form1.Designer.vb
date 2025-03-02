@@ -25,6 +25,8 @@ Partial Class Form1
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.EmployeeName = New System.Windows.Forms.TextBox()
+        Me.EmployeesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DatabaseDataSet = New Payroll_System.DatabaseDataSet()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -57,22 +59,6 @@ Partial Class Form1
         Me.Tab = New System.Windows.Forms.TabControl()
         Me.Database = New System.Windows.Forms.TabPage()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.TabPage2 = New System.Windows.Forms.TabPage()
-        Me.Payslip = New System.Windows.Forms.TextBox()
-        Me.Insert = New System.Windows.Forms.Button()
-        Me.save = New System.Windows.Forms.Button()
-        Me.Add = New System.Windows.Forms.Button()
-        Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
-        Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog()
-        Me.AUlogo = New System.Windows.Forms.PictureBox()
-        Me.Taxpercent = New System.Windows.Forms.Label()
-        Me.philhealthdeduc = New System.Windows.Forms.Label()
-        Me.sssdeduc = New System.Windows.Forms.Label()
-        Me.EmployeesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DatabaseDataSet = New Payroll_System.DatabaseDataSet()
-        Me.EmployeesTableAdapter = New Payroll_System.DatabaseDataSetTableAdapters.EmployeesTableAdapter()
-        Me.TableAdapterManager = New Payroll_System.DatabaseDataSetTableAdapters.TableAdapterManager()
-        Me.TableAdapterManager1 = New Payroll_System.DatabaseDataSetTableAdapters.TableAdapterManager()
         Me.IDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PayDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -85,13 +71,27 @@ Partial Class Form1
         Me.SSSContributionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TotalDeductionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NetSalaryDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.Payslip = New System.Windows.Forms.TextBox()
+        Me.Insert = New System.Windows.Forms.Button()
+        Me.save = New System.Windows.Forms.Button()
+        Me.Add = New System.Windows.Forms.Button()
+        Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
+        Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog()
+        Me.AUlogo = New System.Windows.Forms.PictureBox()
+        Me.Taxpercent = New System.Windows.Forms.Label()
+        Me.philhealthdeduc = New System.Windows.Forms.Label()
+        Me.sssdeduc = New System.Windows.Forms.Label()
+        Me.EmployeesTableAdapter = New Payroll_System.DatabaseDataSetTableAdapters.EmployeesTableAdapter()
+        Me.TableAdapterManager = New Payroll_System.DatabaseDataSetTableAdapters.TableAdapterManager()
+        Me.TableAdapterManager1 = New Payroll_System.DatabaseDataSetTableAdapters.TableAdapterManager()
+        CType(Me.EmployeesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DatabaseDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Tab.SuspendLayout()
         Me.Database.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage2.SuspendLayout()
         CType(Me.AUlogo, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.EmployeesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DatabaseDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'EmployeeName
@@ -102,6 +102,16 @@ Partial Class Form1
         Me.EmployeeName.Name = "EmployeeName"
         Me.EmployeeName.Size = New System.Drawing.Size(204, 30)
         Me.EmployeeName.TabIndex = 2
+        '
+        'EmployeesBindingSource
+        '
+        Me.EmployeesBindingSource.DataMember = "Employees"
+        Me.EmployeesBindingSource.DataSource = Me.DatabaseDataSet
+        '
+        'DatabaseDataSet
+        '
+        Me.DatabaseDataSet.DataSetName = "DatabaseDataSet"
+        Me.DatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'Label2
         '
@@ -173,6 +183,7 @@ Partial Class Form1
         '
         'TotalDeduction
         '
+        Me.TotalDeduction.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmployeesBindingSource, "Total Deduction", True, System.Windows.Forms.DataSourceUpdateMode.OnValidation, Nothing, "C2"))
         Me.TotalDeduction.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TotalDeduction.Location = New System.Drawing.Point(256, 492)
         Me.TotalDeduction.Name = "TotalDeduction"
@@ -182,6 +193,7 @@ Partial Class Form1
         '
         'GrossSalary1
         '
+        Me.GrossSalary1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmployeesBindingSource, "Gross salary", True, System.Windows.Forms.DataSourceUpdateMode.OnValidation, Nothing, "C2"))
         Me.GrossSalary1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GrossSalary1.Location = New System.Drawing.Point(24, 492)
         Me.GrossSalary1.Name = "GrossSalary1"
@@ -191,7 +203,7 @@ Partial Class Form1
         '
         'RatePerHour
         '
-        Me.RatePerHour.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmployeesBindingSource, "Pay", True))
+        Me.RatePerHour.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmployeesBindingSource, "Pay", True, System.Windows.Forms.DataSourceUpdateMode.OnValidation, Nothing, "C2"))
         Me.RatePerHour.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RatePerHour.Location = New System.Drawing.Point(24, 173)
         Me.RatePerHour.Name = "RatePerHour"
@@ -298,6 +310,7 @@ Partial Class Form1
         '
         'NetSalary
         '
+        Me.NetSalary.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmployeesBindingSource, "Net Salary", True, System.Windows.Forms.DataSourceUpdateMode.OnValidation, Nothing, "C2"))
         Me.NetSalary.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.NetSalary.Location = New System.Drawing.Point(490, 492)
         Me.NetSalary.Name = "NetSalary"
@@ -415,136 +428,6 @@ Partial Class Form1
         Me.DataGridView1.Size = New System.Drawing.Size(541, 386)
         Me.DataGridView1.TabIndex = 0
         '
-        'TabPage2
-        '
-        Me.TabPage2.Controls.Add(Me.Payslip)
-        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(547, 392)
-        Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "Payslip"
-        Me.TabPage2.UseVisualStyleBackColor = True
-        '
-        'Payslip
-        '
-        Me.Payslip.Location = New System.Drawing.Point(0, 0)
-        Me.Payslip.Multiline = True
-        Me.Payslip.Name = "Payslip"
-        Me.Payslip.Size = New System.Drawing.Size(547, 392)
-        Me.Payslip.TabIndex = 0
-        '
-        'Insert
-        '
-        Me.Insert.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
-        Me.Insert.Location = New System.Drawing.Point(490, 553)
-        Me.Insert.Name = "Insert"
-        Me.Insert.Size = New System.Drawing.Size(204, 53)
-        Me.Insert.TabIndex = 8
-        Me.Insert.Text = "INSERT"
-        Me.Insert.UseVisualStyleBackColor = True
-        '
-        'save
-        '
-        Me.save.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
-        Me.save.Location = New System.Drawing.Point(841, 553)
-        Me.save.Name = "save"
-        Me.save.Size = New System.Drawing.Size(204, 53)
-        Me.save.TabIndex = 9
-        Me.save.Text = "SAVE"
-        Me.save.UseVisualStyleBackColor = True
-        '
-        'Add
-        '
-        Me.Add.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
-        Me.Add.Location = New System.Drawing.Point(24, 553)
-        Me.Add.Name = "Add"
-        Me.Add.Size = New System.Drawing.Size(204, 53)
-        Me.Add.TabIndex = 1
-        Me.Add.Text = "NEW"
-        Me.Add.UseVisualStyleBackColor = True
-        '
-        'PrintDocument1
-        '
-        '
-        'PrintPreviewDialog1
-        '
-        Me.PrintPreviewDialog1.AutoScrollMargin = New System.Drawing.Size(0, 0)
-        Me.PrintPreviewDialog1.AutoScrollMinSize = New System.Drawing.Size(0, 0)
-        Me.PrintPreviewDialog1.ClientSize = New System.Drawing.Size(400, 300)
-        Me.PrintPreviewDialog1.Document = Me.PrintDocument1
-        Me.PrintPreviewDialog1.Enabled = True
-        Me.PrintPreviewDialog1.Icon = CType(resources.GetObject("PrintPreviewDialog1.Icon"), System.Drawing.Icon)
-        Me.PrintPreviewDialog1.Name = "PrintPreviewDialog1"
-        Me.PrintPreviewDialog1.Visible = False
-        '
-        'AUlogo
-        '
-        Me.AUlogo.BackColor = System.Drawing.Color.SteelBlue
-        Me.AUlogo.Image = Global.Payroll_System.My.Resources.Resources.download
-        Me.AUlogo.Location = New System.Drawing.Point(5, 0)
-        Me.AUlogo.Name = "AUlogo"
-        Me.AUlogo.Size = New System.Drawing.Size(68, 69)
-        Me.AUlogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.AUlogo.TabIndex = 50
-        Me.AUlogo.TabStop = False
-        '
-        'Taxpercent
-        '
-        Me.Taxpercent.AutoSize = True
-        Me.Taxpercent.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.Taxpercent.Location = New System.Drawing.Point(435, 84)
-        Me.Taxpercent.Name = "Taxpercent"
-        Me.Taxpercent.Size = New System.Drawing.Size(0, 17)
-        Me.Taxpercent.TabIndex = 30
-        '
-        'philhealthdeduc
-        '
-        Me.philhealthdeduc.AutoSize = True
-        Me.philhealthdeduc.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.philhealthdeduc.Location = New System.Drawing.Point(435, 153)
-        Me.philhealthdeduc.Name = "philhealthdeduc"
-        Me.philhealthdeduc.Size = New System.Drawing.Size(0, 17)
-        Me.philhealthdeduc.TabIndex = 33
-        '
-        'sssdeduc
-        '
-        Me.sssdeduc.AutoSize = True
-        Me.sssdeduc.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
-        Me.sssdeduc.Location = New System.Drawing.Point(435, 224)
-        Me.sssdeduc.Name = "sssdeduc"
-        Me.sssdeduc.Size = New System.Drawing.Size(0, 17)
-        Me.sssdeduc.TabIndex = 35
-        '
-        'EmployeesBindingSource
-        '
-        Me.EmployeesBindingSource.DataMember = "Employees"
-        Me.EmployeesBindingSource.DataSource = Me.DatabaseDataSet
-        '
-        'DatabaseDataSet
-        '
-        Me.DatabaseDataSet.DataSetName = "DatabaseDataSet"
-        Me.DatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'EmployeesTableAdapter
-        '
-        Me.EmployeesTableAdapter.ClearBeforeFill = True
-        '
-        'TableAdapterManager
-        '
-        Me.TableAdapterManager.AdminsTableAdapter = Nothing
-        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager.EmployeesTableAdapter = Me.EmployeesTableAdapter
-        Me.TableAdapterManager.UpdateOrder = Payroll_System.DatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
-        '
-        'TableAdapterManager1
-        '
-        Me.TableAdapterManager1.AdminsTableAdapter = Nothing
-        Me.TableAdapterManager1.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager1.Connection = Nothing
-        Me.TableAdapterManager1.EmployeesTableAdapter = Nothing
-        Me.TableAdapterManager1.UpdateOrder = Payroll_System.DatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
-        '
         'IDDataGridViewTextBoxColumn
         '
         Me.IDDataGridViewTextBoxColumn.DataPropertyName = "ID"
@@ -617,6 +500,130 @@ Partial Class Form1
         Me.NetSalaryDataGridViewTextBoxColumn.HeaderText = "Net Salary"
         Me.NetSalaryDataGridViewTextBoxColumn.Name = "NetSalaryDataGridViewTextBoxColumn"
         '
+        'TabPage2
+        '
+        Me.TabPage2.BackColor = System.Drawing.Color.DarkGray
+        Me.TabPage2.Controls.Add(Me.Payslip)
+        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage2.Name = "TabPage2"
+        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage2.Size = New System.Drawing.Size(547, 392)
+        Me.TabPage2.TabIndex = 1
+        Me.TabPage2.Text = "Payslip"
+        '
+        'Payslip
+        '
+        Me.Payslip.Location = New System.Drawing.Point(6, 0)
+        Me.Payslip.Multiline = True
+        Me.Payslip.Name = "Payslip"
+        Me.Payslip.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+        Me.Payslip.Size = New System.Drawing.Size(535, 392)
+        Me.Payslip.TabIndex = 0
+        '
+        'Insert
+        '
+        Me.Insert.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
+        Me.Insert.Location = New System.Drawing.Point(490, 553)
+        Me.Insert.Name = "Insert"
+        Me.Insert.Size = New System.Drawing.Size(204, 53)
+        Me.Insert.TabIndex = 8
+        Me.Insert.Text = "INSERT"
+        Me.Insert.UseVisualStyleBackColor = True
+        '
+        'save
+        '
+        Me.save.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
+        Me.save.Location = New System.Drawing.Point(841, 553)
+        Me.save.Name = "save"
+        Me.save.Size = New System.Drawing.Size(204, 53)
+        Me.save.TabIndex = 9
+        Me.save.Text = "SAVE"
+        Me.save.UseVisualStyleBackColor = True
+        '
+        'Add
+        '
+        Me.Add.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
+        Me.Add.Location = New System.Drawing.Point(24, 553)
+        Me.Add.Name = "Add"
+        Me.Add.Size = New System.Drawing.Size(204, 53)
+        Me.Add.TabIndex = 1
+        Me.Add.Text = "NEW"
+        Me.Add.UseVisualStyleBackColor = True
+        '
+        'PrintDocument1
+        '
+        '
+        'PrintPreviewDialog1
+        '
+        Me.PrintPreviewDialog1.AutoScrollMargin = New System.Drawing.Size(0, 0)
+        Me.PrintPreviewDialog1.AutoScrollMinSize = New System.Drawing.Size(0, 0)
+        Me.PrintPreviewDialog1.ClientSize = New System.Drawing.Size(400, 300)
+        Me.PrintPreviewDialog1.Document = Me.PrintDocument1
+        Me.PrintPreviewDialog1.Enabled = True
+        Me.PrintPreviewDialog1.Icon = CType(resources.GetObject("PrintPreviewDialog1.Icon"), System.Drawing.Icon)
+        Me.PrintPreviewDialog1.Name = "PrintPreviewDialog1"
+        Me.PrintPreviewDialog1.Visible = False
+        '
+        'AUlogo
+        '
+        Me.AUlogo.BackColor = System.Drawing.Color.SteelBlue
+        Me.AUlogo.Image = Global.Payroll_System.My.Resources.Resources.download
+        Me.AUlogo.Location = New System.Drawing.Point(5, 0)
+        Me.AUlogo.Name = "AUlogo"
+        Me.AUlogo.Size = New System.Drawing.Size(68, 69)
+        Me.AUlogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.AUlogo.TabIndex = 50
+        Me.AUlogo.TabStop = False
+        '
+        'Taxpercent
+        '
+        Me.Taxpercent.AutoSize = True
+        Me.Taxpercent.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmployeesBindingSource, "Tax Deduction", True))
+        Me.Taxpercent.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
+        Me.Taxpercent.Location = New System.Drawing.Point(435, 84)
+        Me.Taxpercent.Name = "Taxpercent"
+        Me.Taxpercent.Size = New System.Drawing.Size(0, 17)
+        Me.Taxpercent.TabIndex = 30
+        '
+        'philhealthdeduc
+        '
+        Me.philhealthdeduc.AutoSize = True
+        Me.philhealthdeduc.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmployeesBindingSource, "Philhealth contribution\", True))
+        Me.philhealthdeduc.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
+        Me.philhealthdeduc.Location = New System.Drawing.Point(435, 153)
+        Me.philhealthdeduc.Name = "philhealthdeduc"
+        Me.philhealthdeduc.Size = New System.Drawing.Size(0, 17)
+        Me.philhealthdeduc.TabIndex = 33
+        '
+        'sssdeduc
+        '
+        Me.sssdeduc.AutoSize = True
+        Me.sssdeduc.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmployeesBindingSource, "SSS Contribution", True))
+        Me.sssdeduc.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
+        Me.sssdeduc.Location = New System.Drawing.Point(435, 224)
+        Me.sssdeduc.Name = "sssdeduc"
+        Me.sssdeduc.Size = New System.Drawing.Size(0, 17)
+        Me.sssdeduc.TabIndex = 35
+        '
+        'EmployeesTableAdapter
+        '
+        Me.EmployeesTableAdapter.ClearBeforeFill = True
+        '
+        'TableAdapterManager
+        '
+        Me.TableAdapterManager.AdminsTableAdapter = Nothing
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.EmployeesTableAdapter = Me.EmployeesTableAdapter
+        Me.TableAdapterManager.UpdateOrder = Payroll_System.DatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        '
+        'TableAdapterManager1
+        '
+        Me.TableAdapterManager1.AdminsTableAdapter = Nothing
+        Me.TableAdapterManager1.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager1.Connection = Nothing
+        Me.TableAdapterManager1.EmployeesTableAdapter = Nothing
+        Me.TableAdapterManager1.UpdateOrder = Payroll_System.DatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -663,14 +670,14 @@ Partial Class Form1
         Me.Controls.Add(Me.Label1)
         Me.Name = "Form1"
         Me.Text = "Main"
+        CType(Me.EmployeesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DatabaseDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Tab.ResumeLayout(False)
         Me.Database.ResumeLayout(False)
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage2.PerformLayout()
         CType(Me.AUlogo, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.EmployeesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DatabaseDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -708,7 +715,6 @@ Partial Class Form1
     Friend WithEvents print As Button
     Friend WithEvents MonthlyWageTax As TextBox
     Friend WithEvents Philhealth As TextBox
-    Friend WithEvents SSS As TextBox
     Friend WithEvents Tab As TabControl
     Friend WithEvents Database As TabPage
     Friend WithEvents TabPage2 As TabPage
@@ -722,7 +728,6 @@ Partial Class Form1
     Friend WithEvents AUlogo As PictureBox
     Friend WithEvents TableAdapterManager1 As DatabaseDataSetTableAdapters.TableAdapterManager
     Friend WithEvents Taxpercent As Label
-    Friend WithEvents philhealthdeduc As Label
     Friend WithEvents sssdeduc As Label
     Friend WithEvents IDDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents NameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
@@ -736,4 +741,6 @@ Partial Class Form1
     Friend WithEvents SSSContributionDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents TotalDeductionDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents NetSalaryDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents philhealthdeduc As Label
+    Public WithEvents SSS As TextBox
 End Class
