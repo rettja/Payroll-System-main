@@ -94,7 +94,6 @@ Partial Class Form1
         Me.TableAdapterManager = New Payroll_System.DatabaseDataSetTableAdapters.TableAdapterManager()
         Me.TableAdapterManager1 = New Payroll_System.DatabaseDataSetTableAdapters.TableAdapterManager()
         Me.print = New System.Windows.Forms.Button()
-        Me.holidaypay = New System.Windows.Forms.ListBox()
         Me.EmployeesTableAdapter = New Payroll_System.DatabaseDataSetTableAdapters.EmployeesTableAdapter()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.WorkTextBox = New System.Windows.Forms.TextBox()
@@ -109,6 +108,7 @@ Partial Class Form1
         Me.Employees_Unpaid_TableAdapter = New Payroll_System.DatabaseDataSetTableAdapters.Employees_Unpaid_TableAdapter()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
+        Me.exit1 = New System.Windows.Forms.Button()
         IDLabel = New System.Windows.Forms.Label()
         EmployeesLabel = New System.Windows.Forms.Label()
         AgeLabel = New System.Windows.Forms.Label()
@@ -206,8 +206,9 @@ Partial Class Form1
         Me.EmployeeName.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.EmployeeName.Location = New System.Drawing.Point(27, 201)
         Me.EmployeeName.Name = "EmployeeName"
+        Me.EmployeeName.ReadOnly = True
         Me.EmployeeName.Size = New System.Drawing.Size(204, 30)
-        Me.EmployeeName.TabIndex = 2
+        Me.EmployeeName.TabIndex = 0
         '
         'EmployeesBindingSource
         '
@@ -256,7 +257,7 @@ Partial Class Form1
         Me.HourPerDay.Location = New System.Drawing.Point(27, 341)
         Me.HourPerDay.Name = "HourPerDay"
         Me.HourPerDay.Size = New System.Drawing.Size(204, 30)
-        Me.HourPerDay.TabIndex = 4
+        Me.HourPerDay.TabIndex = 3
         '
         'Label6
         '
@@ -275,7 +276,7 @@ Partial Class Form1
         Me.NumberOfDaysWorked.Location = New System.Drawing.Point(27, 411)
         Me.NumberOfDaysWorked.Name = "NumberOfDaysWorked"
         Me.NumberOfDaysWorked.Size = New System.Drawing.Size(204, 30)
-        Me.NumberOfDaysWorked.TabIndex = 5
+        Me.NumberOfDaysWorked.TabIndex = 4
         '
         'Label3
         '
@@ -314,7 +315,7 @@ Partial Class Form1
         Me.RatePerHour.Location = New System.Drawing.Point(27, 270)
         Me.RatePerHour.Name = "RatePerHour"
         Me.RatePerHour.Size = New System.Drawing.Size(204, 30)
-        Me.RatePerHour.TabIndex = 3
+        Me.RatePerHour.TabIndex = 2
         '
         'Label1
         '
@@ -451,7 +452,7 @@ Partial Class Form1
         Me.Overtime.Location = New System.Drawing.Point(27, 481)
         Me.Overtime.Name = "Overtime"
         Me.Overtime.Size = New System.Drawing.Size(204, 30)
-        Me.Overtime.TabIndex = 6
+        Me.Overtime.TabIndex = 5
         '
         'Label14
         '
@@ -504,10 +505,10 @@ Partial Class Form1
         '
         Me.Tab.Controls.Add(Me.Database)
         Me.Tab.Controls.Add(Me.TabPage2)
-        Me.Tab.Location = New System.Drawing.Point(770, 201)
+        Me.Tab.Location = New System.Drawing.Point(770, 75)
         Me.Tab.Name = "Tab"
         Me.Tab.SelectedIndex = 0
-        Me.Tab.Size = New System.Drawing.Size(555, 418)
+        Me.Tab.Size = New System.Drawing.Size(555, 544)
         Me.Tab.TabIndex = 49
         '
         'Database
@@ -517,7 +518,7 @@ Partial Class Form1
         Me.Database.Location = New System.Drawing.Point(4, 22)
         Me.Database.Name = "Database"
         Me.Database.Padding = New System.Windows.Forms.Padding(3)
-        Me.Database.Size = New System.Drawing.Size(547, 392)
+        Me.Database.Size = New System.Drawing.Size(547, 518)
         Me.Database.TabIndex = 0
         Me.Database.Text = "Database"
         Me.Database.UseVisualStyleBackColor = True
@@ -531,7 +532,7 @@ Partial Class Form1
         Me.DataGridView1.DataSource = Me.EmployeesBindingSource
         Me.DataGridView1.Location = New System.Drawing.Point(0, 0)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(541, 386)
+        Me.DataGridView1.Size = New System.Drawing.Size(547, 522)
         Me.DataGridView1.TabIndex = 0
         '
         'IDDataGridViewTextBoxColumn
@@ -619,17 +620,17 @@ Partial Class Form1
         Me.TabPage2.Location = New System.Drawing.Point(4, 22)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(547, 392)
+        Me.TabPage2.Size = New System.Drawing.Size(547, 518)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Payslip"
         '
         'Payslip
         '
-        Me.Payslip.Location = New System.Drawing.Point(54, 0)
+        Me.Payslip.Location = New System.Drawing.Point(0, 0)
         Me.Payslip.Multiline = True
         Me.Payslip.Name = "Payslip"
         Me.Payslip.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.Payslip.Size = New System.Drawing.Size(445, 392)
+        Me.Payslip.Size = New System.Drawing.Size(547, 518)
         Me.Payslip.TabIndex = 0
         '
         'Insert
@@ -745,18 +746,6 @@ Partial Class Form1
         Me.print.Text = "Print"
         Me.print.UseVisualStyleBackColor = True
         '
-        'holidaypay
-        '
-        Me.holidaypay.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.EmployeesBindingSource, "Holiday pay", True))
-        Me.holidaypay.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.holidaypay.FormattingEnabled = True
-        Me.holidaypay.ItemHeight = 25
-        Me.holidaypay.Items.AddRange(New Object() {"None", "Holiday", "Special Holiday"})
-        Me.holidaypay.Location = New System.Drawing.Point(259, 481)
-        Me.holidaypay.Name = "holidaypay"
-        Me.holidaypay.Size = New System.Drawing.Size(204, 29)
-        Me.holidaypay.TabIndex = 52
-        '
         'EmployeesTableAdapter
         '
         Me.EmployeesTableAdapter.ClearBeforeFill = True
@@ -785,7 +774,7 @@ Partial Class Form1
         Me.GroupBox1.Size = New System.Drawing.Size(670, 103)
         Me.GroupBox1.TabIndex = 53
         Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Info"
+        Me.GroupBox1.Text = "Information"
         '
         'WorkTextBox
         '
@@ -880,14 +869,29 @@ Partial Class Form1
         Me.Button3.Text = "NEW"
         Me.Button3.UseVisualStyleBackColor = True
         '
+        'exit1
+        '
+        Me.exit1.BackColor = System.Drawing.Color.SteelBlue
+        Me.exit1.BackgroundImage = Global.Payroll_System.My.Resources.Resources._5244832
+        Me.exit1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.exit1.FlatAppearance.BorderSize = 0
+        Me.exit1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.exit1.Location = New System.Drawing.Point(1323, 0)
+        Me.exit1.Name = "exit1"
+        Me.exit1.Size = New System.Drawing.Size(47, 50)
+        Me.exit1.TabIndex = 54
+        Me.exit1.UseVisualStyleBackColor = False
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackColor = System.Drawing.Color.LightGray
         Me.ClientSize = New System.Drawing.Size(1370, 749)
+        Me.ControlBox = False
+        Me.Controls.Add(Me.exit1)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.holidaypay)
         Me.Controls.Add(Me.sssdeduc)
         Me.Controls.Add(Me.philhealthdeduc)
         Me.Controls.Add(Me.Taxpercent)
@@ -929,8 +933,12 @@ Partial Class Form1
         Me.Controls.Add(Me.MonthlyWageTax)
         Me.Controls.Add(Me.EmployeeName)
         Me.Controls.Add(Me.Label1)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "Form1"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Main"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.EmployeesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DatabaseDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Tab.ResumeLayout(False)
@@ -996,7 +1004,6 @@ Partial Class Form1
     Friend WithEvents philhealthdeduc As TextBox
     Friend WithEvents sssdeduc As TextBox
     Friend WithEvents print As Button
-    Friend WithEvents holidaypay As ListBox
     Friend WithEvents EmployeesTableAdapter As DatabaseDataSetTableAdapters.EmployeesTableAdapter
     Friend WithEvents IDDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents NameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
@@ -1024,4 +1031,5 @@ Partial Class Form1
     Friend WithEvents WorkTextBox As TextBox
     Friend WithEvents Button2 As Button
     Friend WithEvents Button3 As Button
+    Friend WithEvents exit1 As Button
 End Class

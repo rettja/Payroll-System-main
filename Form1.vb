@@ -37,6 +37,7 @@
                 Taxpercent.Text = "35%"
             End If
 
+
             MonthlyWageTax.Text = FormatCurrency(tax)
             phil = ans * 0.05
             Philhealth.Text = FormatCurrency(phil)
@@ -148,12 +149,12 @@
 
     Private Sub print_Click(sender As Object, e As EventArgs) Handles print.Click
         Me.TopMost() = True
-        PrintPreviewDialog1.Show(Payslip)
+        PrintPreviewDialog1.ShowDialog(Payslip)
     End Sub
 
     Private Sub Add_Click(sender As Object, e As EventArgs) Handles Add.Click
-        EmployeesBindingSource.AddNew()
         EmployeeName.Text = unpaidemployees.Text
+        EmployeesBindingSource.AddNew()
         EmployeeName.Clear()
     End Sub
 
@@ -189,5 +190,9 @@
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Employees_Unpaid_BindingSource.MovePrevious()
         EmployeeName.Text = unpaidemployees.Text
+    End Sub
+
+    Private Sub exit1_Click(sender As Object, e As EventArgs) Handles exit1.Click
+        Application.Exit()
     End Sub
 End Class
