@@ -212,6 +212,10 @@
     <Content Include="Database.accdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\arrow-back-3783 %282%29.png" />
+    <None Include="Resources\arrow-back-3783.png" />
+    <None Include="Resources\red-arrow-left-11343 %281%29.png" />
+    <None Include="Resources\red-arrow-left-11343.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">

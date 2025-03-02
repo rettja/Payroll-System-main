@@ -1033,8 +1033,6 @@ Partial Public Class DatabaseDataSet
         
         Private columnNet_Salary As Global.System.Data.DataColumn
         
-        Private columnHoliday_pay As Global.System.Data.DataColumn
-        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub New()
@@ -1167,14 +1165,6 @@ Partial Public Class DatabaseDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property Holiday_payColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnHoliday_pay
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -1211,9 +1201,9 @@ Partial Public Class DatabaseDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Overloads Function AddEmployeesRow(ByVal Name As String, ByVal Pay As Integer, ByVal Hours As Integer, ByVal Days As Integer, ByVal Overtime As Integer, ByVal Gross_salary As Integer, ByVal Tax_Deduction As String, ByVal Philhealth_Contribution As String, ByVal SSS_Contribution As String, ByVal Total_Deduction As Integer, ByVal Net_Salary As Integer, ByVal Holiday_pay As Boolean) As EmployeesRow
+        Public Overloads Function AddEmployeesRow(ByVal Name As String, ByVal Pay As Integer, ByVal Hours As Integer, ByVal Days As Integer, ByVal Overtime As Integer, ByVal Gross_salary As Integer, ByVal Tax_Deduction As String, ByVal Philhealth_Contribution As String, ByVal SSS_Contribution As String, ByVal Total_Deduction As Integer, ByVal Net_Salary As Integer) As EmployeesRow
             Dim rowEmployeesRow As EmployeesRow = CType(Me.NewRow,EmployeesRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, Name, Pay, Hours, Days, Overtime, Gross_salary, Tax_Deduction, Philhealth_Contribution, SSS_Contribution, Total_Deduction, Net_Salary, Holiday_pay}
+            Dim columnValuesArray() As Object = New Object() {Nothing, Name, Pay, Hours, Days, Overtime, Gross_salary, Tax_Deduction, Philhealth_Contribution, SSS_Contribution, Total_Deduction, Net_Salary}
             rowEmployeesRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowEmployeesRow)
             Return rowEmployeesRow
@@ -1254,7 +1244,6 @@ Partial Public Class DatabaseDataSet
             Me.columnSSS_Contribution = MyBase.Columns("SSS Contribution")
             Me.columnTotal_Deduction = MyBase.Columns("Total Deduction")
             Me.columnNet_Salary = MyBase.Columns("Net Salary")
-            Me.columnHoliday_pay = MyBase.Columns("Holiday pay")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1284,8 +1273,6 @@ Partial Public Class DatabaseDataSet
             MyBase.Columns.Add(Me.columnTotal_Deduction)
             Me.columnNet_Salary = New Global.System.Data.DataColumn("Net Salary", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnNet_Salary)
-            Me.columnHoliday_pay = New Global.System.Data.DataColumn("Holiday pay", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnHoliday_pay)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnID}, true))
             Me.columnID.AutoIncrement = true
             Me.columnID.AutoIncrementSeed = -1
@@ -1915,21 +1902,6 @@ Partial Public Class DatabaseDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property Holiday_pay() As Boolean
-            Get
-                Try 
-                    Return CType(Me(Me.tableEmployees.Holiday_payColumn),Boolean)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Holiday pay' in table 'Employees' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableEmployees.Holiday_payColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Function IsNameNull() As Boolean
             Return Me.IsNull(Me.tableEmployees.NameColumn)
         End Function
@@ -2058,18 +2030,6 @@ Partial Public Class DatabaseDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub SetNet_SalaryNull()
             Me(Me.tableEmployees.Net_SalaryColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsHoliday_payNull() As Boolean
-            Return Me.IsNull(Me.tableEmployees.Holiday_payColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetHoliday_payNull()
-            Me(Me.tableEmployees.Holiday_payColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -3172,7 +3132,6 @@ Namespace DatabaseDataSetTableAdapters
             tableMapping.ColumnMappings.Add("SSS Contribution", "SSS Contribution")
             tableMapping.ColumnMappings.Add("Total Deduction", "Total Deduction")
             tableMapping.ColumnMappings.Add("Net Salary", "Net Salary")
-            tableMapping.ColumnMappings.Add("Holiday pay", "Holiday pay")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
@@ -3184,8 +3143,7 @@ Namespace DatabaseDataSetTableAdapters
                 "OR (`Tax Deduction` = ?)) AND ((? = 1 AND `Philhealth Contribution` IS NULL) OR "& _ 
                 "(`Philhealth Contribution` = ?)) AND ((? = 1 AND `SSS Contribution` IS NULL) OR "& _ 
                 "(`SSS Contribution` = ?)) AND ((? = 1 AND `Total Deduction` IS NULL) OR (`Total "& _ 
-                "Deduction` = ?)) AND ((? = 1 AND `Net Salary` IS NULL) OR (`Net Salary` = ?)) AN"& _ 
-                "D ((? = 1 AND `Holiday pay` IS NULL) OR (`Holiday pay` = ?)))"
+                "Deduction` = ?)) AND ((? = 1 AND `Net Salary` IS NULL) OR (`Net Salary` = ?)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Name", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Name", Global.System.Data.DataRowVersion.Original, true, Nothing))
@@ -3210,13 +3168,11 @@ Namespace DatabaseDataSetTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Total_Deduction", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Total Deduction", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Net_Salary", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Net Salary", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Net_Salary", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Net Salary", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Holiday_pay", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Holiday pay", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Holiday_pay", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Holiday pay", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.InsertCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO `Employees` (`Name`, `Pay`, `Hours`, `Days`, `Overtime`, `Gross salar"& _ 
                 "y`, `Tax Deduction`, `Philhealth Contribution`, `SSS Contribution`, `Total Deduc"& _ 
-                "tion`, `Net Salary`, `Holiday pay`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+                "tion`, `Net Salary`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Name", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Name", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Pay", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Pay", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -3229,22 +3185,20 @@ Namespace DatabaseDataSetTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("SSS_Contribution", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "SSS Contribution", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Total_Deduction", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Total Deduction", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Net_Salary", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Net Salary", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Holiday_pay", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Holiday pay", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE `Employees` SET `Name` = ?, `Pay` = ?, `Hours` = ?, `Days` = ?, `Overtime`"& _ 
                 " = ?, `Gross salary` = ?, `Tax Deduction` = ?, `Philhealth Contribution` = ?, `S"& _ 
-                "SS Contribution` = ?, `Total Deduction` = ?, `Net Salary` = ?, `Holiday pay` = ?"& _ 
-                " WHERE ((`ID` = ?) AND ((? = 1 AND `Name` IS NULL) OR (`Name` = ?)) AND ((? = 1 "& _ 
-                "AND `Pay` IS NULL) OR (`Pay` = ?)) AND ((? = 1 AND `Hours` IS NULL) OR (`Hours` "& _ 
-                "= ?)) AND ((? = 1 AND `Days` IS NULL) OR (`Days` = ?)) AND ((? = 1 AND `Overtime"& _ 
-                "` IS NULL) OR (`Overtime` = ?)) AND ((? = 1 AND `Gross salary` IS NULL) OR (`Gro"& _ 
-                "ss salary` = ?)) AND ((? = 1 AND `Tax Deduction` IS NULL) OR (`Tax Deduction` = "& _ 
-                "?)) AND ((? = 1 AND `Philhealth Contribution` IS NULL) OR (`Philhealth Contribut"& _ 
-                "ion` = ?)) AND ((? = 1 AND `SSS Contribution` IS NULL) OR (`SSS Contribution` = "& _ 
-                "?)) AND ((? = 1 AND `Total Deduction` IS NULL) OR (`Total Deduction` = ?)) AND ("& _ 
-                "(? = 1 AND `Net Salary` IS NULL) OR (`Net Salary` = ?)) AND ((? = 1 AND `Holiday"& _ 
-                " pay` IS NULL) OR (`Holiday pay` = ?)))"
+                "SS Contribution` = ?, `Total Deduction` = ?, `Net Salary` = ? WHERE ((`ID` = ?) "& _ 
+                "AND ((? = 1 AND `Name` IS NULL) OR (`Name` = ?)) AND ((? = 1 AND `Pay` IS NULL) "& _ 
+                "OR (`Pay` = ?)) AND ((? = 1 AND `Hours` IS NULL) OR (`Hours` = ?)) AND ((? = 1 A"& _ 
+                "ND `Days` IS NULL) OR (`Days` = ?)) AND ((? = 1 AND `Overtime` IS NULL) OR (`Ove"& _ 
+                "rtime` = ?)) AND ((? = 1 AND `Gross salary` IS NULL) OR (`Gross salary` = ?)) AN"& _ 
+                "D ((? = 1 AND `Tax Deduction` IS NULL) OR (`Tax Deduction` = ?)) AND ((? = 1 AND"& _ 
+                " `Philhealth Contribution` IS NULL) OR (`Philhealth Contribution` = ?)) AND ((? "& _ 
+                "= 1 AND `SSS Contribution` IS NULL) OR (`SSS Contribution` = ?)) AND ((? = 1 AND"& _ 
+                " `Total Deduction` IS NULL) OR (`Total Deduction` = ?)) AND ((? = 1 AND `Net Sal"& _ 
+                "ary` IS NULL) OR (`Net Salary` = ?)))"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Name", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Name", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Pay", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Pay", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -3257,7 +3211,6 @@ Namespace DatabaseDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("SSS_Contribution", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "SSS Contribution", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Total_Deduction", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Total Deduction", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Net_Salary", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Net Salary", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Holiday_pay", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Holiday pay", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Name", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Name", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Name", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Name", Global.System.Data.DataRowVersion.Original, false, Nothing))
@@ -3281,8 +3234,6 @@ Namespace DatabaseDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Total_Deduction", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Total Deduction", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Net_Salary", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Net Salary", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Net_Salary", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Net Salary", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Holiday_pay", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Holiday pay", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Holiday_pay", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Holiday pay", Global.System.Data.DataRowVersion.Original, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3299,8 +3250,8 @@ Namespace DatabaseDataSetTableAdapters
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT ID, Name, Pay, Hours, Days, Overtime, [Gross salary], [Tax Deduction], [Ph"& _ 
-                "ilhealth Contribution], [SSS Contribution], [Total Deduction], [Net Salary], [Ho"& _ 
-                "liday pay] FROM Employees"
+                "ilhealth Contribution], [SSS Contribution], [Total Deduction], [Net Salary] FROM"& _ 
+                " Employees"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -3360,7 +3311,7 @@ Namespace DatabaseDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_ID As Integer, ByVal Original_Name As String, ByVal Original_Pay As Global.System.Nullable(Of Integer), ByVal Original_Hours As Global.System.Nullable(Of Integer), ByVal Original_Days As Global.System.Nullable(Of Integer), ByVal Original_Overtime As Global.System.Nullable(Of Integer), ByVal Original_Gross_salary As Global.System.Nullable(Of Integer), ByVal Original_Tax_Deduction As String, ByVal Original_Philhealth_Contribution As String, ByVal Original_SSS_Contribution As String, ByVal Original_Total_Deduction As Global.System.Nullable(Of Integer), ByVal Original_Net_Salary As Global.System.Nullable(Of Integer), ByVal Original_Holiday_pay As Boolean) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_ID As Integer, ByVal Original_Name As String, ByVal Original_Pay As Global.System.Nullable(Of Integer), ByVal Original_Hours As Global.System.Nullable(Of Integer), ByVal Original_Days As Global.System.Nullable(Of Integer), ByVal Original_Overtime As Global.System.Nullable(Of Integer), ByVal Original_Gross_salary As Global.System.Nullable(Of Integer), ByVal Original_Tax_Deduction As String, ByVal Original_Philhealth_Contribution As String, ByVal Original_SSS_Contribution As String, ByVal Original_Total_Deduction As Global.System.Nullable(Of Integer), ByVal Original_Net_Salary As Global.System.Nullable(Of Integer)) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_ID,Integer)
             If (Original_Name Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
@@ -3439,8 +3390,6 @@ Namespace DatabaseDataSetTableAdapters
                 Me.Adapter.DeleteCommand.Parameters(21).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(22).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.DeleteCommand.Parameters(23).Value = CType(0,Object)
-            Me.Adapter.DeleteCommand.Parameters(24).Value = CType(Original_Holiday_pay,Boolean)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -3460,7 +3409,7 @@ Namespace DatabaseDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal Name As String, ByVal Pay As Global.System.Nullable(Of Integer), ByVal Hours As Global.System.Nullable(Of Integer), ByVal Days As Global.System.Nullable(Of Integer), ByVal Overtime As Global.System.Nullable(Of Integer), ByVal Gross_salary As Global.System.Nullable(Of Integer), ByVal Tax_Deduction As String, ByVal Philhealth_Contribution As String, ByVal SSS_Contribution As String, ByVal Total_Deduction As Global.System.Nullable(Of Integer), ByVal Net_Salary As Global.System.Nullable(Of Integer), ByVal Holiday_pay As Boolean) As Integer
+        Public Overloads Overridable Function Insert(ByVal Name As String, ByVal Pay As Global.System.Nullable(Of Integer), ByVal Hours As Global.System.Nullable(Of Integer), ByVal Days As Global.System.Nullable(Of Integer), ByVal Overtime As Global.System.Nullable(Of Integer), ByVal Gross_salary As Global.System.Nullable(Of Integer), ByVal Tax_Deduction As String, ByVal Philhealth_Contribution As String, ByVal SSS_Contribution As String, ByVal Total_Deduction As Global.System.Nullable(Of Integer), ByVal Net_Salary As Global.System.Nullable(Of Integer)) As Integer
             If (Name Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
@@ -3516,7 +3465,6 @@ Namespace DatabaseDataSetTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(10).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.InsertCommand.Parameters(11).Value = CType(Holiday_pay,Boolean)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -3548,7 +3496,6 @@ Namespace DatabaseDataSetTableAdapters
                     ByVal SSS_Contribution As String,  _
                     ByVal Total_Deduction As Global.System.Nullable(Of Integer),  _
                     ByVal Net_Salary As Global.System.Nullable(Of Integer),  _
-                    ByVal Holiday_pay As Boolean,  _
                     ByVal Original_ID As Integer,  _
                     ByVal Original_Name As String,  _
                     ByVal Original_Pay As Global.System.Nullable(Of Integer),  _
@@ -3560,8 +3507,7 @@ Namespace DatabaseDataSetTableAdapters
                     ByVal Original_Philhealth_Contribution As String,  _
                     ByVal Original_SSS_Contribution As String,  _
                     ByVal Original_Total_Deduction As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_Net_Salary As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_Holiday_pay As Boolean) As Integer
+                    ByVal Original_Net_Salary As Global.System.Nullable(Of Integer)) As Integer
             If (Name Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
@@ -3617,87 +3563,84 @@ Namespace DatabaseDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Holiday_pay,Boolean)
-            Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_ID,Integer)
+            Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_ID,Integer)
             If (Original_Name Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(14).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(13).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(Original_Name,String)
+                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Original_Name,String)
             End If
             If (Original_Pay.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(Original_Pay.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(Original_Pay.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(15).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(16).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(14).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(15).Value = Global.System.DBNull.Value
             End If
             If (Original_Hours.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(Original_Hours.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(Original_Hours.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(17).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(18).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(16).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(17).Value = Global.System.DBNull.Value
             End If
             If (Original_Days.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(Original_Days.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(Original_Days.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(20).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(18).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(19).Value = Global.System.DBNull.Value
             End If
             If (Original_Overtime.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(Original_Overtime.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(Original_Overtime.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(22).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(21).Value = Global.System.DBNull.Value
             End If
             If (Original_Gross_salary.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(Original_Gross_salary.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(Original_Gross_salary.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(24).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(23).Value = Global.System.DBNull.Value
             End If
             If (Original_Tax_Deduction Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(26).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(25).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(Original_Tax_Deduction,String)
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(Original_Tax_Deduction,String)
             End If
             If (Original_Philhealth_Contribution Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(28).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(27).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(Original_Philhealth_Contribution,String)
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(Original_Philhealth_Contribution,String)
             End If
             If (Original_SSS_Contribution Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(30).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(29).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(Original_SSS_Contribution,String)
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(Original_SSS_Contribution,String)
             End If
             If (Original_Total_Deduction.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(Original_Total_Deduction.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(Original_Total_Deduction.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(32).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(31).Value = Global.System.DBNull.Value
             End If
             If (Original_Net_Salary.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(Original_Net_Salary.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(Original_Net_Salary.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(34).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(33).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.UpdateCommand.Parameters(35).Value = CType(0,Object)
-            Me.Adapter.UpdateCommand.Parameters(36).Value = CType(Original_Holiday_pay,Boolean)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then

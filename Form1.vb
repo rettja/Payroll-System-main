@@ -162,7 +162,7 @@
         EmployeesBindingSource.EndEdit()
         EmployeesTableAdapter.Update(DatabaseDataSet.Employees)
 
-        Employees_Unpaid_BindingSource.RemoveCurrent()
+
     End Sub
 
     Private Sub PrintDocument1_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles PrintDocument1.PrintPage
@@ -173,6 +173,8 @@
         Try
             EmployeesBindingSource.EndEdit()
             EmployeesTableAdapter.Update(DatabaseDataSet.Employees)
+
+            Employees_Unpaid_BindingSource.RemoveCurrent()
             MessageBox.Show("Saved successfully")
         Catch ex As Exception
             MessageBox.Show("Not Saved")
