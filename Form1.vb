@@ -118,6 +118,9 @@
             Payslip.AppendText("                                                                              DATE & Time                                                                  " + vbNewLine)
             Payslip.AppendText("                                                                      " + Date.Now + vbNewLine)
             Payslip.AppendText("====================================================================================" + vbNewLine)
+            Payslip.AppendText("                                                                           __________________                                                                  " + vbNewLine)
+            Payslip.AppendText("                                                                               Signature                                                                  " + vbNewLine)
+
 
 
 
