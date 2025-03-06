@@ -27,9 +27,9 @@ Partial Public Class DatabaseDataSet
     
     Private tableAdmins As AdminsDataTable
     
-    Private _tableEmployees_Unpaid_ As _Employees_Unpaid_DataTable
-    
     Private tableEmployees As EmployeesDataTable
+    
+    Private tablePaid_Employees As Paid_EmployeesDataTable
     
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
@@ -63,11 +63,11 @@ Partial Public Class DatabaseDataSet
             If (Not (ds.Tables("Admins")) Is Nothing) Then
                 MyBase.Tables.Add(New AdminsDataTable(ds.Tables("Admins")))
             End If
-            If (Not (ds.Tables("Employees(Unpaid)")) Is Nothing) Then
-                MyBase.Tables.Add(New _Employees_Unpaid_DataTable(ds.Tables("Employees(Unpaid)")))
-            End If
             If (Not (ds.Tables("Employees")) Is Nothing) Then
                 MyBase.Tables.Add(New EmployeesDataTable(ds.Tables("Employees")))
+            End If
+            If (Not (ds.Tables("Paid_Employees")) Is Nothing) Then
+                MyBase.Tables.Add(New Paid_EmployeesDataTable(ds.Tables("Paid_Employees")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -100,9 +100,9 @@ Partial Public Class DatabaseDataSet
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
      Global.System.ComponentModel.Browsable(false),  _
      Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
-    Public ReadOnly Property _Employees_Unpaid_() As _Employees_Unpaid_DataTable
+    Public ReadOnly Property Employees() As EmployeesDataTable
         Get
-            Return Me._tableEmployees_Unpaid_
+            Return Me.tableEmployees
         End Get
     End Property
     
@@ -110,9 +110,9 @@ Partial Public Class DatabaseDataSet
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
      Global.System.ComponentModel.Browsable(false),  _
      Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
-    Public ReadOnly Property Employees() As EmployeesDataTable
+    Public ReadOnly Property Paid_Employees() As Paid_EmployeesDataTable
         Get
-            Return Me.tableEmployees
+            Return Me.tablePaid_Employees
         End Get
     End Property
     
@@ -186,11 +186,11 @@ Partial Public Class DatabaseDataSet
             If (Not (ds.Tables("Admins")) Is Nothing) Then
                 MyBase.Tables.Add(New AdminsDataTable(ds.Tables("Admins")))
             End If
-            If (Not (ds.Tables("Employees(Unpaid)")) Is Nothing) Then
-                MyBase.Tables.Add(New _Employees_Unpaid_DataTable(ds.Tables("Employees(Unpaid)")))
-            End If
             If (Not (ds.Tables("Employees")) Is Nothing) Then
                 MyBase.Tables.Add(New EmployeesDataTable(ds.Tables("Employees")))
+            End If
+            If (Not (ds.Tables("Paid_Employees")) Is Nothing) Then
+                MyBase.Tables.Add(New Paid_EmployeesDataTable(ds.Tables("Paid_Employees")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -230,16 +230,16 @@ Partial Public Class DatabaseDataSet
                 Me.tableAdmins.InitVars
             End If
         End If
-        Me._tableEmployees_Unpaid_ = CType(MyBase.Tables("Employees(Unpaid)"),_Employees_Unpaid_DataTable)
-        If (initTable = true) Then
-            If (Not (Me._tableEmployees_Unpaid_) Is Nothing) Then
-                Me._tableEmployees_Unpaid_.InitVars
-            End If
-        End If
         Me.tableEmployees = CType(MyBase.Tables("Employees"),EmployeesDataTable)
         If (initTable = true) Then
             If (Not (Me.tableEmployees) Is Nothing) Then
                 Me.tableEmployees.InitVars
+            End If
+        End If
+        Me.tablePaid_Employees = CType(MyBase.Tables("Paid_Employees"),Paid_EmployeesDataTable)
+        If (initTable = true) Then
+            If (Not (Me.tablePaid_Employees) Is Nothing) Then
+                Me.tablePaid_Employees.InitVars
             End If
         End If
     End Sub
@@ -254,10 +254,10 @@ Partial Public Class DatabaseDataSet
         Me.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
         Me.tableAdmins = New AdminsDataTable()
         MyBase.Tables.Add(Me.tableAdmins)
-        Me._tableEmployees_Unpaid_ = New _Employees_Unpaid_DataTable()
-        MyBase.Tables.Add(Me._tableEmployees_Unpaid_)
         Me.tableEmployees = New EmployeesDataTable()
         MyBase.Tables.Add(Me.tableEmployees)
+        Me.tablePaid_Employees = New Paid_EmployeesDataTable()
+        MyBase.Tables.Add(Me.tablePaid_Employees)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -268,13 +268,13 @@ Partial Public Class DatabaseDataSet
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-    Private Function ShouldSerialize_Employees_Unpaid_() As Boolean
+    Private Function ShouldSerializeEmployees() As Boolean
         Return false
     End Function
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-    Private Function ShouldSerializeEmployees() As Boolean
+    Private Function ShouldSerializePaid_Employees() As Boolean
         Return false
     End Function
     
@@ -340,10 +340,10 @@ Partial Public Class DatabaseDataSet
     Public Delegate Sub AdminsRowChangeEventHandler(ByVal sender As Object, ByVal e As AdminsRowChangeEvent)
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-    Public Delegate Sub _Employees_Unpaid_RowChangeEventHandler(ByVal sender As Object, ByVal e As _Employees_Unpaid_RowChangeEvent)
+    Public Delegate Sub EmployeesRowChangeEventHandler(ByVal sender As Object, ByVal e As EmployeesRowChangeEvent)
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-    Public Delegate Sub EmployeesRowChangeEventHandler(ByVal sender As Object, ByVal e As EmployeesRowChangeEvent)
+    Public Delegate Sub Paid_EmployeesRowChangeEventHandler(ByVal sender As Object, ByVal e As Paid_EmployeesRowChangeEvent)
     
     '''<summary>
     '''Represents the strongly named DataTable class.
@@ -642,8 +642,8 @@ Partial Public Class DatabaseDataSet
     '''</summary>
     <Global.System.Serializable(),  _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
-    Partial Public Class _Employees_Unpaid_DataTable
-        Inherits Global.System.Data.TypedTableBase(Of _Employees_Unpaid_Row)
+    Partial Public Class EmployeesDataTable
+        Inherits Global.System.Data.TypedTableBase(Of EmployeesRow)
         
         Private columnID As Global.System.Data.DataColumn
         
@@ -665,7 +665,7 @@ Partial Public Class DatabaseDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub New()
             MyBase.New
-            Me.TableName = "Employees(Unpaid)"
+            Me.TableName = "Employees"
             Me.BeginInit
             Me.InitClass
             Me.EndInit
@@ -771,50 +771,50 @@ Partial Public Class DatabaseDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Default ReadOnly Property Item(ByVal index As Integer) As _Employees_Unpaid_Row
+        Public Default ReadOnly Property Item(ByVal index As Integer) As EmployeesRow
             Get
-                Return CType(Me.Rows(index),_Employees_Unpaid_Row)
+                Return CType(Me.Rows(index),EmployeesRow)
             End Get
         End Property
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Event _Employees_Unpaid_RowChanging As _Employees_Unpaid_RowChangeEventHandler
+        Public Event EmployeesRowChanging As EmployeesRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Event _Employees_Unpaid_RowChanged As _Employees_Unpaid_RowChangeEventHandler
+        Public Event EmployeesRowChanged As EmployeesRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Event _Employees_Unpaid_RowDeleting As _Employees_Unpaid_RowChangeEventHandler
+        Public Event EmployeesRowDeleting As EmployeesRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Event _Employees_Unpaid_RowDeleted As _Employees_Unpaid_RowChangeEventHandler
+        Public Event EmployeesRowDeleted As EmployeesRowChangeEventHandler
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Overloads Sub Add_Employees_Unpaid_Row(ByVal row As _Employees_Unpaid_Row)
+        Public Overloads Sub AddEmployeesRow(ByVal row As EmployeesRow)
             Me.Rows.Add(row)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Overloads Function Add_Employees_Unpaid_Row(ByVal Employees As String, ByVal Age As String, ByVal Birthday As String, ByVal Gender As String, ByVal Adress As String, ByVal Civil_Status As String, ByVal Work As String) As _Employees_Unpaid_Row
-            Dim row_Employees_Unpaid_Row As _Employees_Unpaid_Row = CType(Me.NewRow,_Employees_Unpaid_Row)
+        Public Overloads Function AddEmployeesRow(ByVal Employees As String, ByVal Age As String, ByVal Birthday As String, ByVal Gender As String, ByVal Adress As String, ByVal Civil_Status As String, ByVal Work As String) As EmployeesRow
+            Dim rowEmployeesRow As EmployeesRow = CType(Me.NewRow,EmployeesRow)
             Dim columnValuesArray() As Object = New Object() {Nothing, Employees, Age, Birthday, Gender, Adress, Civil_Status, Work}
-            row_Employees_Unpaid_Row.ItemArray = columnValuesArray
-            Me.Rows.Add(row_Employees_Unpaid_Row)
-            Return row_Employees_Unpaid_Row
+            rowEmployeesRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowEmployeesRow)
+            Return rowEmployeesRow
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function FindByID(ByVal ID As Integer) As _Employees_Unpaid_Row
-            Return CType(Me.Rows.Find(New Object() {ID}),_Employees_Unpaid_Row)
+        Public Function FindByID(ByVal ID As Integer) As EmployeesRow
+            Return CType(Me.Rows.Find(New Object() {ID}),EmployeesRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Overrides Function Clone() As Global.System.Data.DataTable
-            Dim cln As _Employees_Unpaid_DataTable = CType(MyBase.Clone,_Employees_Unpaid_DataTable)
+            Dim cln As EmployeesDataTable = CType(MyBase.Clone,EmployeesDataTable)
             cln.InitVars
             Return cln
         End Function
@@ -822,7 +822,7 @@ Partial Public Class DatabaseDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
-            Return New _Employees_Unpaid_DataTable()
+            Return New EmployeesDataTable()
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -870,34 +870,32 @@ Partial Public Class DatabaseDataSet
             Me.columnAdress.MaxLength = 255
             Me.columnCivil_Status.MaxLength = 255
             Me.columnWork.MaxLength = 255
-            Me.ExtendedProperties.Add("Generator_TableVarName", "_tableEmployees_Unpaid_")
-            Me.ExtendedProperties.Add("Generator_UserTableName", "Employees(Unpaid)")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function New_Employees_Unpaid_Row() As _Employees_Unpaid_Row
-            Return CType(Me.NewRow,_Employees_Unpaid_Row)
+        Public Function NewEmployeesRow() As EmployeesRow
+            Return CType(Me.NewRow,EmployeesRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
-            Return New _Employees_Unpaid_Row(builder)
+            Return New EmployeesRow(builder)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Protected Overrides Function GetRowType() As Global.System.Type
-            Return GetType(_Employees_Unpaid_Row)
+            Return GetType(EmployeesRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanged(e)
-            If (Not (Me._Employees_Unpaid_RowChangedEvent) Is Nothing) Then
-                RaiseEvent _Employees_Unpaid_RowChanged(Me, New _Employees_Unpaid_RowChangeEvent(CType(e.Row,_Employees_Unpaid_Row), e.Action))
+            If (Not (Me.EmployeesRowChangedEvent) Is Nothing) Then
+                RaiseEvent EmployeesRowChanged(Me, New EmployeesRowChangeEvent(CType(e.Row,EmployeesRow), e.Action))
             End If
         End Sub
         
@@ -905,8 +903,8 @@ Partial Public Class DatabaseDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanging(e)
-            If (Not (Me._Employees_Unpaid_RowChangingEvent) Is Nothing) Then
-                RaiseEvent _Employees_Unpaid_RowChanging(Me, New _Employees_Unpaid_RowChangeEvent(CType(e.Row,_Employees_Unpaid_Row), e.Action))
+            If (Not (Me.EmployeesRowChangingEvent) Is Nothing) Then
+                RaiseEvent EmployeesRowChanging(Me, New EmployeesRowChangeEvent(CType(e.Row,EmployeesRow), e.Action))
             End If
         End Sub
         
@@ -914,8 +912,8 @@ Partial Public Class DatabaseDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleted(e)
-            If (Not (Me._Employees_Unpaid_RowDeletedEvent) Is Nothing) Then
-                RaiseEvent _Employees_Unpaid_RowDeleted(Me, New _Employees_Unpaid_RowChangeEvent(CType(e.Row,_Employees_Unpaid_Row), e.Action))
+            If (Not (Me.EmployeesRowDeletedEvent) Is Nothing) Then
+                RaiseEvent EmployeesRowDeleted(Me, New EmployeesRowChangeEvent(CType(e.Row,EmployeesRow), e.Action))
             End If
         End Sub
         
@@ -923,14 +921,14 @@ Partial Public Class DatabaseDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleting(e)
-            If (Not (Me._Employees_Unpaid_RowDeletingEvent) Is Nothing) Then
-                RaiseEvent _Employees_Unpaid_RowDeleting(Me, New _Employees_Unpaid_RowChangeEvent(CType(e.Row,_Employees_Unpaid_Row), e.Action))
+            If (Not (Me.EmployeesRowDeletingEvent) Is Nothing) Then
+                RaiseEvent EmployeesRowDeleting(Me, New EmployeesRowChangeEvent(CType(e.Row,EmployeesRow), e.Action))
             End If
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub Remove_Employees_Unpaid_Row(ByVal row As _Employees_Unpaid_Row)
+        Public Sub RemoveEmployeesRow(ByVal row As EmployeesRow)
             Me.Rows.Remove(row)
         End Sub
         
@@ -957,7 +955,7 @@ Partial Public Class DatabaseDataSet
             type.Attributes.Add(attribute1)
             Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
             attribute2.Name = "tableTypeName"
-            attribute2.FixedValue = "_Employees_Unpaid_DataTable"
+            attribute2.FixedValue = "EmployeesDataTable"
             type.Attributes.Add(attribute2)
             type.Particle = sequence
             Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
@@ -1006,8 +1004,8 @@ Partial Public Class DatabaseDataSet
     '''</summary>
     <Global.System.Serializable(),  _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
-    Partial Public Class EmployeesDataTable
-        Inherits Global.System.Data.TypedTableBase(Of EmployeesRow)
+    Partial Public Class Paid_EmployeesDataTable
+        Inherits Global.System.Data.TypedTableBase(Of Paid_EmployeesRow)
         
         Private columnID As Global.System.Data.DataColumn
         
@@ -1037,7 +1035,7 @@ Partial Public Class DatabaseDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub New()
             MyBase.New
-            Me.TableName = "Employees"
+            Me.TableName = "Paid_Employees"
             Me.BeginInit
             Me.InitClass
             Me.EndInit
@@ -1175,50 +1173,50 @@ Partial Public Class DatabaseDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Default ReadOnly Property Item(ByVal index As Integer) As EmployeesRow
+        Public Default ReadOnly Property Item(ByVal index As Integer) As Paid_EmployeesRow
             Get
-                Return CType(Me.Rows(index),EmployeesRow)
+                Return CType(Me.Rows(index),Paid_EmployeesRow)
             End Get
         End Property
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Event EmployeesRowChanging As EmployeesRowChangeEventHandler
+        Public Event Paid_EmployeesRowChanging As Paid_EmployeesRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Event EmployeesRowChanged As EmployeesRowChangeEventHandler
+        Public Event Paid_EmployeesRowChanged As Paid_EmployeesRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Event EmployeesRowDeleting As EmployeesRowChangeEventHandler
+        Public Event Paid_EmployeesRowDeleting As Paid_EmployeesRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Event EmployeesRowDeleted As EmployeesRowChangeEventHandler
+        Public Event Paid_EmployeesRowDeleted As Paid_EmployeesRowChangeEventHandler
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Overloads Sub AddEmployeesRow(ByVal row As EmployeesRow)
+        Public Overloads Sub AddPaid_EmployeesRow(ByVal row As Paid_EmployeesRow)
             Me.Rows.Add(row)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Overloads Function AddEmployeesRow(ByVal Name As String, ByVal Pay As Integer, ByVal Hours As Integer, ByVal Days As Integer, ByVal Overtime As Integer, ByVal Gross_salary As Integer, ByVal Tax_Deduction As String, ByVal Philhealth_Contribution As String, ByVal SSS_Contribution As String, ByVal Total_Deduction As Integer, ByVal Net_Salary As Integer) As EmployeesRow
-            Dim rowEmployeesRow As EmployeesRow = CType(Me.NewRow,EmployeesRow)
+        Public Overloads Function AddPaid_EmployeesRow(ByVal Name As String, ByVal Pay As Integer, ByVal Hours As Integer, ByVal Days As Integer, ByVal Overtime As Integer, ByVal Gross_salary As Integer, ByVal Tax_Deduction As String, ByVal Philhealth_Contribution As String, ByVal SSS_Contribution As String, ByVal Total_Deduction As Integer, ByVal Net_Salary As Integer) As Paid_EmployeesRow
+            Dim rowPaid_EmployeesRow As Paid_EmployeesRow = CType(Me.NewRow,Paid_EmployeesRow)
             Dim columnValuesArray() As Object = New Object() {Nothing, Name, Pay, Hours, Days, Overtime, Gross_salary, Tax_Deduction, Philhealth_Contribution, SSS_Contribution, Total_Deduction, Net_Salary}
-            rowEmployeesRow.ItemArray = columnValuesArray
-            Me.Rows.Add(rowEmployeesRow)
-            Return rowEmployeesRow
+            rowPaid_EmployeesRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowPaid_EmployeesRow)
+            Return rowPaid_EmployeesRow
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function FindByID(ByVal ID As Integer) As EmployeesRow
-            Return CType(Me.Rows.Find(New Object() {ID}),EmployeesRow)
+        Public Function FindByID(ByVal ID As Integer) As Paid_EmployeesRow
+            Return CType(Me.Rows.Find(New Object() {ID}),Paid_EmployeesRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Overrides Function Clone() As Global.System.Data.DataTable
-            Dim cln As EmployeesDataTable = CType(MyBase.Clone,EmployeesDataTable)
+            Dim cln As Paid_EmployeesDataTable = CType(MyBase.Clone,Paid_EmployeesDataTable)
             cln.InitVars
             Return cln
         End Function
@@ -1226,7 +1224,7 @@ Partial Public Class DatabaseDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
-            Return New EmployeesDataTable()
+            Return New Paid_EmployeesDataTable()
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1287,28 +1285,28 @@ Partial Public Class DatabaseDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function NewEmployeesRow() As EmployeesRow
-            Return CType(Me.NewRow,EmployeesRow)
+        Public Function NewPaid_EmployeesRow() As Paid_EmployeesRow
+            Return CType(Me.NewRow,Paid_EmployeesRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
-            Return New EmployeesRow(builder)
+            Return New Paid_EmployeesRow(builder)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Protected Overrides Function GetRowType() As Global.System.Type
-            Return GetType(EmployeesRow)
+            Return GetType(Paid_EmployeesRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanged(e)
-            If (Not (Me.EmployeesRowChangedEvent) Is Nothing) Then
-                RaiseEvent EmployeesRowChanged(Me, New EmployeesRowChangeEvent(CType(e.Row,EmployeesRow), e.Action))
+            If (Not (Me.Paid_EmployeesRowChangedEvent) Is Nothing) Then
+                RaiseEvent Paid_EmployeesRowChanged(Me, New Paid_EmployeesRowChangeEvent(CType(e.Row,Paid_EmployeesRow), e.Action))
             End If
         End Sub
         
@@ -1316,8 +1314,8 @@ Partial Public Class DatabaseDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanging(e)
-            If (Not (Me.EmployeesRowChangingEvent) Is Nothing) Then
-                RaiseEvent EmployeesRowChanging(Me, New EmployeesRowChangeEvent(CType(e.Row,EmployeesRow), e.Action))
+            If (Not (Me.Paid_EmployeesRowChangingEvent) Is Nothing) Then
+                RaiseEvent Paid_EmployeesRowChanging(Me, New Paid_EmployeesRowChangeEvent(CType(e.Row,Paid_EmployeesRow), e.Action))
             End If
         End Sub
         
@@ -1325,8 +1323,8 @@ Partial Public Class DatabaseDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleted(e)
-            If (Not (Me.EmployeesRowDeletedEvent) Is Nothing) Then
-                RaiseEvent EmployeesRowDeleted(Me, New EmployeesRowChangeEvent(CType(e.Row,EmployeesRow), e.Action))
+            If (Not (Me.Paid_EmployeesRowDeletedEvent) Is Nothing) Then
+                RaiseEvent Paid_EmployeesRowDeleted(Me, New Paid_EmployeesRowChangeEvent(CType(e.Row,Paid_EmployeesRow), e.Action))
             End If
         End Sub
         
@@ -1334,14 +1332,14 @@ Partial Public Class DatabaseDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleting(e)
-            If (Not (Me.EmployeesRowDeletingEvent) Is Nothing) Then
-                RaiseEvent EmployeesRowDeleting(Me, New EmployeesRowChangeEvent(CType(e.Row,EmployeesRow), e.Action))
+            If (Not (Me.Paid_EmployeesRowDeletingEvent) Is Nothing) Then
+                RaiseEvent Paid_EmployeesRowDeleting(Me, New Paid_EmployeesRowChangeEvent(CType(e.Row,Paid_EmployeesRow), e.Action))
             End If
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub RemoveEmployeesRow(ByVal row As EmployeesRow)
+        Public Sub RemovePaid_EmployeesRow(ByVal row As Paid_EmployeesRow)
             Me.Rows.Remove(row)
         End Sub
         
@@ -1368,7 +1366,7 @@ Partial Public Class DatabaseDataSet
             type.Attributes.Add(attribute1)
             Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
             attribute2.Name = "tableTypeName"
-            attribute2.FixedValue = "EmployeesDataTable"
+            attribute2.FixedValue = "Paid_EmployeesDataTable"
             type.Attributes.Add(attribute2)
             type.Particle = sequence
             Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
@@ -1496,222 +1494,6 @@ Partial Public Class DatabaseDataSet
     '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
-    Partial Public Class _Employees_Unpaid_Row
-        Inherits Global.System.Data.DataRow
-        
-        Private _tableEmployees_Unpaid_ As _Employees_Unpaid_DataTable
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
-            MyBase.New(rb)
-            Me._tableEmployees_Unpaid_ = CType(Me.Table,_Employees_Unpaid_DataTable)
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property ID() As Integer
-            Get
-                Return CType(Me(Me._tableEmployees_Unpaid_.IDColumn),Integer)
-            End Get
-            Set
-                Me(Me._tableEmployees_Unpaid_.IDColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property Employees() As String
-            Get
-                Try 
-                    Return CType(Me(Me._tableEmployees_Unpaid_.EmployeesColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Employees' in table 'Employees(Unpaid)' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me._tableEmployees_Unpaid_.EmployeesColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property Age() As String
-            Get
-                Try 
-                    Return CType(Me(Me._tableEmployees_Unpaid_.AgeColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Age' in table 'Employees(Unpaid)' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me._tableEmployees_Unpaid_.AgeColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property Birthday() As String
-            Get
-                Try 
-                    Return CType(Me(Me._tableEmployees_Unpaid_.BirthdayColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Birthday' in table 'Employees(Unpaid)' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me._tableEmployees_Unpaid_.BirthdayColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property Gender() As String
-            Get
-                Try 
-                    Return CType(Me(Me._tableEmployees_Unpaid_.GenderColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Gender' in table 'Employees(Unpaid)' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me._tableEmployees_Unpaid_.GenderColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property Adress() As String
-            Get
-                Try 
-                    Return CType(Me(Me._tableEmployees_Unpaid_.AdressColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Adress' in table 'Employees(Unpaid)' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me._tableEmployees_Unpaid_.AdressColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property Civil_Status() As String
-            Get
-                Try 
-                    Return CType(Me(Me._tableEmployees_Unpaid_.Civil_StatusColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Civil Status' in table 'Employees(Unpaid)' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me._tableEmployees_Unpaid_.Civil_StatusColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property Work() As String
-            Get
-                Try 
-                    Return CType(Me(Me._tableEmployees_Unpaid_.WorkColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Work' in table 'Employees(Unpaid)' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me._tableEmployees_Unpaid_.WorkColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsEmployeesNull() As Boolean
-            Return Me.IsNull(Me._tableEmployees_Unpaid_.EmployeesColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetEmployeesNull()
-            Me(Me._tableEmployees_Unpaid_.EmployeesColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsAgeNull() As Boolean
-            Return Me.IsNull(Me._tableEmployees_Unpaid_.AgeColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetAgeNull()
-            Me(Me._tableEmployees_Unpaid_.AgeColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsBirthdayNull() As Boolean
-            Return Me.IsNull(Me._tableEmployees_Unpaid_.BirthdayColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetBirthdayNull()
-            Me(Me._tableEmployees_Unpaid_.BirthdayColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsGenderNull() As Boolean
-            Return Me.IsNull(Me._tableEmployees_Unpaid_.GenderColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetGenderNull()
-            Me(Me._tableEmployees_Unpaid_.GenderColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsAdressNull() As Boolean
-            Return Me.IsNull(Me._tableEmployees_Unpaid_.AdressColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetAdressNull()
-            Me(Me._tableEmployees_Unpaid_.AdressColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsCivil_StatusNull() As Boolean
-            Return Me.IsNull(Me._tableEmployees_Unpaid_.Civil_StatusColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetCivil_StatusNull()
-            Me(Me._tableEmployees_Unpaid_.Civil_StatusColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Function IsWorkNull() As Boolean
-            Return Me.IsNull(Me._tableEmployees_Unpaid_.WorkColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub SetWorkNull()
-            Me(Me._tableEmployees_Unpaid_.WorkColumn) = Global.System.Convert.DBNull
-        End Sub
-    End Class
-    
-    '''<summary>
-    '''Represents strongly named DataRow class.
-    '''</summary>
     Partial Public Class EmployeesRow
         Inherits Global.System.Data.DataRow
         
@@ -1737,16 +1519,232 @@ Partial Public Class DatabaseDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Property Name() As String
+        Public Property Employees() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableEmployees.NameColumn),String)
+                    Return CType(Me(Me.tableEmployees.EmployeesColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Name' in table 'Employees' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Employees' in table 'Employees' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableEmployees.NameColumn) = value
+                Me(Me.tableEmployees.EmployeesColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property Age() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableEmployees.AgeColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Age' in table 'Employees' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableEmployees.AgeColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property Birthday() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableEmployees.BirthdayColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Birthday' in table 'Employees' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableEmployees.BirthdayColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property Gender() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableEmployees.GenderColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Gender' in table 'Employees' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableEmployees.GenderColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property Adress() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableEmployees.AdressColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Adress' in table 'Employees' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableEmployees.AdressColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property Civil_Status() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableEmployees.Civil_StatusColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Civil Status' in table 'Employees' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableEmployees.Civil_StatusColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property Work() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableEmployees.WorkColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Work' in table 'Employees' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableEmployees.WorkColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsEmployeesNull() As Boolean
+            Return Me.IsNull(Me.tableEmployees.EmployeesColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetEmployeesNull()
+            Me(Me.tableEmployees.EmployeesColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsAgeNull() As Boolean
+            Return Me.IsNull(Me.tableEmployees.AgeColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetAgeNull()
+            Me(Me.tableEmployees.AgeColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsBirthdayNull() As Boolean
+            Return Me.IsNull(Me.tableEmployees.BirthdayColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetBirthdayNull()
+            Me(Me.tableEmployees.BirthdayColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsGenderNull() As Boolean
+            Return Me.IsNull(Me.tableEmployees.GenderColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetGenderNull()
+            Me(Me.tableEmployees.GenderColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsAdressNull() As Boolean
+            Return Me.IsNull(Me.tableEmployees.AdressColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetAdressNull()
+            Me(Me.tableEmployees.AdressColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsCivil_StatusNull() As Boolean
+            Return Me.IsNull(Me.tableEmployees.Civil_StatusColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetCivil_StatusNull()
+            Me(Me.tableEmployees.Civil_StatusColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Function IsWorkNull() As Boolean
+            Return Me.IsNull(Me.tableEmployees.WorkColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub SetWorkNull()
+            Me(Me.tableEmployees.WorkColumn) = Global.System.Convert.DBNull
+        End Sub
+    End Class
+    
+    '''<summary>
+    '''Represents strongly named DataRow class.
+    '''</summary>
+    Partial Public Class Paid_EmployeesRow
+        Inherits Global.System.Data.DataRow
+        
+        Private tablePaid_Employees As Paid_EmployeesDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
+            MyBase.New(rb)
+            Me.tablePaid_Employees = CType(Me.Table,Paid_EmployeesDataTable)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property ID() As Integer
+            Get
+                Return CType(Me(Me.tablePaid_Employees.IDColumn),Integer)
+            End Get
+            Set
+                Me(Me.tablePaid_Employees.IDColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Property Name() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePaid_Employees.NameColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Name' in table 'Paid_Employees' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePaid_Employees.NameColumn) = value
             End Set
         End Property
         
@@ -1755,13 +1753,13 @@ Partial Public Class DatabaseDataSet
         Public Property Pay() As Integer
             Get
                 Try 
-                    Return CType(Me(Me.tableEmployees.PayColumn),Integer)
+                    Return CType(Me(Me.tablePaid_Employees.PayColumn),Integer)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Pay' in table 'Employees' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Pay' in table 'Paid_Employees' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableEmployees.PayColumn) = value
+                Me(Me.tablePaid_Employees.PayColumn) = value
             End Set
         End Property
         
@@ -1770,13 +1768,13 @@ Partial Public Class DatabaseDataSet
         Public Property Hours() As Integer
             Get
                 Try 
-                    Return CType(Me(Me.tableEmployees.HoursColumn),Integer)
+                    Return CType(Me(Me.tablePaid_Employees.HoursColumn),Integer)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Hours' in table 'Employees' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Hours' in table 'Paid_Employees' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableEmployees.HoursColumn) = value
+                Me(Me.tablePaid_Employees.HoursColumn) = value
             End Set
         End Property
         
@@ -1785,13 +1783,13 @@ Partial Public Class DatabaseDataSet
         Public Property Days() As Integer
             Get
                 Try 
-                    Return CType(Me(Me.tableEmployees.DaysColumn),Integer)
+                    Return CType(Me(Me.tablePaid_Employees.DaysColumn),Integer)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Days' in table 'Employees' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Days' in table 'Paid_Employees' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableEmployees.DaysColumn) = value
+                Me(Me.tablePaid_Employees.DaysColumn) = value
             End Set
         End Property
         
@@ -1800,13 +1798,13 @@ Partial Public Class DatabaseDataSet
         Public Property Overtime() As Integer
             Get
                 Try 
-                    Return CType(Me(Me.tableEmployees.OvertimeColumn),Integer)
+                    Return CType(Me(Me.tablePaid_Employees.OvertimeColumn),Integer)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Overtime' in table 'Employees' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Overtime' in table 'Paid_Employees' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableEmployees.OvertimeColumn) = value
+                Me(Me.tablePaid_Employees.OvertimeColumn) = value
             End Set
         End Property
         
@@ -1815,13 +1813,13 @@ Partial Public Class DatabaseDataSet
         Public Property Gross_salary() As Integer
             Get
                 Try 
-                    Return CType(Me(Me.tableEmployees.Gross_salaryColumn),Integer)
+                    Return CType(Me(Me.tablePaid_Employees.Gross_salaryColumn),Integer)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Gross salary' in table 'Employees' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Gross salary' in table 'Paid_Employees' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableEmployees.Gross_salaryColumn) = value
+                Me(Me.tablePaid_Employees.Gross_salaryColumn) = value
             End Set
         End Property
         
@@ -1830,13 +1828,13 @@ Partial Public Class DatabaseDataSet
         Public Property Tax_Deduction() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableEmployees.Tax_DeductionColumn),String)
+                    Return CType(Me(Me.tablePaid_Employees.Tax_DeductionColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Tax Deduction' in table 'Employees' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Tax Deduction' in table 'Paid_Employees' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableEmployees.Tax_DeductionColumn) = value
+                Me(Me.tablePaid_Employees.Tax_DeductionColumn) = value
             End Set
         End Property
         
@@ -1845,13 +1843,14 @@ Partial Public Class DatabaseDataSet
         Public Property Philhealth_Contribution() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableEmployees.Philhealth_ContributionColumn),String)
+                    Return CType(Me(Me.tablePaid_Employees.Philhealth_ContributionColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Philhealth Contribution' in table 'Employees' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Philhealth Contribution' in table 'Paid_Employees' is DBNul"& _ 
+                            "l.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableEmployees.Philhealth_ContributionColumn) = value
+                Me(Me.tablePaid_Employees.Philhealth_ContributionColumn) = value
             End Set
         End Property
         
@@ -1860,13 +1859,13 @@ Partial Public Class DatabaseDataSet
         Public Property SSS_Contribution() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableEmployees.SSS_ContributionColumn),String)
+                    Return CType(Me(Me.tablePaid_Employees.SSS_ContributionColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'SSS Contribution' in table 'Employees' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'SSS Contribution' in table 'Paid_Employees' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableEmployees.SSS_ContributionColumn) = value
+                Me(Me.tablePaid_Employees.SSS_ContributionColumn) = value
             End Set
         End Property
         
@@ -1875,13 +1874,13 @@ Partial Public Class DatabaseDataSet
         Public Property Total_Deduction() As Integer
             Get
                 Try 
-                    Return CType(Me(Me.tableEmployees.Total_DeductionColumn),Integer)
+                    Return CType(Me(Me.tablePaid_Employees.Total_DeductionColumn),Integer)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Total Deduction' in table 'Employees' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Total Deduction' in table 'Paid_Employees' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableEmployees.Total_DeductionColumn) = value
+                Me(Me.tablePaid_Employees.Total_DeductionColumn) = value
             End Set
         End Property
         
@@ -1890,146 +1889,146 @@ Partial Public Class DatabaseDataSet
         Public Property Net_Salary() As Integer
             Get
                 Try 
-                    Return CType(Me(Me.tableEmployees.Net_SalaryColumn),Integer)
+                    Return CType(Me(Me.tablePaid_Employees.Net_SalaryColumn),Integer)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Net Salary' in table 'Employees' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Net Salary' in table 'Paid_Employees' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableEmployees.Net_SalaryColumn) = value
+                Me(Me.tablePaid_Employees.Net_SalaryColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Function IsNameNull() As Boolean
-            Return Me.IsNull(Me.tableEmployees.NameColumn)
+            Return Me.IsNull(Me.tablePaid_Employees.NameColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub SetNameNull()
-            Me(Me.tableEmployees.NameColumn) = Global.System.Convert.DBNull
+            Me(Me.tablePaid_Employees.NameColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Function IsPayNull() As Boolean
-            Return Me.IsNull(Me.tableEmployees.PayColumn)
+            Return Me.IsNull(Me.tablePaid_Employees.PayColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub SetPayNull()
-            Me(Me.tableEmployees.PayColumn) = Global.System.Convert.DBNull
+            Me(Me.tablePaid_Employees.PayColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Function IsHoursNull() As Boolean
-            Return Me.IsNull(Me.tableEmployees.HoursColumn)
+            Return Me.IsNull(Me.tablePaid_Employees.HoursColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub SetHoursNull()
-            Me(Me.tableEmployees.HoursColumn) = Global.System.Convert.DBNull
+            Me(Me.tablePaid_Employees.HoursColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Function IsDaysNull() As Boolean
-            Return Me.IsNull(Me.tableEmployees.DaysColumn)
+            Return Me.IsNull(Me.tablePaid_Employees.DaysColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub SetDaysNull()
-            Me(Me.tableEmployees.DaysColumn) = Global.System.Convert.DBNull
+            Me(Me.tablePaid_Employees.DaysColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Function IsOvertimeNull() As Boolean
-            Return Me.IsNull(Me.tableEmployees.OvertimeColumn)
+            Return Me.IsNull(Me.tablePaid_Employees.OvertimeColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub SetOvertimeNull()
-            Me(Me.tableEmployees.OvertimeColumn) = Global.System.Convert.DBNull
+            Me(Me.tablePaid_Employees.OvertimeColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Function IsGross_salaryNull() As Boolean
-            Return Me.IsNull(Me.tableEmployees.Gross_salaryColumn)
+            Return Me.IsNull(Me.tablePaid_Employees.Gross_salaryColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub SetGross_salaryNull()
-            Me(Me.tableEmployees.Gross_salaryColumn) = Global.System.Convert.DBNull
+            Me(Me.tablePaid_Employees.Gross_salaryColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Function IsTax_DeductionNull() As Boolean
-            Return Me.IsNull(Me.tableEmployees.Tax_DeductionColumn)
+            Return Me.IsNull(Me.tablePaid_Employees.Tax_DeductionColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub SetTax_DeductionNull()
-            Me(Me.tableEmployees.Tax_DeductionColumn) = Global.System.Convert.DBNull
+            Me(Me.tablePaid_Employees.Tax_DeductionColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Function IsPhilhealth_ContributionNull() As Boolean
-            Return Me.IsNull(Me.tableEmployees.Philhealth_ContributionColumn)
+            Return Me.IsNull(Me.tablePaid_Employees.Philhealth_ContributionColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub SetPhilhealth_ContributionNull()
-            Me(Me.tableEmployees.Philhealth_ContributionColumn) = Global.System.Convert.DBNull
+            Me(Me.tablePaid_Employees.Philhealth_ContributionColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Function IsSSS_ContributionNull() As Boolean
-            Return Me.IsNull(Me.tableEmployees.SSS_ContributionColumn)
+            Return Me.IsNull(Me.tablePaid_Employees.SSS_ContributionColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub SetSSS_ContributionNull()
-            Me(Me.tableEmployees.SSS_ContributionColumn) = Global.System.Convert.DBNull
+            Me(Me.tablePaid_Employees.SSS_ContributionColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Function IsTotal_DeductionNull() As Boolean
-            Return Me.IsNull(Me.tableEmployees.Total_DeductionColumn)
+            Return Me.IsNull(Me.tablePaid_Employees.Total_DeductionColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub SetTotal_DeductionNull()
-            Me(Me.tableEmployees.Total_DeductionColumn) = Global.System.Convert.DBNull
+            Me(Me.tablePaid_Employees.Total_DeductionColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Function IsNet_SalaryNull() As Boolean
-            Return Me.IsNull(Me.tableEmployees.Net_SalaryColumn)
+            Return Me.IsNull(Me.tablePaid_Employees.Net_SalaryColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public Sub SetNet_SalaryNull()
-            Me(Me.tableEmployees.Net_SalaryColumn) = Global.System.Convert.DBNull
+            Me(Me.tablePaid_Employees.Net_SalaryColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -2073,42 +2072,6 @@ Partial Public Class DatabaseDataSet
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-    Public Class _Employees_Unpaid_RowChangeEvent
-        Inherits Global.System.EventArgs
-        
-        Private eventRow As _Employees_Unpaid_Row
-        
-        Private eventAction As Global.System.Data.DataRowAction
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public Sub New(ByVal row As _Employees_Unpaid_Row, ByVal action As Global.System.Data.DataRowAction)
-            MyBase.New
-            Me.eventRow = row
-            Me.eventAction = action
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property Row() As _Employees_Unpaid_Row
-            Get
-                Return Me.eventRow
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
-        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
-            Get
-                Return Me.eventAction
-            End Get
-        End Property
-    End Class
-    
-    '''<summary>
-    '''Row event argument class
-    '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
     Public Class EmployeesRowChangeEvent
         Inherits Global.System.EventArgs
         
@@ -2127,6 +2090,42 @@ Partial Public Class DatabaseDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Public ReadOnly Property Row() As EmployeesRow
+            Get
+                Return Me.eventRow
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
+            Get
+                Return Me.eventAction
+            End Get
+        End Property
+    End Class
+    
+    '''<summary>
+    '''Row event argument class
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+    Public Class Paid_EmployeesRowChangeEvent
+        Inherits Global.System.EventArgs
+        
+        Private eventRow As Paid_EmployeesRow
+        
+        Private eventAction As Global.System.Data.DataRowAction
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public Sub New(ByVal row As Paid_EmployeesRow, ByVal action As Global.System.Data.DataRowAction)
+            MyBase.New
+            Me.eventRow = row
+            Me.eventAction = action
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
+        Public ReadOnly Property Row() As Paid_EmployeesRow
             Get
                 Return Me.eventRow
             End Get
@@ -2495,7 +2494,7 @@ Namespace DatabaseDataSetTableAdapters
      Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
      Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-    Partial Public Class Employees_Unpaid_TableAdapter
+    Partial Public Class EmployeesTableAdapter
         Inherits Global.System.ComponentModel.Component
         
         Private WithEvents _adapter As Global.System.Data.OleDb.OleDbDataAdapter
@@ -2612,7 +2611,7 @@ Namespace DatabaseDataSetTableAdapters
             Me._adapter = New Global.System.Data.OleDb.OleDbDataAdapter()
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
             tableMapping.SourceTable = "Table"
-            tableMapping.DataSetTable = "Employees(Unpaid)"
+            tableMapping.DataSetTable = "Employees"
             tableMapping.ColumnMappings.Add("ID", "ID")
             tableMapping.ColumnMappings.Add("Employees", "Employees")
             tableMapping.ColumnMappings.Add("Age", "Age")
@@ -2624,12 +2623,12 @@ Namespace DatabaseDataSetTableAdapters
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM `Employees(Unpaid)` WHERE ((`ID` = ?) AND ((? = 1 AND `Employees` IS "& _ 
-                "NULL) OR (`Employees` = ?)) AND ((? = 1 AND `Age` IS NULL) OR (`Age` = ?)) AND ("& _ 
-                "(? = 1 AND `Birthday` IS NULL) OR (`Birthday` = ?)) AND ((? = 1 AND `Gender` IS "& _ 
-                "NULL) OR (`Gender` = ?)) AND ((? = 1 AND `Adress` IS NULL) OR (`Adress` = ?)) AN"& _ 
-                "D ((? = 1 AND `Civil Status` IS NULL) OR (`Civil Status` = ?)) AND ((? = 1 AND `"& _ 
-                "Work` IS NULL) OR (`Work` = ?)))"
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM `Employees` WHERE ((`ID` = ?) AND ((? = 1 AND `Employees` IS NULL) OR"& _ 
+                " (`Employees` = ?)) AND ((? = 1 AND `Age` IS NULL) OR (`Age` = ?)) AND ((? = 1 A"& _ 
+                "ND `Birthday` IS NULL) OR (`Birthday` = ?)) AND ((? = 1 AND `Gender` IS NULL) OR"& _ 
+                " (`Gender` = ?)) AND ((? = 1 AND `Adress` IS NULL) OR (`Adress` = ?)) AND ((? = "& _ 
+                "1 AND `Civil Status` IS NULL) OR (`Civil Status` = ?)) AND ((? = 1 AND `Work` IS"& _ 
+                " NULL) OR (`Work` = ?)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Employees", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Employees", Global.System.Data.DataRowVersion.Original, true, Nothing))
@@ -2648,8 +2647,8 @@ Namespace DatabaseDataSetTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Work", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Work", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.InsertCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO `Employees(Unpaid)` (`Employees`, `Age`, `Birthday`, `Gender`, `Adres"& _ 
-                "s`, `Civil Status`, `Work`) VALUES (?, ?, ?, ?, ?, ?, ?)"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO `Employees` (`Employees`, `Age`, `Birthday`, `Gender`, `Adress`, `Civ"& _ 
+                "il Status`, `Work`) VALUES (?, ?, ?, ?, ?, ?, ?)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Employees", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Employees", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Age", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Age", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -2660,13 +2659,13 @@ Namespace DatabaseDataSetTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Work", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Work", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE `Employees(Unpaid)` SET `Employees` = ?, `Age` = ?, `Birthday` = ?, `Gende"& _ 
-                "r` = ?, `Adress` = ?, `Civil Status` = ?, `Work` = ? WHERE ((`ID` = ?) AND ((? ="& _ 
-                " 1 AND `Employees` IS NULL) OR (`Employees` = ?)) AND ((? = 1 AND `Age` IS NULL)"& _ 
-                " OR (`Age` = ?)) AND ((? = 1 AND `Birthday` IS NULL) OR (`Birthday` = ?)) AND (("& _ 
-                "? = 1 AND `Gender` IS NULL) OR (`Gender` = ?)) AND ((? = 1 AND `Adress` IS NULL)"& _ 
-                " OR (`Adress` = ?)) AND ((? = 1 AND `Civil Status` IS NULL) OR (`Civil Status` ="& _ 
-                " ?)) AND ((? = 1 AND `Work` IS NULL) OR (`Work` = ?)))"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE `Employees` SET `Employees` = ?, `Age` = ?, `Birthday` = ?, `Gender` = ?, "& _ 
+                "`Adress` = ?, `Civil Status` = ?, `Work` = ? WHERE ((`ID` = ?) AND ((? = 1 AND `"& _ 
+                "Employees` IS NULL) OR (`Employees` = ?)) AND ((? = 1 AND `Age` IS NULL) OR (`Ag"& _ 
+                "e` = ?)) AND ((? = 1 AND `Birthday` IS NULL) OR (`Birthday` = ?)) AND ((? = 1 AN"& _ 
+                "D `Gender` IS NULL) OR (`Gender` = ?)) AND ((? = 1 AND `Adress` IS NULL) OR (`Ad"& _ 
+                "ress` = ?)) AND ((? = 1 AND `Civil Status` IS NULL) OR (`Civil Status` = ?)) AND"& _ 
+                " ((? = 1 AND `Work` IS NULL) OR (`Work` = ?)))"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Employees", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Employees", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Age", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Age", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -2706,7 +2705,7 @@ Namespace DatabaseDataSetTableAdapters
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT ID, Employees, Age, Birthday, Gender, Adress, [Civil Status], [Work] FROM "& _ 
-                "[Employees(Unpaid)]"
+                "Employees"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -2714,7 +2713,7 @@ Namespace DatabaseDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DatabaseDataSet._Employees_Unpaid_DataTable) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As DatabaseDataSet.EmployeesDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
@@ -2727,9 +2726,9 @@ Namespace DatabaseDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As DatabaseDataSet._Employees_Unpaid_DataTable
+        Public Overloads Overridable Function GetData() As DatabaseDataSet.EmployeesDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Dim dataTable As DatabaseDataSet._Employees_Unpaid_DataTable = New DatabaseDataSet._Employees_Unpaid_DataTable()
+            Dim dataTable As DatabaseDataSet.EmployeesDataTable = New DatabaseDataSet.EmployeesDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
@@ -2737,7 +2736,7 @@ Namespace DatabaseDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataTable As DatabaseDataSet._Employees_Unpaid_DataTable) As Integer
+        Public Overloads Overridable Function Update(ByVal dataTable As DatabaseDataSet.EmployeesDataTable) As Integer
             Return Me.Adapter.Update(dataTable)
         End Function
         
@@ -2745,7 +2744,7 @@ Namespace DatabaseDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
         Public Overloads Overridable Function Update(ByVal dataSet As DatabaseDataSet) As Integer
-            Return Me.Adapter.Update(dataSet, "Employees(Unpaid)")
+            Return Me.Adapter.Update(dataSet, "Employees")
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3002,7 +3001,7 @@ Namespace DatabaseDataSetTableAdapters
      Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
      Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-    Partial Public Class EmployeesTableAdapter
+    Partial Public Class Paid_EmployeesTableAdapter
         Inherits Global.System.ComponentModel.Component
         
         Private WithEvents _adapter As Global.System.Data.OleDb.OleDbDataAdapter
@@ -3119,7 +3118,7 @@ Namespace DatabaseDataSetTableAdapters
             Me._adapter = New Global.System.Data.OleDb.OleDbDataAdapter()
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
             tableMapping.SourceTable = "Table"
-            tableMapping.DataSetTable = "Employees"
+            tableMapping.DataSetTable = "Paid_Employees"
             tableMapping.ColumnMappings.Add("ID", "ID")
             tableMapping.ColumnMappings.Add("Name", "Name")
             tableMapping.ColumnMappings.Add("Pay", "Pay")
@@ -3135,15 +3134,16 @@ Namespace DatabaseDataSetTableAdapters
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM `Employees` WHERE ((`ID` = ?) AND ((? = 1 AND `Name` IS NULL) OR (`Na"& _ 
-                "me` = ?)) AND ((? = 1 AND `Pay` IS NULL) OR (`Pay` = ?)) AND ((? = 1 AND `Hours`"& _ 
-                " IS NULL) OR (`Hours` = ?)) AND ((? = 1 AND `Days` IS NULL) OR (`Days` = ?)) AND"& _ 
-                " ((? = 1 AND `Overtime` IS NULL) OR (`Overtime` = ?)) AND ((? = 1 AND `Gross sal"& _ 
-                "ary` IS NULL) OR (`Gross salary` = ?)) AND ((? = 1 AND `Tax Deduction` IS NULL) "& _ 
-                "OR (`Tax Deduction` = ?)) AND ((? = 1 AND `Philhealth Contribution` IS NULL) OR "& _ 
-                "(`Philhealth Contribution` = ?)) AND ((? = 1 AND `SSS Contribution` IS NULL) OR "& _ 
-                "(`SSS Contribution` = ?)) AND ((? = 1 AND `Total Deduction` IS NULL) OR (`Total "& _ 
-                "Deduction` = ?)) AND ((? = 1 AND `Net Salary` IS NULL) OR (`Net Salary` = ?)))"
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM `Paid_Employees` WHERE ((`ID` = ?) AND ((? = 1 AND `Name` IS NULL) OR"& _ 
+                " (`Name` = ?)) AND ((? = 1 AND `Pay` IS NULL) OR (`Pay` = ?)) AND ((? = 1 AND `H"& _ 
+                "ours` IS NULL) OR (`Hours` = ?)) AND ((? = 1 AND `Days` IS NULL) OR (`Days` = ?)"& _ 
+                ") AND ((? = 1 AND `Overtime` IS NULL) OR (`Overtime` = ?)) AND ((? = 1 AND `Gros"& _ 
+                "s salary` IS NULL) OR (`Gross salary` = ?)) AND ((? = 1 AND `Tax Deduction` IS N"& _ 
+                "ULL) OR (`Tax Deduction` = ?)) AND ((? = 1 AND `Philhealth Contribution` IS NULL"& _ 
+                ") OR (`Philhealth Contribution` = ?)) AND ((? = 1 AND `SSS Contribution` IS NULL"& _ 
+                ") OR (`SSS Contribution` = ?)) AND ((? = 1 AND `Total Deduction` IS NULL) OR (`T"& _ 
+                "otal Deduction` = ?)) AND ((? = 1 AND `Net Salary` IS NULL) OR (`Net Salary` = ?"& _ 
+                ")))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Name", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Name", Global.System.Data.DataRowVersion.Original, true, Nothing))
@@ -3170,9 +3170,9 @@ Namespace DatabaseDataSetTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Net_Salary", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Net Salary", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.InsertCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO `Employees` (`Name`, `Pay`, `Hours`, `Days`, `Overtime`, `Gross salar"& _ 
-                "y`, `Tax Deduction`, `Philhealth Contribution`, `SSS Contribution`, `Total Deduc"& _ 
-                "tion`, `Net Salary`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO `Paid_Employees` (`Name`, `Pay`, `Hours`, `Days`, `Overtime`, `Gross "& _ 
+                "salary`, `Tax Deduction`, `Philhealth Contribution`, `SSS Contribution`, `Total "& _ 
+                "Deduction`, `Net Salary`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Name", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Name", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Pay", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Pay", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -3187,18 +3187,18 @@ Namespace DatabaseDataSetTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Net_Salary", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Net Salary", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE `Employees` SET `Name` = ?, `Pay` = ?, `Hours` = ?, `Days` = ?, `Overtime`"& _ 
-                " = ?, `Gross salary` = ?, `Tax Deduction` = ?, `Philhealth Contribution` = ?, `S"& _ 
-                "SS Contribution` = ?, `Total Deduction` = ?, `Net Salary` = ? WHERE ((`ID` = ?) "& _ 
-                "AND ((? = 1 AND `Name` IS NULL) OR (`Name` = ?)) AND ((? = 1 AND `Pay` IS NULL) "& _ 
-                "OR (`Pay` = ?)) AND ((? = 1 AND `Hours` IS NULL) OR (`Hours` = ?)) AND ((? = 1 A"& _ 
-                "ND `Days` IS NULL) OR (`Days` = ?)) AND ((? = 1 AND `Overtime` IS NULL) OR (`Ove"& _ 
-                "rtime` = ?)) AND ((? = 1 AND `Gross salary` IS NULL) OR (`Gross salary` = ?)) AN"& _ 
-                "D ((? = 1 AND `Tax Deduction` IS NULL) OR (`Tax Deduction` = ?)) AND ((? = 1 AND"& _ 
-                " `Philhealth Contribution` IS NULL) OR (`Philhealth Contribution` = ?)) AND ((? "& _ 
-                "= 1 AND `SSS Contribution` IS NULL) OR (`SSS Contribution` = ?)) AND ((? = 1 AND"& _ 
-                " `Total Deduction` IS NULL) OR (`Total Deduction` = ?)) AND ((? = 1 AND `Net Sal"& _ 
-                "ary` IS NULL) OR (`Net Salary` = ?)))"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE `Paid_Employees` SET `Name` = ?, `Pay` = ?, `Hours` = ?, `Days` = ?, `Over"& _ 
+                "time` = ?, `Gross salary` = ?, `Tax Deduction` = ?, `Philhealth Contribution` = "& _ 
+                "?, `SSS Contribution` = ?, `Total Deduction` = ?, `Net Salary` = ? WHERE ((`ID` "& _ 
+                "= ?) AND ((? = 1 AND `Name` IS NULL) OR (`Name` = ?)) AND ((? = 1 AND `Pay` IS N"& _ 
+                "ULL) OR (`Pay` = ?)) AND ((? = 1 AND `Hours` IS NULL) OR (`Hours` = ?)) AND ((? "& _ 
+                "= 1 AND `Days` IS NULL) OR (`Days` = ?)) AND ((? = 1 AND `Overtime` IS NULL) OR "& _ 
+                "(`Overtime` = ?)) AND ((? = 1 AND `Gross salary` IS NULL) OR (`Gross salary` = ?"& _ 
+                ")) AND ((? = 1 AND `Tax Deduction` IS NULL) OR (`Tax Deduction` = ?)) AND ((? = "& _ 
+                "1 AND `Philhealth Contribution` IS NULL) OR (`Philhealth Contribution` = ?)) AND"& _ 
+                " ((? = 1 AND `SSS Contribution` IS NULL) OR (`SSS Contribution` = ?)) AND ((? = "& _ 
+                "1 AND `Total Deduction` IS NULL) OR (`Total Deduction` = ?)) AND ((? = 1 AND `Ne"& _ 
+                "t Salary` IS NULL) OR (`Net Salary` = ?)))"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Name", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Name", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Pay", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Pay", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -3251,7 +3251,7 @@ Namespace DatabaseDataSetTableAdapters
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT ID, Name, Pay, Hours, Days, Overtime, [Gross salary], [Tax Deduction], [Ph"& _ 
                 "ilhealth Contribution], [SSS Contribution], [Total Deduction], [Net Salary] FROM"& _ 
-                " Employees"
+                " Paid_Employees"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -3259,7 +3259,7 @@ Namespace DatabaseDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As DatabaseDataSet.EmployeesDataTable) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As DatabaseDataSet.Paid_EmployeesDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
@@ -3272,9 +3272,9 @@ Namespace DatabaseDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As DatabaseDataSet.EmployeesDataTable
+        Public Overloads Overridable Function GetData() As DatabaseDataSet.Paid_EmployeesDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Dim dataTable As DatabaseDataSet.EmployeesDataTable = New DatabaseDataSet.EmployeesDataTable()
+            Dim dataTable As DatabaseDataSet.Paid_EmployeesDataTable = New DatabaseDataSet.Paid_EmployeesDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
@@ -3282,7 +3282,7 @@ Namespace DatabaseDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-        Public Overloads Overridable Function Update(ByVal dataTable As DatabaseDataSet.EmployeesDataTable) As Integer
+        Public Overloads Overridable Function Update(ByVal dataTable As DatabaseDataSet.Paid_EmployeesDataTable) As Integer
             Return Me.Adapter.Update(dataTable)
         End Function
         
@@ -3290,7 +3290,7 @@ Namespace DatabaseDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
         Public Overloads Overridable Function Update(ByVal dataSet As DatabaseDataSet) As Integer
-            Return Me.Adapter.Update(dataSet, "Employees")
+            Return Me.Adapter.Update(dataSet, "Paid_Employees")
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3672,9 +3672,9 @@ Namespace DatabaseDataSetTableAdapters
         
         Private _adminsTableAdapter As AdminsTableAdapter
         
-        Private _employees_Unpaid_TableAdapter As Employees_Unpaid_TableAdapter
-        
         Private _employeesTableAdapter As EmployeesTableAdapter
+        
+        Private _paid_EmployeesTableAdapter As Paid_EmployeesTableAdapter
         
         Private _backupDataSetBeforeUpdate As Boolean
         
@@ -3710,12 +3710,12 @@ Namespace DatabaseDataSetTableAdapters
          Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3"& _ 
             "a", "System.Drawing.Design.UITypeEditor")>  _
-        Public Property Employees_Unpaid_TableAdapter() As Employees_Unpaid_TableAdapter
+        Public Property EmployeesTableAdapter() As EmployeesTableAdapter
             Get
-                Return Me._employees_Unpaid_TableAdapter
+                Return Me._employeesTableAdapter
             End Get
             Set
-                Me._employees_Unpaid_TableAdapter = value
+                Me._employeesTableAdapter = value
             End Set
         End Property
         
@@ -3724,12 +3724,12 @@ Namespace DatabaseDataSetTableAdapters
          Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3"& _ 
             "a", "System.Drawing.Design.UITypeEditor")>  _
-        Public Property EmployeesTableAdapter() As EmployeesTableAdapter
+        Public Property Paid_EmployeesTableAdapter() As Paid_EmployeesTableAdapter
             Get
-                Return Me._employeesTableAdapter
+                Return Me._paid_EmployeesTableAdapter
             End Get
             Set
-                Me._employeesTableAdapter = value
+                Me._paid_EmployeesTableAdapter = value
             End Set
         End Property
         
@@ -3756,13 +3756,13 @@ Namespace DatabaseDataSetTableAdapters
                             AndAlso (Not (Me._adminsTableAdapter.Connection) Is Nothing)) Then
                     Return Me._adminsTableAdapter.Connection
                 End If
-                If ((Not (Me._employees_Unpaid_TableAdapter) Is Nothing)  _
-                            AndAlso (Not (Me._employees_Unpaid_TableAdapter.Connection) Is Nothing)) Then
-                    Return Me._employees_Unpaid_TableAdapter.Connection
-                End If
                 If ((Not (Me._employeesTableAdapter) Is Nothing)  _
                             AndAlso (Not (Me._employeesTableAdapter.Connection) Is Nothing)) Then
                     Return Me._employeesTableAdapter.Connection
+                End If
+                If ((Not (Me._paid_EmployeesTableAdapter) Is Nothing)  _
+                            AndAlso (Not (Me._paid_EmployeesTableAdapter.Connection) Is Nothing)) Then
+                    Return Me._paid_EmployeesTableAdapter.Connection
                 End If
                 Return Nothing
             End Get
@@ -3780,10 +3780,10 @@ Namespace DatabaseDataSetTableAdapters
                 If (Not (Me._adminsTableAdapter) Is Nothing) Then
                     count = (count + 1)
                 End If
-                If (Not (Me._employees_Unpaid_TableAdapter) Is Nothing) Then
+                If (Not (Me._employeesTableAdapter) Is Nothing) Then
                     count = (count + 1)
                 End If
-                If (Not (Me._employeesTableAdapter) Is Nothing) Then
+                If (Not (Me._paid_EmployeesTableAdapter) Is Nothing) Then
                     count = (count + 1)
                 End If
                 Return count
@@ -3806,21 +3806,21 @@ Namespace DatabaseDataSetTableAdapters
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
-            If (Not (Me._employees_Unpaid_TableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet._Employees_Unpaid_.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
-                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
-                If ((Not (updatedRows) Is Nothing)  _
-                            AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._employees_Unpaid_TableAdapter.Update(updatedRows))
-                    allChangedRows.AddRange(updatedRows)
-                End If
-            End If
             If (Not (Me._employeesTableAdapter) Is Nothing) Then
                 Dim updatedRows() As Global.System.Data.DataRow = dataSet.Employees.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
                 If ((Not (updatedRows) Is Nothing)  _
                             AndAlso (0 < updatedRows.Length)) Then
                     result = (result + Me._employeesTableAdapter.Update(updatedRows))
+                    allChangedRows.AddRange(updatedRows)
+                End If
+            End If
+            If (Not (Me._paid_EmployeesTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.Paid_Employees.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
+                If ((Not (updatedRows) Is Nothing)  _
+                            AndAlso (0 < updatedRows.Length)) Then
+                    result = (result + Me._paid_EmployeesTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
@@ -3842,19 +3842,19 @@ Namespace DatabaseDataSetTableAdapters
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
-            If (Not (Me._employees_Unpaid_TableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet._Employees_Unpaid_.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
-                If ((Not (addedRows) Is Nothing)  _
-                            AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._employees_Unpaid_TableAdapter.Update(addedRows))
-                    allAddedRows.AddRange(addedRows)
-                End If
-            End If
             If (Not (Me._employeesTableAdapter) Is Nothing) Then
                 Dim addedRows() As Global.System.Data.DataRow = dataSet.Employees.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
                             AndAlso (0 < addedRows.Length)) Then
                     result = (result + Me._employeesTableAdapter.Update(addedRows))
+                    allAddedRows.AddRange(addedRows)
+                End If
+            End If
+            If (Not (Me._paid_EmployeesTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.Paid_Employees.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+                If ((Not (addedRows) Is Nothing)  _
+                            AndAlso (0 < addedRows.Length)) Then
+                    result = (result + Me._paid_EmployeesTableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
@@ -3868,19 +3868,19 @@ Namespace DatabaseDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")>  _
         Private Function UpdateDeletedRows(ByVal dataSet As DatabaseDataSet, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
+            If (Not (Me._paid_EmployeesTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.Paid_Employees.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+                If ((Not (deletedRows) Is Nothing)  _
+                            AndAlso (0 < deletedRows.Length)) Then
+                    result = (result + Me._paid_EmployeesTableAdapter.Update(deletedRows))
+                    allChangedRows.AddRange(deletedRows)
+                End If
+            End If
             If (Not (Me._employeesTableAdapter) Is Nothing) Then
                 Dim deletedRows() As Global.System.Data.DataRow = dataSet.Employees.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
                     result = (result + Me._employeesTableAdapter.Update(deletedRows))
-                    allChangedRows.AddRange(deletedRows)
-                End If
-            End If
-            If (Not (Me._employees_Unpaid_TableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet._Employees_Unpaid_.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
-                If ((Not (deletedRows) Is Nothing)  _
-                            AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._employees_Unpaid_TableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
@@ -3938,13 +3938,13 @@ Namespace DatabaseDataSetTableAdapters
                 Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s"& _ 
                         "tring.")
             End If
-            If ((Not (Me._employees_Unpaid_TableAdapter) Is Nothing)  _
-                        AndAlso (Me.MatchTableAdapterConnection(Me._employees_Unpaid_TableAdapter.Connection) = false)) Then
+            If ((Not (Me._employeesTableAdapter) Is Nothing)  _
+                        AndAlso (Me.MatchTableAdapterConnection(Me._employeesTableAdapter.Connection) = false)) Then
                 Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s"& _ 
                         "tring.")
             End If
-            If ((Not (Me._employeesTableAdapter) Is Nothing)  _
-                        AndAlso (Me.MatchTableAdapterConnection(Me._employeesTableAdapter.Connection) = false)) Then
+            If ((Not (Me._paid_EmployeesTableAdapter) Is Nothing)  _
+                        AndAlso (Me.MatchTableAdapterConnection(Me._paid_EmployeesTableAdapter.Connection) = false)) Then
                 Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s"& _ 
                         "tring.")
             End If
@@ -3989,15 +3989,6 @@ Namespace DatabaseDataSetTableAdapters
                         adaptersWithAcceptChangesDuringUpdate.Add(Me._adminsTableAdapter.Adapter)
                     End If
                 End If
-                If (Not (Me._employees_Unpaid_TableAdapter) Is Nothing) Then
-                    revertConnections.Add(Me._employees_Unpaid_TableAdapter, Me._employees_Unpaid_TableAdapter.Connection)
-                    Me._employees_Unpaid_TableAdapter.Connection = CType(workConnection,Global.System.Data.OleDb.OleDbConnection)
-                    Me._employees_Unpaid_TableAdapter.Transaction = CType(workTransaction,Global.System.Data.OleDb.OleDbTransaction)
-                    If Me._employees_Unpaid_TableAdapter.Adapter.AcceptChangesDuringUpdate Then
-                        Me._employees_Unpaid_TableAdapter.Adapter.AcceptChangesDuringUpdate = false
-                        adaptersWithAcceptChangesDuringUpdate.Add(Me._employees_Unpaid_TableAdapter.Adapter)
-                    End If
-                End If
                 If (Not (Me._employeesTableAdapter) Is Nothing) Then
                     revertConnections.Add(Me._employeesTableAdapter, Me._employeesTableAdapter.Connection)
                     Me._employeesTableAdapter.Connection = CType(workConnection,Global.System.Data.OleDb.OleDbConnection)
@@ -4005,6 +3996,15 @@ Namespace DatabaseDataSetTableAdapters
                     If Me._employeesTableAdapter.Adapter.AcceptChangesDuringUpdate Then
                         Me._employeesTableAdapter.Adapter.AcceptChangesDuringUpdate = false
                         adaptersWithAcceptChangesDuringUpdate.Add(Me._employeesTableAdapter.Adapter)
+                    End If
+                End If
+                If (Not (Me._paid_EmployeesTableAdapter) Is Nothing) Then
+                    revertConnections.Add(Me._paid_EmployeesTableAdapter, Me._paid_EmployeesTableAdapter.Connection)
+                    Me._paid_EmployeesTableAdapter.Connection = CType(workConnection,Global.System.Data.OleDb.OleDbConnection)
+                    Me._paid_EmployeesTableAdapter.Transaction = CType(workTransaction,Global.System.Data.OleDb.OleDbTransaction)
+                    If Me._paid_EmployeesTableAdapter.Adapter.AcceptChangesDuringUpdate Then
+                        Me._paid_EmployeesTableAdapter.Adapter.AcceptChangesDuringUpdate = false
+                        adaptersWithAcceptChangesDuringUpdate.Add(Me._paid_EmployeesTableAdapter.Adapter)
                     End If
                 End If
                 '
@@ -4071,13 +4071,13 @@ Namespace DatabaseDataSetTableAdapters
                     Me._adminsTableAdapter.Connection = CType(revertConnections(Me._adminsTableAdapter),Global.System.Data.OleDb.OleDbConnection)
                     Me._adminsTableAdapter.Transaction = Nothing
                 End If
-                If (Not (Me._employees_Unpaid_TableAdapter) Is Nothing) Then
-                    Me._employees_Unpaid_TableAdapter.Connection = CType(revertConnections(Me._employees_Unpaid_TableAdapter),Global.System.Data.OleDb.OleDbConnection)
-                    Me._employees_Unpaid_TableAdapter.Transaction = Nothing
-                End If
                 If (Not (Me._employeesTableAdapter) Is Nothing) Then
                     Me._employeesTableAdapter.Connection = CType(revertConnections(Me._employeesTableAdapter),Global.System.Data.OleDb.OleDbConnection)
                     Me._employeesTableAdapter.Transaction = Nothing
+                End If
+                If (Not (Me._paid_EmployeesTableAdapter) Is Nothing) Then
+                    Me._paid_EmployeesTableAdapter.Connection = CType(revertConnections(Me._paid_EmployeesTableAdapter),Global.System.Data.OleDb.OleDbConnection)
+                    Me._paid_EmployeesTableAdapter.Transaction = Nothing
                 End If
                 If (0 < adaptersWithAcceptChangesDuringUpdate.Count) Then
                     Dim adapters((adaptersWithAcceptChangesDuringUpdate.Count) - 1) As Global.System.Data.Common.DataAdapter

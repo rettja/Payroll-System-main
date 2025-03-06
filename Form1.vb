@@ -59,17 +59,6 @@
         End Try
     End Sub
 
-
-
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: This line of code loads data into the 'DatabaseDataSet._Employees_Unpaid_' table. You can move, or remove it, as needed.
-        Me.Employees_Unpaid_TableAdapter.Fill(Me.DatabaseDataSet._Employees_Unpaid_)
-        'TODO: This line of code loads data into the 'DatabaseDataSet._Employees_Unpaid_' table. You can move, or remove it, as needed.
-        Me.Employees_Unpaid_TableAdapter.Fill(Me.DatabaseDataSet._Employees_Unpaid_)
-        'TODO: This line of code loads data into the 'DatabaseDataSet.Employees' table. You can move, or remove it, as needed.
-        Me.EmployeesTableAdapter.Fill(Me.DatabaseDataSet.Employees)
-    End Sub
-
     Private Sub clear_Click(sender As Object, e As EventArgs) Handles preview.Click
         Dim line As String = "---------------------------------------------------------------------------------------------------------------------------------------------------"
         Try
@@ -126,8 +115,6 @@
             Payslip.AppendText("                                                                      " + Date.Now + vbNewLine)
             Payslip.AppendText("====================================================================================" + vbNewLine)
 
-
-
             HourPerDay.Clear()
             RatePerHour.Clear()
             NumberOfDaysWorked.Clear()
@@ -147,6 +134,14 @@
 
     End Sub
 
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'DatabaseDataSet.Paid_Employees' table. You can move, or remove it, as needed.
+        Me.Paid_EmployeesTableAdapter.Fill(Me.DatabaseDataSet.Paid_Employees)
+        'TODO: This line of code loads data into the 'DatabaseDataSet.Employees' table. You can move, or remove it, as needed.
+        Me.EmployeesTableAdapter.Fill(Me.DatabaseDataSet.Employees)
+
+    End Sub
+
     Private Sub print_Click(sender As Object, e As EventArgs) Handles print.Click
         Me.TopMost() = True
         PrintPreviewDialog1.ShowDialog(Payslip)
@@ -155,14 +150,12 @@
     Private Sub Add_Click(sender As Object, e As EventArgs) Handles Add.Click
         EmployeesBindingSource.AddNew()
         EmployeeName.Clear()
-        EmployeeName.Text = unpaidemployees.Text
+        EmployeeName.Text = EmployeesID.Text
     End Sub
 
     Private Sub Insert_Click(sender As Object, e As EventArgs) Handles Insert.Click
         EmployeesBindingSource.EndEdit()
         EmployeesTableAdapter.Update(DatabaseDataSet.Employees)
-
-
     End Sub
 
     Private Sub PrintDocument1_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles PrintDocument1.PrintPage
@@ -174,7 +167,6 @@
             EmployeesBindingSource.EndEdit()
             EmployeesTableAdapter.Update(DatabaseDataSet.Employees)
 
-            Employees_Unpaid_BindingSource.RemoveCurrent()
             MessageBox.Show("Saved successfully")
         Catch ex As Exception
             MessageBox.Show("Not Saved")
@@ -185,17 +177,26 @@
 
     End Sub
 
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Next2.Click, Button4.Click
         Employees_Unpaid_BindingSource.MoveNext()
-        EmployeeName.Text = unpaidemployees.Text
+        EmployeeName.Text = EmployeesID.Text
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Previous.Click
         Employees_Unpaid_BindingSource.MovePrevious()
-        EmployeeName.Text = unpaidemployees.Text
+        EmployeeName.Text = EmployeesID.Text
     End Sub
 
     Private Sub exit1_Click(sender As Object, e As EventArgs) Handles exit1.Click
         Application.Exit()
     End Sub
+
+    Private Sub EmployeesLabel_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub AdressLabel_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
 End Class

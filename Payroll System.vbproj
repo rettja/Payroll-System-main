@@ -209,9 +209,6 @@
     <None Include="Resources\AUABC.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Database.accdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <None Include="Resources\arrow-back-3783 %282%29.png" />
     <None Include="Resources\arrow-back-3783.png" />
     <None Include="Resources\red-arrow-left-11343 %281%29.png" />
@@ -228,6 +225,11 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Database.accdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
