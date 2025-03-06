@@ -7,10 +7,6 @@
     Dim s As Integer
     Dim net As Integer
     Dim ot As Integer
-
-
-
-
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Try
             ans = (((HourPerDay.Text * NumberOfDaysWorked.Text) * RatePerHour.Text) + ot)
@@ -59,15 +55,12 @@
         End Try
     End Sub
 
-
-
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'DatabaseDataSet.Paid_Workers' table. You can move, or remove it, as needed.
+        Me.Paid_WorkersTableAdapter.Fill(Me.DatabaseDataSet.Paid_Workers)
+        'TODO: This line of code loads data into the 'DatabaseDataSet.Workers' table. You can move, or remove it, as needed.
+        Me.WorkersTableAdapter.Fill(Me.DatabaseDataSet.Workers)
         'TODO: This line of code loads data into the 'DatabaseDataSet._Employees_Unpaid_' table. You can move, or remove it, as needed.
-        Me.Employees_Unpaid_TableAdapter.Fill(Me.DatabaseDataSet._Employees_Unpaid_)
-        'TODO: This line of code loads data into the 'DatabaseDataSet._Employees_Unpaid_' table. You can move, or remove it, as needed.
-        Me.Employees_Unpaid_TableAdapter.Fill(Me.DatabaseDataSet._Employees_Unpaid_)
-        'TODO: This line of code loads data into the 'DatabaseDataSet.Employees' table. You can move, or remove it, as needed.
-        Me.EmployeesTableAdapter.Fill(Me.DatabaseDataSet.Employees)
     End Sub
 
     Private Sub clear_Click(sender As Object, e As EventArgs) Handles preview.Click
@@ -153,16 +146,14 @@
     End Sub
 
     Private Sub Add_Click(sender As Object, e As EventArgs) Handles Add.Click
-        EmployeesBindingSource.AddNew()
+        PaidWorkersBindingSource .AddNew()
         EmployeeName.Clear()
         EmployeeName.Text = unpaidemployees.Text
     End Sub
 
     Private Sub Insert_Click(sender As Object, e As EventArgs) Handles Insert.Click
-        EmployeesBindingSource.EndEdit()
-        EmployeesTableAdapter.Update(DatabaseDataSet.Employees)
-
-
+        PaidWorkersBindingSource.EndEdit()
+        Paid_WorkersTableAdapter.Update(DatabaseDataSet.Paid_Workers)
     End Sub
 
     Private Sub PrintDocument1_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles PrintDocument1.PrintPage
@@ -171,8 +162,8 @@
 
     Private Sub save_Click(sender As Object, e As EventArgs) Handles save.Click
         Try
-            EmployeesBindingSource.EndEdit()
-            EmployeesTableAdapter.Update(DatabaseDataSet.Employees)
+            PaidWorkersBindingSource.EndEdit()
+            Paid_WorkersTableAdapter.Update(DatabaseDataSet.Paid_Workers)
 
             Employees_Unpaid_BindingSource.RemoveCurrent()
             MessageBox.Show("Saved successfully")
@@ -186,16 +177,17 @@
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        Employees_Unpaid_BindingSource.MoveNext()
+        WorkersBindingSource.MoveNext()
         EmployeeName.Text = unpaidemployees.Text
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Employees_Unpaid_BindingSource.MovePrevious()
+        WorkersBindingSource.MovePrevious()
         EmployeeName.Text = unpaidemployees.Text
     End Sub
 
     Private Sub exit1_Click(sender As Object, e As EventArgs) Handles exit1.Click
         Application.Exit()
     End Sub
+
 End Class

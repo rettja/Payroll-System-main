@@ -77,6 +77,8 @@ Partial Class Form1
         Me.sssdeduc = New System.Windows.Forms.TextBox()
         Me.print = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.WorkTextBox = New System.Windows.Forms.TextBox()
         Me.Civil_StatusTextBox = New System.Windows.Forms.TextBox()
         Me.GenderTextBox = New System.Windows.Forms.TextBox()
@@ -85,29 +87,37 @@ Partial Class Form1
         Me.IDTextBox = New System.Windows.Forms.TextBox()
         Me.unpaidemployees = New System.Windows.Forms.TextBox()
         Me.BirthdayTextBox = New System.Windows.Forms.TextBox()
-        Me.Employees_Unpaid_BindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.exit1 = New System.Windows.Forms.Button()
+        Me.AUlogo = New System.Windows.Forms.PictureBox()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.WorkersBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DatabaseDataSet = New Payroll_System.DatabaseDataSet()
         Me.EmployeesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.PaidWorkersBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.PaidWorkersBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Employees_Unpaid_BindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.TableAdapterManager = New Payroll_System.DatabaseDataSetTableAdapters.TableAdapterManager()
+        Me.TableAdapterManager1 = New Payroll_System.DatabaseDataSetTableAdapters.TableAdapterManager()
+        Me.WorkersTableAdapter = New Payroll_System.DatabaseDataSetTableAdapters.WorkersTableAdapter()
+        Me.Paid_WorkersTableAdapter = New Payroll_System.DatabaseDataSetTableAdapters.Paid_WorkersTableAdapter()
+        Me.PaidWorkersBindingSource2 = New System.Windows.Forms.BindingSource(Me.components)
         Me.IDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PayDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.HoursDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DaysDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.RegularHolidayDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SpecialHolidayDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.OvertimeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GrossSalaryDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TaxDeductionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.SSSContributionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TotalDeductionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TotalDedcutionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NetSalaryDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TableAdapterManager = New Payroll_System.DatabaseDataSetTableAdapters.TableAdapterManager()
-        Me.TableAdapterManager1 = New Payroll_System.DatabaseDataSetTableAdapters.TableAdapterManager()
-        Me.EmployeesTableAdapter = New Payroll_System.DatabaseDataSetTableAdapters.EmployeesTableAdapter()
-        Me.Employees_Unpaid_TableAdapter = New Payroll_System.DatabaseDataSetTableAdapters.Employees_Unpaid_TableAdapter()
-        Me.exit1 = New System.Windows.Forms.Button()
-        Me.AUlogo = New System.Windows.Forms.PictureBox()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
         IDLabel = New System.Windows.Forms.Label()
         EmployeesLabel = New System.Windows.Forms.Label()
         AgeLabel = New System.Windows.Forms.Label()
@@ -121,10 +131,14 @@ Partial Class Form1
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
-        CType(Me.Employees_Unpaid_BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.AUlogo, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.WorkersBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DatabaseDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmployeesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.AUlogo, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PaidWorkersBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PaidWorkersBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Employees_Unpaid_BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PaidWorkersBindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'IDLabel
@@ -177,9 +191,9 @@ Partial Class Form1
         AdressLabel.AutoSize = True
         AdressLabel.Location = New System.Drawing.Point(255, 19)
         AdressLabel.Name = "AdressLabel"
-        AdressLabel.Size = New System.Drawing.Size(42, 13)
+        AdressLabel.Size = New System.Drawing.Size(48, 13)
         AdressLabel.TabIndex = 10
-        AdressLabel.Text = "Adress:"
+        AdressLabel.Text = "Address:"
         '
         'Civil_StatusLabel
         '
@@ -201,7 +215,7 @@ Partial Class Form1
         '
         'EmployeeName
         '
-        Me.EmployeeName.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmployeesBindingSource, "Name", True))
+        Me.EmployeeName.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PaidWorkersBindingSource, "name", True))
         Me.EmployeeName.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.EmployeeName.Location = New System.Drawing.Point(27, 201)
         Me.EmployeeName.Multiline = True
@@ -244,7 +258,7 @@ Partial Class Form1
         '
         'HourPerDay
         '
-        Me.HourPerDay.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmployeesBindingSource, "Hours", True))
+        Me.HourPerDay.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PaidWorkersBindingSource, "Hours", True))
         Me.HourPerDay.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.HourPerDay.Location = New System.Drawing.Point(27, 341)
         Me.HourPerDay.Name = "HourPerDay"
@@ -263,7 +277,7 @@ Partial Class Form1
         '
         'NumberOfDaysWorked
         '
-        Me.NumberOfDaysWorked.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmployeesBindingSource, "Days", True))
+        Me.NumberOfDaysWorked.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PaidWorkersBindingSource, "Days", True))
         Me.NumberOfDaysWorked.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.NumberOfDaysWorked.Location = New System.Drawing.Point(27, 411)
         Me.NumberOfDaysWorked.Name = "NumberOfDaysWorked"
@@ -282,7 +296,7 @@ Partial Class Form1
         '
         'TotalDeduction
         '
-        Me.TotalDeduction.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmployeesBindingSource, "Total Deduction", True, System.Windows.Forms.DataSourceUpdateMode.OnValidation, Nothing, "C2"))
+        Me.TotalDeduction.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PaidWorkersBindingSource, "Total_Dedcution", True))
         Me.TotalDeduction.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TotalDeduction.Location = New System.Drawing.Point(259, 589)
         Me.TotalDeduction.Name = "TotalDeduction"
@@ -294,7 +308,7 @@ Partial Class Form1
         '
         'GrossSalary1
         '
-        Me.GrossSalary1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmployeesBindingSource, "Gross salary", True, System.Windows.Forms.DataSourceUpdateMode.OnValidation, Nothing, "C2"))
+        Me.GrossSalary1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PaidWorkersBindingSource, "Gross_Salary", True))
         Me.GrossSalary1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GrossSalary1.Location = New System.Drawing.Point(27, 589)
         Me.GrossSalary1.Name = "GrossSalary1"
@@ -306,7 +320,7 @@ Partial Class Form1
         '
         'RatePerHour
         '
-        Me.RatePerHour.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmployeesBindingSource, "Pay", True, System.Windows.Forms.DataSourceUpdateMode.OnValidation, Nothing, "C2"))
+        Me.RatePerHour.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PaidWorkersBindingSource, "Pay", True))
         Me.RatePerHour.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RatePerHour.Location = New System.Drawing.Point(27, 270)
         Me.RatePerHour.Name = "RatePerHour"
@@ -417,7 +431,7 @@ Partial Class Form1
         '
         'NetSalary
         '
-        Me.NetSalary.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmployeesBindingSource, "Net Salary", True, System.Windows.Forms.DataSourceUpdateMode.OnValidation, Nothing, "C2"))
+        Me.NetSalary.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PaidWorkersBindingSource, "Net_Salary", True))
         Me.NetSalary.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.NetSalary.Location = New System.Drawing.Point(493, 589)
         Me.NetSalary.Name = "NetSalary"
@@ -430,7 +444,7 @@ Partial Class Form1
         'Button1
         '
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
-        Me.Button1.Location = New System.Drawing.Point(300, 660)
+        Me.Button1.Location = New System.Drawing.Point(225, 658)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(128, 53)
         Me.Button1.TabIndex = 7
@@ -449,7 +463,7 @@ Partial Class Form1
         '
         'Overtime
         '
-        Me.Overtime.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.EmployeesBindingSource, "Overtime", True))
+        Me.Overtime.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PaidWorkersBindingSource, "Overtime", True))
         Me.Overtime.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Overtime.Location = New System.Drawing.Point(27, 481)
         Me.Overtime.Name = "Overtime"
@@ -478,6 +492,7 @@ Partial Class Form1
         '
         'MonthlyWageTax
         '
+        Me.MonthlyWageTax.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PaidWorkersBindingSource, "Tax Deduction", True))
         Me.MonthlyWageTax.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.MonthlyWageTax.Location = New System.Drawing.Point(259, 201)
         Me.MonthlyWageTax.Name = "MonthlyWageTax"
@@ -489,6 +504,7 @@ Partial Class Form1
         '
         'Philhealth
         '
+        Me.Philhealth.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PaidWorkersBindingSource, "PhilHealth_Contribution", True))
         Me.Philhealth.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Philhealth.Location = New System.Drawing.Point(259, 270)
         Me.Philhealth.Name = "Philhealth"
@@ -500,6 +516,7 @@ Partial Class Form1
         '
         'SSS
         '
+        Me.SSS.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PaidWorkersBindingSource, "SSS_Contribution", True))
         Me.SSS.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SSS.Location = New System.Drawing.Point(259, 341)
         Me.SSS.Name = "SSS"
@@ -536,8 +553,8 @@ Partial Class Form1
         Me.DataGridView1.AllowUserToOrderColumns = True
         Me.DataGridView1.AutoGenerateColumns = False
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IDDataGridViewTextBoxColumn, Me.NameDataGridViewTextBoxColumn, Me.PayDataGridViewTextBoxColumn, Me.HoursDataGridViewTextBoxColumn, Me.DaysDataGridViewTextBoxColumn, Me.OvertimeDataGridViewTextBoxColumn, Me.GrossSalaryDataGridViewTextBoxColumn, Me.TaxDeductionDataGridViewTextBoxColumn, Me.DataGridViewTextBoxColumn1, Me.SSSContributionDataGridViewTextBoxColumn, Me.TotalDeductionDataGridViewTextBoxColumn, Me.NetSalaryDataGridViewTextBoxColumn})
-        Me.DataGridView1.DataSource = Me.EmployeesBindingSource
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IDDataGridViewTextBoxColumn, Me.NameDataGridViewTextBoxColumn, Me.PayDataGridViewTextBoxColumn, Me.HoursDataGridViewTextBoxColumn, Me.DaysDataGridViewTextBoxColumn, Me.RegularHolidayDataGridViewTextBoxColumn, Me.SpecialHolidayDataGridViewTextBoxColumn, Me.OvertimeDataGridViewTextBoxColumn, Me.GrossSalaryDataGridViewTextBoxColumn, Me.TaxDeductionDataGridViewTextBoxColumn, Me.DataGridViewTextBoxColumn1, Me.SSSContributionDataGridViewTextBoxColumn, Me.TotalDedcutionDataGridViewTextBoxColumn, Me.NetSalaryDataGridViewTextBoxColumn})
+        Me.DataGridView1.DataSource = Me.PaidWorkersBindingSource
         Me.DataGridView1.Location = New System.Drawing.Point(0, 0)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.Size = New System.Drawing.Size(642, 522)
@@ -563,11 +580,12 @@ Partial Class Form1
         Me.Payslip.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.Payslip.Size = New System.Drawing.Size(663, 518)
         Me.Payslip.TabIndex = 0
+        Me.Payslip.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Insert
         '
         Me.Insert.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
-        Me.Insert.Location = New System.Drawing.Point(435, 660)
+        Me.Insert.Location = New System.Drawing.Point(360, 658)
         Me.Insert.Name = "Insert"
         Me.Insert.Size = New System.Drawing.Size(128, 53)
         Me.Insert.TabIndex = 8
@@ -577,7 +595,7 @@ Partial Class Form1
         'save
         '
         Me.save.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
-        Me.save.Location = New System.Drawing.Point(569, 660)
+        Me.save.Location = New System.Drawing.Point(494, 658)
         Me.save.Name = "save"
         Me.save.Size = New System.Drawing.Size(128, 53)
         Me.save.TabIndex = 9
@@ -587,7 +605,7 @@ Partial Class Form1
         'Add
         '
         Me.Add.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
-        Me.Add.Location = New System.Drawing.Point(163, 660)
+        Me.Add.Location = New System.Drawing.Point(88, 658)
         Me.Add.Name = "Add"
         Me.Add.Size = New System.Drawing.Size(128, 53)
         Me.Add.TabIndex = 1
@@ -654,6 +672,8 @@ Partial Class Form1
         'GroupBox1
         '
         Me.GroupBox1.BackColor = System.Drawing.Color.SteelBlue
+        Me.GroupBox1.Controls.Add(Me.Button3)
+        Me.GroupBox1.Controls.Add(Me.Button2)
         Me.GroupBox1.Controls.Add(WorkLabel)
         Me.GroupBox1.Controls.Add(Me.WorkTextBox)
         Me.GroupBox1.Controls.Add(Civil_StatusLabel)
@@ -672,23 +692,41 @@ Partial Class Form1
         Me.GroupBox1.Controls.Add(EmployeesLabel)
         Me.GroupBox1.Location = New System.Drawing.Point(27, 75)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(670, 103)
+        Me.GroupBox1.Size = New System.Drawing.Size(670, 100)
         Me.GroupBox1.TabIndex = 53
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Information"
         '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(585, 73)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(75, 20)
+        Me.Button3.TabIndex = 16
+        Me.Button3.Text = "Next"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(504, 73)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(75, 20)
+        Me.Button2.TabIndex = 16
+        Me.Button2.Text = "Previous"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
         'WorkTextBox
         '
-        Me.WorkTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.Employees_Unpaid_BindingSource, "Work", True))
+        Me.WorkTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.WorkersBindingSource, "Work", True))
         Me.WorkTextBox.Location = New System.Drawing.Point(368, 74)
         Me.WorkTextBox.Name = "WorkTextBox"
-        Me.WorkTextBox.Size = New System.Drawing.Size(296, 20)
+        Me.WorkTextBox.Size = New System.Drawing.Size(133, 20)
         Me.WorkTextBox.TabIndex = 15
         Me.WorkTextBox.TabStop = False
         '
         'Civil_StatusTextBox
         '
-        Me.Civil_StatusTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.Employees_Unpaid_BindingSource, "Civil Status", True))
+        Me.Civil_StatusTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.WorkersBindingSource, "Civil Status", True))
         Me.Civil_StatusTextBox.Location = New System.Drawing.Point(262, 74)
         Me.Civil_StatusTextBox.Name = "Civil_StatusTextBox"
         Me.Civil_StatusTextBox.Size = New System.Drawing.Size(100, 20)
@@ -697,7 +735,7 @@ Partial Class Form1
         '
         'GenderTextBox
         '
-        Me.GenderTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.Employees_Unpaid_BindingSource, "Gender", True))
+        Me.GenderTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.WorkersBindingSource, "Gender", True))
         Me.GenderTextBox.Location = New System.Drawing.Point(156, 74)
         Me.GenderTextBox.Name = "GenderTextBox"
         Me.GenderTextBox.Size = New System.Drawing.Size(100, 20)
@@ -706,16 +744,16 @@ Partial Class Form1
         '
         'AdressTextBox
         '
-        Me.AdressTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.Employees_Unpaid_BindingSource, "Adress", True))
+        Me.AdressTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.WorkersBindingSource, "Address", True))
         Me.AdressTextBox.Location = New System.Drawing.Point(262, 35)
         Me.AdressTextBox.Name = "AdressTextBox"
-        Me.AdressTextBox.Size = New System.Drawing.Size(402, 20)
+        Me.AdressTextBox.Size = New System.Drawing.Size(239, 20)
         Me.AdressTextBox.TabIndex = 11
         Me.AdressTextBox.TabStop = False
         '
         'AgeTextBox
         '
-        Me.AgeTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.Employees_Unpaid_BindingSource, "Age", True))
+        Me.AgeTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.WorkersBindingSource, "Age", True))
         Me.AgeTextBox.Location = New System.Drawing.Point(11, 74)
         Me.AgeTextBox.Name = "AgeTextBox"
         Me.AgeTextBox.Size = New System.Drawing.Size(35, 20)
@@ -724,7 +762,7 @@ Partial Class Form1
         '
         'IDTextBox
         '
-        Me.IDTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.Employees_Unpaid_BindingSource, "ID", True))
+        Me.IDTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.WorkersBindingSource, "ID", True))
         Me.IDTextBox.Location = New System.Drawing.Point(11, 35)
         Me.IDTextBox.Name = "IDTextBox"
         Me.IDTextBox.Size = New System.Drawing.Size(35, 20)
@@ -733,7 +771,7 @@ Partial Class Form1
         '
         'unpaidemployees
         '
-        Me.unpaidemployees.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.Employees_Unpaid_BindingSource, "Employees", True))
+        Me.unpaidemployees.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.WorkersBindingSource, "Employees", True))
         Me.unpaidemployees.Location = New System.Drawing.Point(52, 35)
         Me.unpaidemployees.Name = "unpaidemployees"
         Me.unpaidemployees.Size = New System.Drawing.Size(199, 20)
@@ -742,125 +780,12 @@ Partial Class Form1
         '
         'BirthdayTextBox
         '
-        Me.BirthdayTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.Employees_Unpaid_BindingSource, "Birthday", True))
+        Me.BirthdayTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.WorkersBindingSource, "Birthday", True))
         Me.BirthdayTextBox.Location = New System.Drawing.Point(52, 74)
         Me.BirthdayTextBox.Name = "BirthdayTextBox"
         Me.BirthdayTextBox.Size = New System.Drawing.Size(100, 20)
         Me.BirthdayTextBox.TabIndex = 7
         Me.BirthdayTextBox.TabStop = False
-        '
-        'Employees_Unpaid_BindingSource
-        '
-        Me.Employees_Unpaid_BindingSource.DataMember = "Employees(Unpaid)"
-        Me.Employees_Unpaid_BindingSource.DataSource = Me.DatabaseDataSet
-        '
-        'DatabaseDataSet
-        '
-        Me.DatabaseDataSet.DataSetName = "DatabaseDataSet"
-        Me.DatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'EmployeesBindingSource
-        '
-        Me.EmployeesBindingSource.DataMember = "Employees"
-        Me.EmployeesBindingSource.DataSource = Me.DatabaseDataSet
-        '
-        'IDDataGridViewTextBoxColumn
-        '
-        Me.IDDataGridViewTextBoxColumn.DataPropertyName = "ID"
-        Me.IDDataGridViewTextBoxColumn.HeaderText = "ID"
-        Me.IDDataGridViewTextBoxColumn.Name = "IDDataGridViewTextBoxColumn"
-        '
-        'NameDataGridViewTextBoxColumn
-        '
-        Me.NameDataGridViewTextBoxColumn.DataPropertyName = "Name"
-        Me.NameDataGridViewTextBoxColumn.HeaderText = "Name"
-        Me.NameDataGridViewTextBoxColumn.Name = "NameDataGridViewTextBoxColumn"
-        '
-        'PayDataGridViewTextBoxColumn
-        '
-        Me.PayDataGridViewTextBoxColumn.DataPropertyName = "Pay"
-        Me.PayDataGridViewTextBoxColumn.HeaderText = "Pay"
-        Me.PayDataGridViewTextBoxColumn.Name = "PayDataGridViewTextBoxColumn"
-        '
-        'HoursDataGridViewTextBoxColumn
-        '
-        Me.HoursDataGridViewTextBoxColumn.DataPropertyName = "Hours"
-        Me.HoursDataGridViewTextBoxColumn.HeaderText = "Hours"
-        Me.HoursDataGridViewTextBoxColumn.Name = "HoursDataGridViewTextBoxColumn"
-        '
-        'DaysDataGridViewTextBoxColumn
-        '
-        Me.DaysDataGridViewTextBoxColumn.DataPropertyName = "Days"
-        Me.DaysDataGridViewTextBoxColumn.HeaderText = "Days"
-        Me.DaysDataGridViewTextBoxColumn.Name = "DaysDataGridViewTextBoxColumn"
-        '
-        'OvertimeDataGridViewTextBoxColumn
-        '
-        Me.OvertimeDataGridViewTextBoxColumn.DataPropertyName = "Overtime"
-        Me.OvertimeDataGridViewTextBoxColumn.HeaderText = "Overtime"
-        Me.OvertimeDataGridViewTextBoxColumn.Name = "OvertimeDataGridViewTextBoxColumn"
-        '
-        'GrossSalaryDataGridViewTextBoxColumn
-        '
-        Me.GrossSalaryDataGridViewTextBoxColumn.DataPropertyName = "Gross salary"
-        Me.GrossSalaryDataGridViewTextBoxColumn.HeaderText = "Gross salary"
-        Me.GrossSalaryDataGridViewTextBoxColumn.Name = "GrossSalaryDataGridViewTextBoxColumn"
-        '
-        'TaxDeductionDataGridViewTextBoxColumn
-        '
-        Me.TaxDeductionDataGridViewTextBoxColumn.DataPropertyName = "Tax Deduction"
-        Me.TaxDeductionDataGridViewTextBoxColumn.HeaderText = "Tax Deduction"
-        Me.TaxDeductionDataGridViewTextBoxColumn.Name = "TaxDeductionDataGridViewTextBoxColumn"
-        '
-        'DataGridViewTextBoxColumn1
-        '
-        Me.DataGridViewTextBoxColumn1.DataPropertyName = "Philhealth Contribution"
-        Me.DataGridViewTextBoxColumn1.HeaderText = "Philhealth Contribution"
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        '
-        'SSSContributionDataGridViewTextBoxColumn
-        '
-        Me.SSSContributionDataGridViewTextBoxColumn.DataPropertyName = "SSS Contribution"
-        Me.SSSContributionDataGridViewTextBoxColumn.HeaderText = "SSS Contribution"
-        Me.SSSContributionDataGridViewTextBoxColumn.Name = "SSSContributionDataGridViewTextBoxColumn"
-        '
-        'TotalDeductionDataGridViewTextBoxColumn
-        '
-        Me.TotalDeductionDataGridViewTextBoxColumn.DataPropertyName = "Total Deduction"
-        Me.TotalDeductionDataGridViewTextBoxColumn.HeaderText = "Total Deduction"
-        Me.TotalDeductionDataGridViewTextBoxColumn.Name = "TotalDeductionDataGridViewTextBoxColumn"
-        '
-        'NetSalaryDataGridViewTextBoxColumn
-        '
-        Me.NetSalaryDataGridViewTextBoxColumn.DataPropertyName = "Net Salary"
-        Me.NetSalaryDataGridViewTextBoxColumn.HeaderText = "Net Salary"
-        Me.NetSalaryDataGridViewTextBoxColumn.Name = "NetSalaryDataGridViewTextBoxColumn"
-        '
-        'TableAdapterManager
-        '
-        Me.TableAdapterManager.AdminsTableAdapter = Nothing
-        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager.Connection = Nothing
-        Me.TableAdapterManager.Employees_Unpaid_TableAdapter = Nothing
-        Me.TableAdapterManager.EmployeesTableAdapter = Nothing
-        Me.TableAdapterManager.UpdateOrder = Payroll_System.DatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
-        '
-        'TableAdapterManager1
-        '
-        Me.TableAdapterManager1.AdminsTableAdapter = Nothing
-        Me.TableAdapterManager1.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager1.Connection = Nothing
-        Me.TableAdapterManager1.Employees_Unpaid_TableAdapter = Nothing
-        Me.TableAdapterManager1.EmployeesTableAdapter = Nothing
-        Me.TableAdapterManager1.UpdateOrder = Payroll_System.DatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
-        '
-        'EmployeesTableAdapter
-        '
-        Me.EmployeesTableAdapter.ClearBeforeFill = True
-        '
-        'Employees_Unpaid_TableAdapter
-        '
-        Me.Employees_Unpaid_TableAdapter.ClearBeforeFill = True
         '
         'exit1
         '
@@ -887,30 +812,188 @@ Partial Class Form1
         Me.AUlogo.TabIndex = 50
         Me.AUlogo.TabStop = False
         '
-        'Button3
+        'TextBox1
         '
-        Me.Button3.BackgroundImage = Global.Payroll_System.My.Resources.Resources.arrow_back_3783__2_
-        Me.Button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
-        Me.Button3.Location = New System.Drawing.Point(93, 660)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(59, 53)
-        Me.Button3.TabIndex = 100
-        Me.Button3.TabStop = False
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.TextBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PaidWorkersBindingSource, "Regular_Holiday", True))
+        Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox1.Location = New System.Drawing.Point(259, 411)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(204, 30)
+        Me.TextBox1.TabIndex = 4
         '
-        'Button2
+        'Label15
         '
-        Me.Button2.BackColor = System.Drawing.Color.Transparent
-        Me.Button2.BackgroundImage = Global.Payroll_System.My.Resources.Resources.arrow_back_3783
-        Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(27, 660)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(59, 53)
-        Me.Button2.TabIndex = 1
-        Me.Button2.TabStop = False
-        Me.Button2.UseVisualStyleBackColor = False
+        Me.Label15.AutoSize = True
+        Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
+        Me.Label15.Location = New System.Drawing.Point(256, 391)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(214, 17)
+        Me.Label15.TabIndex = 10
+        Me.Label15.Text = "REGULAR HOLIDAYS WORKED"
+        '
+        'TextBox2
+        '
+        Me.TextBox2.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PaidWorkersBindingSource, "Special_Holiday", True))
+        Me.TextBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBox2.Location = New System.Drawing.Point(259, 481)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(204, 30)
+        Me.TextBox2.TabIndex = 4
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
+        Me.Label16.Location = New System.Drawing.Point(256, 461)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(203, 17)
+        Me.Label16.TabIndex = 10
+        Me.Label16.Text = "SPECIAL HOLIDAYS WORKED"
+        '
+        'WorkersBindingSource
+        '
+        Me.WorkersBindingSource.DataMember = "Workers"
+        Me.WorkersBindingSource.DataSource = Me.DatabaseDataSet
+        '
+        'DatabaseDataSet
+        '
+        Me.DatabaseDataSet.DataSetName = "DatabaseDataSet"
+        Me.DatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'EmployeesBindingSource
+        '
+        Me.EmployeesBindingSource.DataMember = "Employees"
+        Me.EmployeesBindingSource.DataSource = Me.DatabaseDataSet
+        '
+        'PaidWorkersBindingSource
+        '
+        Me.PaidWorkersBindingSource.DataMember = "Paid_Workers"
+        Me.PaidWorkersBindingSource.DataSource = Me.DatabaseDataSet
+        '
+        'PaidWorkersBindingSource1
+        '
+        Me.PaidWorkersBindingSource1.DataMember = "Paid_Workers"
+        Me.PaidWorkersBindingSource1.DataSource = Me.DatabaseDataSet
+        '
+        'Employees_Unpaid_BindingSource
+        '
+        Me.Employees_Unpaid_BindingSource.DataMember = "Employees(Unpaid)"
+        Me.Employees_Unpaid_BindingSource.DataSource = Me.DatabaseDataSet
+        '
+        'TableAdapterManager
+        '
+        Me.TableAdapterManager.AdminsTableAdapter = Nothing
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.Connection = Nothing
+        Me.TableAdapterManager.Paid_WorkersTableAdapter = Nothing
+        Me.TableAdapterManager.UpdateOrder = Payroll_System.DatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        Me.TableAdapterManager.WorkersTableAdapter = Nothing
+        '
+        'TableAdapterManager1
+        '
+        Me.TableAdapterManager1.AdminsTableAdapter = Nothing
+        Me.TableAdapterManager1.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager1.Connection = Nothing
+        Me.TableAdapterManager1.Paid_WorkersTableAdapter = Nothing
+        Me.TableAdapterManager1.UpdateOrder = Payroll_System.DatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        Me.TableAdapterManager1.WorkersTableAdapter = Nothing
+        '
+        'WorkersTableAdapter
+        '
+        Me.WorkersTableAdapter.ClearBeforeFill = True
+        '
+        'Paid_WorkersTableAdapter
+        '
+        Me.Paid_WorkersTableAdapter.ClearBeforeFill = True
+        '
+        'PaidWorkersBindingSource2
+        '
+        Me.PaidWorkersBindingSource2.DataMember = "Paid_Workers"
+        Me.PaidWorkersBindingSource2.DataSource = Me.DatabaseDataSet
+        '
+        'IDDataGridViewTextBoxColumn
+        '
+        Me.IDDataGridViewTextBoxColumn.DataPropertyName = "ID"
+        Me.IDDataGridViewTextBoxColumn.HeaderText = "ID"
+        Me.IDDataGridViewTextBoxColumn.Name = "IDDataGridViewTextBoxColumn"
+        '
+        'NameDataGridViewTextBoxColumn
+        '
+        Me.NameDataGridViewTextBoxColumn.DataPropertyName = "name"
+        Me.NameDataGridViewTextBoxColumn.HeaderText = "name"
+        Me.NameDataGridViewTextBoxColumn.Name = "NameDataGridViewTextBoxColumn"
+        '
+        'PayDataGridViewTextBoxColumn
+        '
+        Me.PayDataGridViewTextBoxColumn.DataPropertyName = "Pay"
+        Me.PayDataGridViewTextBoxColumn.HeaderText = "Pay"
+        Me.PayDataGridViewTextBoxColumn.Name = "PayDataGridViewTextBoxColumn"
+        '
+        'HoursDataGridViewTextBoxColumn
+        '
+        Me.HoursDataGridViewTextBoxColumn.DataPropertyName = "Hours"
+        Me.HoursDataGridViewTextBoxColumn.HeaderText = "Hours"
+        Me.HoursDataGridViewTextBoxColumn.Name = "HoursDataGridViewTextBoxColumn"
+        '
+        'DaysDataGridViewTextBoxColumn
+        '
+        Me.DaysDataGridViewTextBoxColumn.DataPropertyName = "Days"
+        Me.DaysDataGridViewTextBoxColumn.HeaderText = "Days"
+        Me.DaysDataGridViewTextBoxColumn.Name = "DaysDataGridViewTextBoxColumn"
+        '
+        'RegularHolidayDataGridViewTextBoxColumn
+        '
+        Me.RegularHolidayDataGridViewTextBoxColumn.DataPropertyName = "Regular_Holiday"
+        Me.RegularHolidayDataGridViewTextBoxColumn.HeaderText = "Regular_Holiday"
+        Me.RegularHolidayDataGridViewTextBoxColumn.Name = "RegularHolidayDataGridViewTextBoxColumn"
+        '
+        'SpecialHolidayDataGridViewTextBoxColumn
+        '
+        Me.SpecialHolidayDataGridViewTextBoxColumn.DataPropertyName = "Special_Holiday"
+        Me.SpecialHolidayDataGridViewTextBoxColumn.HeaderText = "Special_Holiday"
+        Me.SpecialHolidayDataGridViewTextBoxColumn.Name = "SpecialHolidayDataGridViewTextBoxColumn"
+        '
+        'OvertimeDataGridViewTextBoxColumn
+        '
+        Me.OvertimeDataGridViewTextBoxColumn.DataPropertyName = "Overtime"
+        Me.OvertimeDataGridViewTextBoxColumn.HeaderText = "Overtime"
+        Me.OvertimeDataGridViewTextBoxColumn.Name = "OvertimeDataGridViewTextBoxColumn"
+        '
+        'GrossSalaryDataGridViewTextBoxColumn
+        '
+        Me.GrossSalaryDataGridViewTextBoxColumn.DataPropertyName = "Gross_Salary"
+        Me.GrossSalaryDataGridViewTextBoxColumn.HeaderText = "Gross_Salary"
+        Me.GrossSalaryDataGridViewTextBoxColumn.Name = "GrossSalaryDataGridViewTextBoxColumn"
+        '
+        'TaxDeductionDataGridViewTextBoxColumn
+        '
+        Me.TaxDeductionDataGridViewTextBoxColumn.DataPropertyName = "Tax Deduction"
+        Me.TaxDeductionDataGridViewTextBoxColumn.HeaderText = "Tax Deduction"
+        Me.TaxDeductionDataGridViewTextBoxColumn.Name = "TaxDeductionDataGridViewTextBoxColumn"
+        '
+        'DataGridViewTextBoxColumn1
+        '
+        Me.DataGridViewTextBoxColumn1.DataPropertyName = "PhilHealth_Contribution"
+        Me.DataGridViewTextBoxColumn1.HeaderText = "PhilHealth_Contribution"
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        '
+        'SSSContributionDataGridViewTextBoxColumn
+        '
+        Me.SSSContributionDataGridViewTextBoxColumn.DataPropertyName = "SSS_Contribution"
+        Me.SSSContributionDataGridViewTextBoxColumn.HeaderText = "SSS_Contribution"
+        Me.SSSContributionDataGridViewTextBoxColumn.Name = "SSSContributionDataGridViewTextBoxColumn"
+        '
+        'TotalDedcutionDataGridViewTextBoxColumn
+        '
+        Me.TotalDedcutionDataGridViewTextBoxColumn.DataPropertyName = "Total_Dedcution"
+        Me.TotalDedcutionDataGridViewTextBoxColumn.HeaderText = "Total_Dedcution"
+        Me.TotalDedcutionDataGridViewTextBoxColumn.Name = "TotalDedcutionDataGridViewTextBoxColumn"
+        '
+        'NetSalaryDataGridViewTextBoxColumn
+        '
+        Me.NetSalaryDataGridViewTextBoxColumn.DataPropertyName = "Net_Salary"
+        Me.NetSalaryDataGridViewTextBoxColumn.HeaderText = "Net_Salary"
+        Me.NetSalaryDataGridViewTextBoxColumn.Name = "NetSalaryDataGridViewTextBoxColumn"
         '
         'Form1
         '
@@ -934,8 +1017,6 @@ Partial Class Form1
         Me.Controls.Add(Me.print)
         Me.Controls.Add(Me.preview)
         Me.Controls.Add(Me.Insert)
-        Me.Controls.Add(Me.Button3)
-        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Add)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label13)
@@ -951,7 +1032,11 @@ Partial Class Form1
         Me.Controls.Add(Me.GrossSalary1)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.TotalDeduction)
+        Me.Controls.Add(Me.Label16)
+        Me.Controls.Add(Me.Label15)
         Me.Controls.Add(Me.Label6)
+        Me.Controls.Add(Me.TextBox2)
+        Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.NumberOfDaysWorked)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.SSS)
@@ -976,10 +1061,14 @@ Partial Class Form1
         Me.TabPage2.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        CType(Me.Employees_Unpaid_BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.AUlogo, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.WorkersBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DatabaseDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmployeesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.AUlogo, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PaidWorkersBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PaidWorkersBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Employees_Unpaid_BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PaidWorkersBindingSource2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1034,22 +1123,8 @@ Partial Class Form1
     Friend WithEvents philhealthdeduc As TextBox
     Friend WithEvents sssdeduc As TextBox
     Friend WithEvents print As Button
-    Friend WithEvents EmployeesTableAdapter As DatabaseDataSetTableAdapters.EmployeesTableAdapter
-    Friend WithEvents IDDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents NameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents PayDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents HoursDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents DaysDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents OvertimeDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents GrossSalaryDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents TaxDeductionDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
-    Friend WithEvents SSSContributionDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents TotalDeductionDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents NetSalaryDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents Employees_Unpaid_BindingSource As BindingSource
-    Friend WithEvents Employees_Unpaid_TableAdapter As DatabaseDataSetTableAdapters.Employees_Unpaid_TableAdapter
     Friend WithEvents Civil_StatusTextBox As TextBox
     Friend WithEvents AdressTextBox As TextBox
     Friend WithEvents GenderTextBox As TextBox
@@ -1058,7 +1133,31 @@ Partial Class Form1
     Friend WithEvents unpaidemployees As TextBox
     Friend WithEvents IDTextBox As TextBox
     Friend WithEvents WorkTextBox As TextBox
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Button3 As Button
     Friend WithEvents exit1 As Button
+    Friend WithEvents Button3 As Button
+    Friend WithEvents Button2 As Button
+    Friend WithEvents WorkersBindingSource As BindingSource
+    Friend WithEvents WorkersTableAdapter As DatabaseDataSetTableAdapters.WorkersTableAdapter
+    Friend WithEvents PaidWorkersBindingSource As BindingSource
+    Friend WithEvents Paid_WorkersTableAdapter As DatabaseDataSetTableAdapters.Paid_WorkersTableAdapter
+    Friend WithEvents PaidWorkersBindingSource1 As BindingSource
+    Friend WithEvents PaidWorkersBindingSource2 As BindingSource
+    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents Label15 As Label
+    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents Label16 As Label
+    Friend WithEvents IDDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents NameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents PayDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents HoursDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents DaysDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents RegularHolidayDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents SpecialHolidayDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents OvertimeDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents GrossSalaryDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents TaxDeductionDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents SSSContributionDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents TotalDedcutionDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents NetSalaryDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
 End Class
