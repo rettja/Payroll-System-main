@@ -8,9 +8,10 @@
     Dim net As Integer
     Dim ot As Integer
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+
         Try
             ans = (((HourPerDay.Text * NumberOfDaysWorked.Text) * RatePerHour.Text) + ot)
-            FormatCurrency(RatePerHour.Text)
+
             GrossSalary1.Text = FormatCurrency(ans)
             GrossSalary2.Text = FormatCurrency(ans)
             If GrossSalary1.Text <= 250000 Then
@@ -168,7 +169,6 @@
             PaidWorkersBindingSource.EndEdit()
             Paid_WorkersTableAdapter.Update(DatabaseDataSet.Paid_Workers)
 
-            Employees_Unpaid_BindingSource.RemoveCurrent()
             MessageBox.Show("Saved successfully")
         Catch ex As Exception
             MessageBox.Show("Not Saved")

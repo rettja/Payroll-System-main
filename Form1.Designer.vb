@@ -23,14 +23,14 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim IDLabel As System.Windows.Forms.Label
-        Dim EmployeesLabel As System.Windows.Forms.Label
-        Dim AgeLabel As System.Windows.Forms.Label
-        Dim BirthdayLabel As System.Windows.Forms.Label
         Dim GenderLabel As System.Windows.Forms.Label
         Dim AdressLabel As System.Windows.Forms.Label
+        Dim AgeLabel As System.Windows.Forms.Label
         Dim Civil_StatusLabel As System.Windows.Forms.Label
+        Dim IDLabel As System.Windows.Forms.Label
+        Dim BirthdayLabel As System.Windows.Forms.Label
         Dim WorkLabel As System.Windows.Forms.Label
+        Dim EmployeesLabel As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.EmployeeName = New System.Windows.Forms.TextBox()
         Me.PaidWorkersBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -93,17 +93,7 @@ Partial Class Form1
         Me.philhealthdeduc = New System.Windows.Forms.TextBox()
         Me.sssdeduc = New System.Windows.Forms.TextBox()
         Me.print = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.WorkTextBox = New System.Windows.Forms.TextBox()
         Me.WorkersBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Civil_StatusTextBox = New System.Windows.Forms.TextBox()
-        Me.GenderTextBox = New System.Windows.Forms.TextBox()
-        Me.AdressTextBox = New System.Windows.Forms.TextBox()
-        Me.AgeTextBox = New System.Windows.Forms.TextBox()
-        Me.IDTextBox = New System.Windows.Forms.TextBox()
-        Me.unpaidemployees = New System.Windows.Forms.TextBox()
-        Me.BirthdayTextBox = New System.Windows.Forms.TextBox()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
@@ -117,15 +107,25 @@ Partial Class Form1
         Me.PaidWorkersBindingSource2 = New System.Windows.Forms.BindingSource(Me.components)
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.exit1 = New System.Windows.Forms.Button()
+        Me.GenderTextBox = New System.Windows.Forms.TextBox()
+        Me.AdressTextBox = New System.Windows.Forms.TextBox()
+        Me.Civil_StatusTextBox = New System.Windows.Forms.TextBox()
+        Me.AgeTextBox = New System.Windows.Forms.TextBox()
+        Me.WorkTextBox = New System.Windows.Forms.TextBox()
+        Me.IDTextBox = New System.Windows.Forms.TextBox()
+        Me.unpaidemployees = New System.Windows.Forms.TextBox()
+        Me.BirthdayTextBox = New System.Windows.Forms.TextBox()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        IDLabel = New System.Windows.Forms.Label()
-        EmployeesLabel = New System.Windows.Forms.Label()
-        AgeLabel = New System.Windows.Forms.Label()
-        BirthdayLabel = New System.Windows.Forms.Label()
         GenderLabel = New System.Windows.Forms.Label()
         AdressLabel = New System.Windows.Forms.Label()
+        AgeLabel = New System.Windows.Forms.Label()
         Civil_StatusLabel = New System.Windows.Forms.Label()
+        IDLabel = New System.Windows.Forms.Label()
+        BirthdayLabel = New System.Windows.Forms.Label()
         WorkLabel = New System.Windows.Forms.Label()
+        EmployeesLabel = New System.Windows.Forms.Label()
         CType(Me.PaidWorkersBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DatabaseDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Tab.SuspendLayout()
@@ -140,42 +140,6 @@ Partial Class Form1
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'IDLabel
-        '
-        IDLabel.AutoSize = True
-        IDLabel.Location = New System.Drawing.Point(8, 13)
-        IDLabel.Name = "IDLabel"
-        IDLabel.Size = New System.Drawing.Size(21, 13)
-        IDLabel.TabIndex = 0
-        IDLabel.Text = "ID:"
-        '
-        'EmployeesLabel
-        '
-        EmployeesLabel.AutoSize = True
-        EmployeesLabel.Location = New System.Drawing.Point(49, 13)
-        EmployeesLabel.Name = "EmployeesLabel"
-        EmployeesLabel.Size = New System.Drawing.Size(61, 13)
-        EmployeesLabel.TabIndex = 2
-        EmployeesLabel.Text = "Employees:"
-        '
-        'AgeLabel
-        '
-        AgeLabel.AutoSize = True
-        AgeLabel.Location = New System.Drawing.Point(8, 52)
-        AgeLabel.Name = "AgeLabel"
-        AgeLabel.Size = New System.Drawing.Size(29, 13)
-        AgeLabel.TabIndex = 4
-        AgeLabel.Text = "Age:"
-        '
-        'BirthdayLabel
-        '
-        BirthdayLabel.AutoSize = True
-        BirthdayLabel.Location = New System.Drawing.Point(49, 52)
-        BirthdayLabel.Name = "BirthdayLabel"
-        BirthdayLabel.Size = New System.Drawing.Size(48, 13)
-        BirthdayLabel.TabIndex = 6
-        BirthdayLabel.Text = "Birthday:"
         '
         'GenderLabel
         '
@@ -195,6 +159,15 @@ Partial Class Form1
         AdressLabel.TabIndex = 10
         AdressLabel.Text = "Address:"
         '
+        'AgeLabel
+        '
+        AgeLabel.AutoSize = True
+        AgeLabel.Location = New System.Drawing.Point(8, 52)
+        AgeLabel.Name = "AgeLabel"
+        AgeLabel.Size = New System.Drawing.Size(29, 13)
+        AgeLabel.TabIndex = 4
+        AgeLabel.Text = "Age:"
+        '
         'Civil_StatusLabel
         '
         Civil_StatusLabel.AutoSize = True
@@ -204,6 +177,24 @@ Partial Class Form1
         Civil_StatusLabel.TabIndex = 12
         Civil_StatusLabel.Text = "Civil Status:"
         '
+        'IDLabel
+        '
+        IDLabel.AutoSize = True
+        IDLabel.Location = New System.Drawing.Point(8, 13)
+        IDLabel.Name = "IDLabel"
+        IDLabel.Size = New System.Drawing.Size(21, 13)
+        IDLabel.TabIndex = 0
+        IDLabel.Text = "ID:"
+        '
+        'BirthdayLabel
+        '
+        BirthdayLabel.AutoSize = True
+        BirthdayLabel.Location = New System.Drawing.Point(49, 52)
+        BirthdayLabel.Name = "BirthdayLabel"
+        BirthdayLabel.Size = New System.Drawing.Size(48, 13)
+        BirthdayLabel.TabIndex = 6
+        BirthdayLabel.Text = "Birthday:"
+        '
         'WorkLabel
         '
         WorkLabel.AutoSize = True
@@ -212,6 +203,15 @@ Partial Class Form1
         WorkLabel.Size = New System.Drawing.Size(36, 13)
         WorkLabel.TabIndex = 14
         WorkLabel.Text = "Work:"
+        '
+        'EmployeesLabel
+        '
+        EmployeesLabel.AutoSize = True
+        EmployeesLabel.Location = New System.Drawing.Point(49, 13)
+        EmployeesLabel.Name = "EmployeesLabel"
+        EmployeesLabel.Size = New System.Drawing.Size(61, 13)
+        EmployeesLabel.TabIndex = 2
+        EmployeesLabel.Text = "Employees:"
         '
         'EmployeeName
         '
@@ -766,100 +766,10 @@ Partial Class Form1
         Me.print.Text = "Print"
         Me.print.UseVisualStyleBackColor = True
         '
-        'Button3
-        '
-        Me.Button3.Location = New System.Drawing.Point(585, 67)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(75, 20)
-        Me.Button3.TabIndex = 16
-        Me.Button3.Text = "Next"
-        Me.Button3.UseVisualStyleBackColor = True
-        '
-        'Button2
-        '
-        Me.Button2.Location = New System.Drawing.Point(504, 67)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 20)
-        Me.Button2.TabIndex = 16
-        Me.Button2.Text = "Previous"
-        Me.Button2.UseVisualStyleBackColor = True
-        '
-        'WorkTextBox
-        '
-        Me.WorkTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.WorkersBindingSource, "Work", True))
-        Me.WorkTextBox.Location = New System.Drawing.Point(368, 68)
-        Me.WorkTextBox.Name = "WorkTextBox"
-        Me.WorkTextBox.Size = New System.Drawing.Size(133, 20)
-        Me.WorkTextBox.TabIndex = 15
-        Me.WorkTextBox.TabStop = False
-        '
         'WorkersBindingSource
         '
         Me.WorkersBindingSource.DataMember = "Workers"
         Me.WorkersBindingSource.DataSource = Me.DatabaseDataSet
-        '
-        'Civil_StatusTextBox
-        '
-        Me.Civil_StatusTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.WorkersBindingSource, "Civil Status", True))
-        Me.Civil_StatusTextBox.Location = New System.Drawing.Point(262, 68)
-        Me.Civil_StatusTextBox.Name = "Civil_StatusTextBox"
-        Me.Civil_StatusTextBox.Size = New System.Drawing.Size(100, 20)
-        Me.Civil_StatusTextBox.TabIndex = 13
-        Me.Civil_StatusTextBox.TabStop = False
-        '
-        'GenderTextBox
-        '
-        Me.GenderTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.WorkersBindingSource, "Gender", True))
-        Me.GenderTextBox.Location = New System.Drawing.Point(156, 68)
-        Me.GenderTextBox.Name = "GenderTextBox"
-        Me.GenderTextBox.Size = New System.Drawing.Size(100, 20)
-        Me.GenderTextBox.TabIndex = 9
-        Me.GenderTextBox.TabStop = False
-        '
-        'AdressTextBox
-        '
-        Me.AdressTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.WorkersBindingSource, "Address", True))
-        Me.AdressTextBox.Location = New System.Drawing.Point(262, 29)
-        Me.AdressTextBox.Name = "AdressTextBox"
-        Me.AdressTextBox.Size = New System.Drawing.Size(239, 20)
-        Me.AdressTextBox.TabIndex = 11
-        Me.AdressTextBox.TabStop = False
-        '
-        'AgeTextBox
-        '
-        Me.AgeTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.WorkersBindingSource, "Age", True))
-        Me.AgeTextBox.Location = New System.Drawing.Point(11, 68)
-        Me.AgeTextBox.Name = "AgeTextBox"
-        Me.AgeTextBox.Size = New System.Drawing.Size(35, 20)
-        Me.AgeTextBox.TabIndex = 5
-        Me.AgeTextBox.TabStop = False
-        '
-        'IDTextBox
-        '
-        Me.IDTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.WorkersBindingSource, "ID", True))
-        Me.IDTextBox.Location = New System.Drawing.Point(11, 29)
-        Me.IDTextBox.Name = "IDTextBox"
-        Me.IDTextBox.Size = New System.Drawing.Size(35, 20)
-        Me.IDTextBox.TabIndex = 1
-        Me.IDTextBox.TabStop = False
-        '
-        'unpaidemployees
-        '
-        Me.unpaidemployees.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.WorkersBindingSource, "Employees", True))
-        Me.unpaidemployees.Location = New System.Drawing.Point(52, 29)
-        Me.unpaidemployees.Name = "unpaidemployees"
-        Me.unpaidemployees.Size = New System.Drawing.Size(199, 20)
-        Me.unpaidemployees.TabIndex = 3
-        Me.unpaidemployees.TabStop = False
-        '
-        'BirthdayTextBox
-        '
-        Me.BirthdayTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.WorkersBindingSource, "Birthday", True))
-        Me.BirthdayTextBox.Location = New System.Drawing.Point(52, 68)
-        Me.BirthdayTextBox.Name = "BirthdayTextBox"
-        Me.BirthdayTextBox.Size = New System.Drawing.Size(100, 20)
-        Me.BirthdayTextBox.TabIndex = 7
-        Me.BirthdayTextBox.TabStop = False
         '
         'TextBox1
         '
@@ -952,7 +862,7 @@ Partial Class Form1
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1420, 49)
+        Me.Panel1.Size = New System.Drawing.Size(1459, 49)
         Me.Panel1.TabIndex = 101
         '
         'exit1
@@ -964,16 +874,105 @@ Partial Class Form1
         Me.exit1.Dock = System.Windows.Forms.DockStyle.Right
         Me.exit1.FlatAppearance.BorderSize = 0
         Me.exit1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.exit1.Location = New System.Drawing.Point(1373, 0)
+        Me.exit1.Location = New System.Drawing.Point(1412, 0)
         Me.exit1.Name = "exit1"
         Me.exit1.Size = New System.Drawing.Size(47, 49)
         Me.exit1.TabIndex = 54
         Me.exit1.TabStop = False
         Me.exit1.UseVisualStyleBackColor = False
         '
+        'GenderTextBox
+        '
+        Me.GenderTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.WorkersBindingSource, "Gender", True))
+        Me.GenderTextBox.Location = New System.Drawing.Point(156, 68)
+        Me.GenderTextBox.Name = "GenderTextBox"
+        Me.GenderTextBox.Size = New System.Drawing.Size(100, 20)
+        Me.GenderTextBox.TabIndex = 9
+        Me.GenderTextBox.TabStop = False
+        '
+        'AdressTextBox
+        '
+        Me.AdressTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.WorkersBindingSource, "Address", True))
+        Me.AdressTextBox.Location = New System.Drawing.Point(262, 29)
+        Me.AdressTextBox.Name = "AdressTextBox"
+        Me.AdressTextBox.Size = New System.Drawing.Size(239, 20)
+        Me.AdressTextBox.TabIndex = 11
+        Me.AdressTextBox.TabStop = False
+        '
+        'Civil_StatusTextBox
+        '
+        Me.Civil_StatusTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.WorkersBindingSource, "Civil Status", True))
+        Me.Civil_StatusTextBox.Location = New System.Drawing.Point(262, 68)
+        Me.Civil_StatusTextBox.Name = "Civil_StatusTextBox"
+        Me.Civil_StatusTextBox.Size = New System.Drawing.Size(100, 20)
+        Me.Civil_StatusTextBox.TabIndex = 13
+        Me.Civil_StatusTextBox.TabStop = False
+        '
+        'AgeTextBox
+        '
+        Me.AgeTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.WorkersBindingSource, "Age", True))
+        Me.AgeTextBox.Location = New System.Drawing.Point(11, 68)
+        Me.AgeTextBox.Name = "AgeTextBox"
+        Me.AgeTextBox.Size = New System.Drawing.Size(35, 20)
+        Me.AgeTextBox.TabIndex = 5
+        Me.AgeTextBox.TabStop = False
+        '
+        'WorkTextBox
+        '
+        Me.WorkTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.WorkersBindingSource, "Work", True))
+        Me.WorkTextBox.Location = New System.Drawing.Point(368, 68)
+        Me.WorkTextBox.Name = "WorkTextBox"
+        Me.WorkTextBox.Size = New System.Drawing.Size(133, 20)
+        Me.WorkTextBox.TabIndex = 15
+        Me.WorkTextBox.TabStop = False
+        '
+        'IDTextBox
+        '
+        Me.IDTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.WorkersBindingSource, "ID", True))
+        Me.IDTextBox.Location = New System.Drawing.Point(11, 29)
+        Me.IDTextBox.Name = "IDTextBox"
+        Me.IDTextBox.Size = New System.Drawing.Size(35, 20)
+        Me.IDTextBox.TabIndex = 1
+        Me.IDTextBox.TabStop = False
+        '
+        'unpaidemployees
+        '
+        Me.unpaidemployees.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.WorkersBindingSource, "Employees", True))
+        Me.unpaidemployees.Location = New System.Drawing.Point(52, 29)
+        Me.unpaidemployees.Name = "unpaidemployees"
+        Me.unpaidemployees.Size = New System.Drawing.Size(199, 20)
+        Me.unpaidemployees.TabIndex = 3
+        Me.unpaidemployees.TabStop = False
+        '
+        'BirthdayTextBox
+        '
+        Me.BirthdayTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.WorkersBindingSource, "Birthday", True))
+        Me.BirthdayTextBox.Location = New System.Drawing.Point(52, 68)
+        Me.BirthdayTextBox.Name = "BirthdayTextBox"
+        Me.BirthdayTextBox.Size = New System.Drawing.Size(100, 20)
+        Me.BirthdayTextBox.TabIndex = 7
+        Me.BirthdayTextBox.TabStop = False
+        '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(585, 67)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(75, 20)
+        Me.Button3.TabIndex = 16
+        Me.Button3.Text = "Next"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(504, 67)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(75, 20)
+        Me.Button2.TabIndex = 16
+        Me.Button2.Text = "Previous"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
         'Panel2
         '
-        Me.Panel2.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Panel2.BackColor = System.Drawing.Color.SteelBlue
         Me.Panel2.Controls.Add(Me.Button2)
         Me.Panel2.Controls.Add(Me.Button3)
@@ -993,7 +992,7 @@ Partial Class Form1
         Me.Panel2.Controls.Add(Me.GenderTextBox)
         Me.Panel2.Controls.Add(AdressLabel)
         Me.Panel2.Controls.Add(GenderLabel)
-        Me.Panel2.Location = New System.Drawing.Point(12, 55)
+        Me.Panel2.Location = New System.Drawing.Point(12, 74)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(676, 100)
         Me.Panel2.TabIndex = 102
@@ -1004,7 +1003,7 @@ Partial Class Form1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackColor = System.Drawing.Color.LightGray
-        Me.ClientSize = New System.Drawing.Size(1420, 738)
+        Me.ClientSize = New System.Drawing.Size(1459, 738)
         Me.ControlBox = False
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.sssdeduc)
@@ -1125,17 +1124,7 @@ Partial Class Form1
     Friend WithEvents sssdeduc As TextBox
     Friend WithEvents print As Button
     Friend WithEvents Employees_Unpaid_BindingSource As BindingSource
-    Friend WithEvents Civil_StatusTextBox As TextBox
-    Friend WithEvents AdressTextBox As TextBox
-    Friend WithEvents GenderTextBox As TextBox
-    Friend WithEvents BirthdayTextBox As TextBox
-    Friend WithEvents AgeTextBox As TextBox
-    Friend WithEvents unpaidemployees As TextBox
-    Friend WithEvents IDTextBox As TextBox
-    Friend WithEvents WorkTextBox As TextBox
     Friend WithEvents exit1 As Button
-    Friend WithEvents Button3 As Button
-    Friend WithEvents Button2 As Button
     Friend WithEvents WorkersBindingSource As BindingSource
     Friend WithEvents WorkersTableAdapter As DatabaseDataSetTableAdapters.WorkersTableAdapter
     Friend WithEvents PaidWorkersBindingSource As BindingSource
@@ -1162,5 +1151,15 @@ Partial Class Form1
     Friend WithEvents NetSalaryDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Label17 As Label
+    Friend WithEvents GenderTextBox As TextBox
+    Friend WithEvents AdressTextBox As TextBox
+    Friend WithEvents Civil_StatusTextBox As TextBox
+    Friend WithEvents AgeTextBox As TextBox
+    Friend WithEvents WorkTextBox As TextBox
+    Friend WithEvents IDTextBox As TextBox
+    Friend WithEvents unpaidemployees As TextBox
+    Friend WithEvents BirthdayTextBox As TextBox
+    Friend WithEvents Button3 As Button
+    Friend WithEvents Button2 As Button
     Friend WithEvents Panel2 As Panel
 End Class
