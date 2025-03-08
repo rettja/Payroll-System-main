@@ -82,6 +82,7 @@ Partial Class Form1
         Me.NetSalaryDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.Payslip = New System.Windows.Forms.TextBox()
+        Me.Label17 = New System.Windows.Forms.Label()
         Me.Insert = New System.Windows.Forms.Button()
         Me.save = New System.Windows.Forms.Button()
         Me.Add = New System.Windows.Forms.Button()
@@ -92,7 +93,6 @@ Partial Class Form1
         Me.philhealthdeduc = New System.Windows.Forms.TextBox()
         Me.sssdeduc = New System.Windows.Forms.TextBox()
         Me.print = New System.Windows.Forms.Button()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.WorkTextBox = New System.Windows.Forms.TextBox()
@@ -104,7 +104,6 @@ Partial Class Form1
         Me.IDTextBox = New System.Windows.Forms.TextBox()
         Me.unpaidemployees = New System.Windows.Forms.TextBox()
         Me.BirthdayTextBox = New System.Windows.Forms.TextBox()
-        Me.exit1 = New System.Windows.Forms.Button()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
@@ -117,7 +116,9 @@ Partial Class Form1
         Me.Paid_WorkersTableAdapter = New Payroll_System.DatabaseDataSetTableAdapters.Paid_WorkersTableAdapter()
         Me.PaidWorkersBindingSource2 = New System.Windows.Forms.BindingSource(Me.components)
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Label17 = New System.Windows.Forms.Label()
+        Me.exit1 = New System.Windows.Forms.Button()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Panel3 = New System.Windows.Forms.Panel()
         IDLabel = New System.Windows.Forms.Label()
         EmployeesLabel = New System.Windows.Forms.Label()
         AgeLabel = New System.Windows.Forms.Label()
@@ -133,18 +134,18 @@ Partial Class Form1
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TabPage2.SuspendLayout()
         CType(Me.EmployeesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox1.SuspendLayout()
         CType(Me.WorkersBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PaidWorkersBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Employees_Unpaid_BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PaidWorkersBindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
+        Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
         '
         'IDLabel
         '
         IDLabel.AutoSize = True
-        IDLabel.Location = New System.Drawing.Point(8, 19)
+        IDLabel.Location = New System.Drawing.Point(8, 13)
         IDLabel.Name = "IDLabel"
         IDLabel.Size = New System.Drawing.Size(21, 13)
         IDLabel.TabIndex = 0
@@ -153,7 +154,7 @@ Partial Class Form1
         'EmployeesLabel
         '
         EmployeesLabel.AutoSize = True
-        EmployeesLabel.Location = New System.Drawing.Point(49, 19)
+        EmployeesLabel.Location = New System.Drawing.Point(49, 13)
         EmployeesLabel.Name = "EmployeesLabel"
         EmployeesLabel.Size = New System.Drawing.Size(61, 13)
         EmployeesLabel.TabIndex = 2
@@ -162,7 +163,7 @@ Partial Class Form1
         'AgeLabel
         '
         AgeLabel.AutoSize = True
-        AgeLabel.Location = New System.Drawing.Point(8, 58)
+        AgeLabel.Location = New System.Drawing.Point(8, 52)
         AgeLabel.Name = "AgeLabel"
         AgeLabel.Size = New System.Drawing.Size(29, 13)
         AgeLabel.TabIndex = 4
@@ -171,7 +172,7 @@ Partial Class Form1
         'BirthdayLabel
         '
         BirthdayLabel.AutoSize = True
-        BirthdayLabel.Location = New System.Drawing.Point(49, 58)
+        BirthdayLabel.Location = New System.Drawing.Point(49, 52)
         BirthdayLabel.Name = "BirthdayLabel"
         BirthdayLabel.Size = New System.Drawing.Size(48, 13)
         BirthdayLabel.TabIndex = 6
@@ -180,7 +181,7 @@ Partial Class Form1
         'GenderLabel
         '
         GenderLabel.AutoSize = True
-        GenderLabel.Location = New System.Drawing.Point(153, 58)
+        GenderLabel.Location = New System.Drawing.Point(153, 52)
         GenderLabel.Name = "GenderLabel"
         GenderLabel.Size = New System.Drawing.Size(45, 13)
         GenderLabel.TabIndex = 8
@@ -189,7 +190,7 @@ Partial Class Form1
         'AdressLabel
         '
         AdressLabel.AutoSize = True
-        AdressLabel.Location = New System.Drawing.Point(255, 19)
+        AdressLabel.Location = New System.Drawing.Point(255, 13)
         AdressLabel.Name = "AdressLabel"
         AdressLabel.Size = New System.Drawing.Size(48, 13)
         AdressLabel.TabIndex = 10
@@ -198,7 +199,7 @@ Partial Class Form1
         'Civil_StatusLabel
         '
         Civil_StatusLabel.AutoSize = True
-        Civil_StatusLabel.Location = New System.Drawing.Point(259, 58)
+        Civil_StatusLabel.Location = New System.Drawing.Point(259, 52)
         Civil_StatusLabel.Name = "Civil_StatusLabel"
         Civil_StatusLabel.Size = New System.Drawing.Size(62, 13)
         Civil_StatusLabel.TabIndex = 12
@@ -207,7 +208,7 @@ Partial Class Form1
         'WorkLabel
         '
         WorkLabel.AutoSize = True
-        WorkLabel.Location = New System.Drawing.Point(365, 58)
+        WorkLabel.Location = New System.Drawing.Point(365, 52)
         WorkLabel.Name = "WorkLabel"
         WorkLabel.Size = New System.Drawing.Size(36, 13)
         WorkLabel.TabIndex = 14
@@ -664,6 +665,16 @@ Partial Class Form1
         Me.Payslip.TabIndex = 0
         Me.Payslip.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Font = New System.Drawing.Font("Agency FB", 33.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label17.Location = New System.Drawing.Point(588, -4)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(224, 53)
+        Me.Label17.TabIndex = 56
+        Me.Label17.Text = "Payroll System"
+        '
         'Insert
         '
         Me.Insert.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
@@ -756,37 +767,9 @@ Partial Class Form1
         Me.print.Text = "Print"
         Me.print.UseVisualStyleBackColor = True
         '
-        'GroupBox1
-        '
-        Me.GroupBox1.BackColor = System.Drawing.Color.SteelBlue
-        Me.GroupBox1.Controls.Add(Me.Button3)
-        Me.GroupBox1.Controls.Add(Me.Button2)
-        Me.GroupBox1.Controls.Add(WorkLabel)
-        Me.GroupBox1.Controls.Add(Me.WorkTextBox)
-        Me.GroupBox1.Controls.Add(Civil_StatusLabel)
-        Me.GroupBox1.Controls.Add(Me.Civil_StatusTextBox)
-        Me.GroupBox1.Controls.Add(AdressLabel)
-        Me.GroupBox1.Controls.Add(GenderLabel)
-        Me.GroupBox1.Controls.Add(Me.GenderTextBox)
-        Me.GroupBox1.Controls.Add(Me.AdressTextBox)
-        Me.GroupBox1.Controls.Add(AgeLabel)
-        Me.GroupBox1.Controls.Add(Me.AgeTextBox)
-        Me.GroupBox1.Controls.Add(IDLabel)
-        Me.GroupBox1.Controls.Add(BirthdayLabel)
-        Me.GroupBox1.Controls.Add(Me.IDTextBox)
-        Me.GroupBox1.Controls.Add(Me.unpaidemployees)
-        Me.GroupBox1.Controls.Add(Me.BirthdayTextBox)
-        Me.GroupBox1.Controls.Add(EmployeesLabel)
-        Me.GroupBox1.Location = New System.Drawing.Point(18, 74)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(670, 100)
-        Me.GroupBox1.TabIndex = 53
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Information"
-        '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(585, 73)
+        Me.Button3.Location = New System.Drawing.Point(585, 67)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(75, 20)
         Me.Button3.TabIndex = 16
@@ -795,7 +778,7 @@ Partial Class Form1
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(504, 73)
+        Me.Button2.Location = New System.Drawing.Point(504, 67)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(75, 20)
         Me.Button2.TabIndex = 16
@@ -805,7 +788,7 @@ Partial Class Form1
         'WorkTextBox
         '
         Me.WorkTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.WorkersBindingSource, "Work", True))
-        Me.WorkTextBox.Location = New System.Drawing.Point(368, 74)
+        Me.WorkTextBox.Location = New System.Drawing.Point(368, 68)
         Me.WorkTextBox.Name = "WorkTextBox"
         Me.WorkTextBox.Size = New System.Drawing.Size(133, 20)
         Me.WorkTextBox.TabIndex = 15
@@ -819,7 +802,7 @@ Partial Class Form1
         'Civil_StatusTextBox
         '
         Me.Civil_StatusTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.WorkersBindingSource, "Civil Status", True))
-        Me.Civil_StatusTextBox.Location = New System.Drawing.Point(262, 74)
+        Me.Civil_StatusTextBox.Location = New System.Drawing.Point(262, 68)
         Me.Civil_StatusTextBox.Name = "Civil_StatusTextBox"
         Me.Civil_StatusTextBox.Size = New System.Drawing.Size(100, 20)
         Me.Civil_StatusTextBox.TabIndex = 13
@@ -828,7 +811,7 @@ Partial Class Form1
         'GenderTextBox
         '
         Me.GenderTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.WorkersBindingSource, "Gender", True))
-        Me.GenderTextBox.Location = New System.Drawing.Point(156, 74)
+        Me.GenderTextBox.Location = New System.Drawing.Point(156, 68)
         Me.GenderTextBox.Name = "GenderTextBox"
         Me.GenderTextBox.Size = New System.Drawing.Size(100, 20)
         Me.GenderTextBox.TabIndex = 9
@@ -837,7 +820,7 @@ Partial Class Form1
         'AdressTextBox
         '
         Me.AdressTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.WorkersBindingSource, "Address", True))
-        Me.AdressTextBox.Location = New System.Drawing.Point(262, 35)
+        Me.AdressTextBox.Location = New System.Drawing.Point(262, 29)
         Me.AdressTextBox.Name = "AdressTextBox"
         Me.AdressTextBox.Size = New System.Drawing.Size(239, 20)
         Me.AdressTextBox.TabIndex = 11
@@ -846,7 +829,7 @@ Partial Class Form1
         'AgeTextBox
         '
         Me.AgeTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.WorkersBindingSource, "Age", True))
-        Me.AgeTextBox.Location = New System.Drawing.Point(11, 74)
+        Me.AgeTextBox.Location = New System.Drawing.Point(11, 68)
         Me.AgeTextBox.Name = "AgeTextBox"
         Me.AgeTextBox.Size = New System.Drawing.Size(35, 20)
         Me.AgeTextBox.TabIndex = 5
@@ -855,7 +838,7 @@ Partial Class Form1
         'IDTextBox
         '
         Me.IDTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.WorkersBindingSource, "ID", True))
-        Me.IDTextBox.Location = New System.Drawing.Point(11, 35)
+        Me.IDTextBox.Location = New System.Drawing.Point(11, 29)
         Me.IDTextBox.Name = "IDTextBox"
         Me.IDTextBox.Size = New System.Drawing.Size(35, 20)
         Me.IDTextBox.TabIndex = 1
@@ -864,7 +847,7 @@ Partial Class Form1
         'unpaidemployees
         '
         Me.unpaidemployees.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.WorkersBindingSource, "Employees", True))
-        Me.unpaidemployees.Location = New System.Drawing.Point(52, 35)
+        Me.unpaidemployees.Location = New System.Drawing.Point(52, 29)
         Me.unpaidemployees.Name = "unpaidemployees"
         Me.unpaidemployees.Size = New System.Drawing.Size(199, 20)
         Me.unpaidemployees.TabIndex = 3
@@ -873,27 +856,11 @@ Partial Class Form1
         'BirthdayTextBox
         '
         Me.BirthdayTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.WorkersBindingSource, "Birthday", True))
-        Me.BirthdayTextBox.Location = New System.Drawing.Point(52, 74)
+        Me.BirthdayTextBox.Location = New System.Drawing.Point(52, 68)
         Me.BirthdayTextBox.Name = "BirthdayTextBox"
         Me.BirthdayTextBox.Size = New System.Drawing.Size(100, 20)
         Me.BirthdayTextBox.TabIndex = 7
         Me.BirthdayTextBox.TabStop = False
-        '
-        'exit1
-        '
-        Me.exit1.AutoSize = True
-        Me.exit1.BackColor = System.Drawing.Color.SteelBlue
-        Me.exit1.BackgroundImage = Global.Payroll_System.My.Resources.Resources._5244832
-        Me.exit1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.exit1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.exit1.FlatAppearance.BorderSize = 0
-        Me.exit1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.exit1.Location = New System.Drawing.Point(1363, 0)
-        Me.exit1.Name = "exit1"
-        Me.exit1.Size = New System.Drawing.Size(47, 49)
-        Me.exit1.TabIndex = 54
-        Me.exit1.TabStop = False
-        Me.exit1.UseVisualStyleBackColor = False
         '
         'TextBox1
         '
@@ -989,15 +956,55 @@ Partial Class Form1
         Me.Panel1.Size = New System.Drawing.Size(1410, 49)
         Me.Panel1.TabIndex = 101
         '
-        'Label17
+        'exit1
         '
-        Me.Label17.AutoSize = True
-        Me.Label17.Font = New System.Drawing.Font("Agency FB", 33.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label17.Location = New System.Drawing.Point(594, -4)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(224, 53)
-        Me.Label17.TabIndex = 56
-        Me.Label17.Text = "Payroll System"
+        Me.exit1.AutoSize = True
+        Me.exit1.BackColor = System.Drawing.Color.SteelBlue
+        Me.exit1.BackgroundImage = Global.Payroll_System.My.Resources.Resources._5244832
+        Me.exit1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.exit1.Dock = System.Windows.Forms.DockStyle.Right
+        Me.exit1.FlatAppearance.BorderSize = 0
+        Me.exit1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.exit1.Location = New System.Drawing.Point(1363, 0)
+        Me.exit1.Name = "exit1"
+        Me.exit1.Size = New System.Drawing.Size(47, 49)
+        Me.exit1.TabIndex = 54
+        Me.exit1.TabStop = False
+        Me.exit1.UseVisualStyleBackColor = False
+        '
+        'Panel2
+        '
+        Me.Panel2.BackColor = System.Drawing.Color.SteelBlue
+        Me.Panel2.Controls.Add(Me.Button2)
+        Me.Panel2.Controls.Add(Me.Button3)
+        Me.Panel2.Controls.Add(EmployeesLabel)
+        Me.Panel2.Controls.Add(Me.BirthdayTextBox)
+        Me.Panel2.Controls.Add(Me.unpaidemployees)
+        Me.Panel2.Controls.Add(WorkLabel)
+        Me.Panel2.Controls.Add(Me.IDTextBox)
+        Me.Panel2.Controls.Add(BirthdayLabel)
+        Me.Panel2.Controls.Add(Me.WorkTextBox)
+        Me.Panel2.Controls.Add(IDLabel)
+        Me.Panel2.Controls.Add(Civil_StatusLabel)
+        Me.Panel2.Controls.Add(Me.AgeTextBox)
+        Me.Panel2.Controls.Add(AgeLabel)
+        Me.Panel2.Controls.Add(Me.Civil_StatusTextBox)
+        Me.Panel2.Controls.Add(Me.AdressTextBox)
+        Me.Panel2.Controls.Add(Me.GenderTextBox)
+        Me.Panel2.Controls.Add(AdressLabel)
+        Me.Panel2.Controls.Add(GenderLabel)
+        Me.Panel2.Location = New System.Drawing.Point(12, 55)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(676, 100)
+        Me.Panel2.TabIndex = 102
+        '
+        'Panel3
+        '
+        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel3.Location = New System.Drawing.Point(0, 0)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(1410, 738)
+        Me.Panel3.TabIndex = 103
         '
         'Form1
         '
@@ -1007,7 +1014,7 @@ Partial Class Form1
         Me.BackColor = System.Drawing.Color.LightGray
         Me.ClientSize = New System.Drawing.Size(1410, 738)
         Me.ControlBox = False
-        Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.sssdeduc)
         Me.Controls.Add(Me.philhealthdeduc)
         Me.Controls.Add(Me.Taxpercent)
@@ -1050,6 +1057,8 @@ Partial Class Form1
         Me.Controls.Add(Me.MonthlyWageTax)
         Me.Controls.Add(Me.EmployeeName)
         Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.Panel3)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "Form1"
@@ -1064,14 +1073,14 @@ Partial Class Form1
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage2.PerformLayout()
         CType(Me.EmployeesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
         CType(Me.WorkersBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PaidWorkersBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Employees_Unpaid_BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PaidWorkersBindingSource2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        Me.Panel2.ResumeLayout(False)
+        Me.Panel2.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1124,7 +1133,6 @@ Partial Class Form1
     Friend WithEvents philhealthdeduc As TextBox
     Friend WithEvents sssdeduc As TextBox
     Friend WithEvents print As Button
-    Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents Employees_Unpaid_BindingSource As BindingSource
     Friend WithEvents Civil_StatusTextBox As TextBox
     Friend WithEvents AdressTextBox As TextBox
@@ -1163,4 +1171,6 @@ Partial Class Form1
     Friend WithEvents NetSalaryDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Label17 As Label
+    Friend WithEvents Panel2 As Panel
+    Friend WithEvents Panel3 As Panel
 End Class

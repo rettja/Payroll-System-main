@@ -149,7 +149,7 @@
     End Sub
 
     Private Sub Add_Click(sender As Object, e As EventArgs) Handles Add.Click
-        PaidWorkersBindingSource .AddNew()
+        PaidWorkersBindingSource.AddNew()
         EmployeeName.Clear()
         EmployeeName.Text = unpaidemployees.Text
     End Sub
@@ -175,7 +175,7 @@
         End Try
     End Sub
 
-    Private Sub GroupBox1_Enter(sender As Object, e As EventArgs) Handles GroupBox1.Enter
+    Private Sub GroupBox1_Enter(sender As Object, e As EventArgs)
 
     End Sub
 
