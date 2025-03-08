@@ -44,7 +44,7 @@ Partial Class Dashboard
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Margin = New System.Windows.Forms.Padding(15)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(238, 749)
+        Me.Panel1.Size = New System.Drawing.Size(238, 723)
         Me.Panel1.TabIndex = 0
         '
         'Button1
@@ -68,12 +68,12 @@ Partial Class Dashboard
         '
         'Panel2
         '
-        Me.Panel2.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.Panel2.BackColor = System.Drawing.Color.SteelBlue
         Me.Panel2.Controls.Add(Me.exit1)
-        Me.Panel2.Location = New System.Drawing.Point(236, -9)
+        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel2.Location = New System.Drawing.Point(238, 0)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1135, 50)
+        Me.Panel2.Size = New System.Drawing.Size(1294, 50)
         Me.Panel2.TabIndex = 1
         '
         'exit1
@@ -83,7 +83,7 @@ Partial Class Dashboard
         Me.exit1.Dock = System.Windows.Forms.DockStyle.Right
         Me.exit1.FlatAppearance.BorderSize = 0
         Me.exit1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.exit1.Location = New System.Drawing.Point(1088, 0)
+        Me.exit1.Location = New System.Drawing.Point(1247, 0)
         Me.exit1.Name = "exit1"
         Me.exit1.Size = New System.Drawing.Size(47, 50)
         Me.exit1.TabIndex = 9
@@ -91,21 +91,22 @@ Partial Class Dashboard
         '
         'PictureBox2
         '
+        Me.PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.PictureBox2.Image = Global.Payroll_System.My.Resources.Resources.Cube360_Banner_Bottom_Right_Corner_3
-        Me.PictureBox2.Location = New System.Drawing.Point(659, 174)
+        Me.PictureBox2.Location = New System.Drawing.Point(879, 197)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(525, 383)
+        Me.PictureBox2.Size = New System.Drawing.Size(476, 419)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox2.TabIndex = 3
         Me.PictureBox2.TabStop = False
         '
         'Panel3
         '
-        Me.Panel3.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.Panel3.BackColor = System.Drawing.Color.SteelBlue
-        Me.Panel3.Location = New System.Drawing.Point(236, 35)
+        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel3.Location = New System.Drawing.Point(238, 50)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(1155, 90)
+        Me.Panel3.Size = New System.Drawing.Size(1294, 90)
         Me.Panel3.TabIndex = 4
         '
         'Dashboard
@@ -113,7 +114,7 @@ Partial Class Dashboard
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightGray
-        Me.ClientSize = New System.Drawing.Size(1370, 749)
+        Me.ClientSize = New System.Drawing.Size(1532, 723)
         Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.Panel2)
