@@ -118,7 +118,6 @@ Partial Class Form1
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.exit1 = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Panel3 = New System.Windows.Forms.Panel()
         IDLabel = New System.Windows.Forms.Label()
         EmployeesLabel = New System.Windows.Forms.Label()
         AgeLabel = New System.Windows.Forms.Label()
@@ -953,7 +952,7 @@ Partial Class Form1
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1410, 49)
+        Me.Panel1.Size = New System.Drawing.Size(1420, 49)
         Me.Panel1.TabIndex = 101
         '
         'exit1
@@ -965,7 +964,7 @@ Partial Class Form1
         Me.exit1.Dock = System.Windows.Forms.DockStyle.Right
         Me.exit1.FlatAppearance.BorderSize = 0
         Me.exit1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.exit1.Location = New System.Drawing.Point(1363, 0)
+        Me.exit1.Location = New System.Drawing.Point(1373, 0)
         Me.exit1.Name = "exit1"
         Me.exit1.Size = New System.Drawing.Size(47, 49)
         Me.exit1.TabIndex = 54
@@ -974,6 +973,7 @@ Partial Class Form1
         '
         'Panel2
         '
+        Me.Panel2.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Panel2.BackColor = System.Drawing.Color.SteelBlue
         Me.Panel2.Controls.Add(Me.Button2)
         Me.Panel2.Controls.Add(Me.Button3)
@@ -998,21 +998,13 @@ Partial Class Form1
         Me.Panel2.Size = New System.Drawing.Size(676, 100)
         Me.Panel2.TabIndex = 102
         '
-        'Panel3
-        '
-        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel3.Location = New System.Drawing.Point(0, 0)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(1410, 738)
-        Me.Panel3.TabIndex = 103
-        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackColor = System.Drawing.Color.LightGray
-        Me.ClientSize = New System.Drawing.Size(1410, 738)
+        Me.ClientSize = New System.Drawing.Size(1420, 738)
         Me.ControlBox = False
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.sssdeduc)
@@ -1057,7 +1049,6 @@ Partial Class Form1
         Me.Controls.Add(Me.MonthlyWageTax)
         Me.Controls.Add(Me.EmployeeName)
         Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.Panel3)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.MaximizeBox = False
         Me.MinimizeBox = False
@@ -1172,5 +1163,4 @@ Partial Class Form1
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Label17 As Label
     Friend WithEvents Panel2 As Panel
-    Friend WithEvents Panel3 As Panel
 End Class
