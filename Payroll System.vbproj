@@ -74,7 +74,7 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -221,6 +221,11 @@
     <Content Include="Database.accdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\Untitled design %282%29.png" />
+    <None Include="Resources\Untitled design %281%29.png" />
+    <None Include="Resources\912318.png" />
+    <None Include="Resources\749555.png" />
+    <None Include="Resources\Untitled design.png" />
     <None Include="Resources\arrow-back-3783 %282%29.png" />
     <None Include="Resources\arrow-back-3783.png" />
     <None Include="Resources\red-arrow-left-11343 %281%29.png" />

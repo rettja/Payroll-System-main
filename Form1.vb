@@ -199,4 +199,7 @@
         Close()
     End Sub
 
+    Private Sub Paid_WorkersDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles Paid_WorkersDataGridView.CellContentClick
+
+    End Sub
 End Class

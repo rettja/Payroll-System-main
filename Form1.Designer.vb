@@ -71,7 +71,6 @@ Partial Class Form1
         Me.philhealthdeduc = New System.Windows.Forms.TextBox()
         Me.sssdeduc = New System.Windows.Forms.TextBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.exit1 = New System.Windows.Forms.Button()
         Me.GenderTextBox = New System.Windows.Forms.TextBox()
         Me.WorkersBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.AdressTextBox = New System.Windows.Forms.TextBox()
@@ -110,6 +109,7 @@ Partial Class Form1
         Me.TableAdapterManager1 = New Payroll_System.DatabaseDataSetTableAdapters.TableAdapterManager()
         Me.WorkersTableAdapter = New Payroll_System.DatabaseDataSetTableAdapters.WorkersTableAdapter()
         Me.Paid_WorkersTableAdapter = New Payroll_System.DatabaseDataSetTableAdapters.Paid_WorkersTableAdapter()
+        Me.exit1 = New System.Windows.Forms.Button()
         GenderLabel = New System.Windows.Forms.Label()
         AdressLabel = New System.Windows.Forms.Label()
         AgeLabel = New System.Windows.Forms.Label()
@@ -493,10 +493,10 @@ Partial Class Form1
         '
         Me.Label17.AutoSize = True
         Me.Label17.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Label17.Font = New System.Drawing.Font("Agency FB", 33.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 33.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label17.Location = New System.Drawing.Point(0, 0)
         Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(224, 53)
+        Me.Label17.Size = New System.Drawing.Size(323, 52)
         Me.Label17.TabIndex = 56
         Me.Label17.Text = "Payroll System"
         '
@@ -581,30 +581,14 @@ Partial Class Form1
         '
         'Panel1
         '
-        Me.Panel1.BackColor = System.Drawing.Color.SteelBlue
+        Me.Panel1.BackColor = System.Drawing.Color.Maroon
         Me.Panel1.Controls.Add(Me.Label17)
         Me.Panel1.Controls.Add(Me.exit1)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1782, 50)
+        Me.Panel1.Size = New System.Drawing.Size(1621, 50)
         Me.Panel1.TabIndex = 101
-        '
-        'exit1
-        '
-        Me.exit1.AutoSize = True
-        Me.exit1.BackColor = System.Drawing.Color.SteelBlue
-        Me.exit1.BackgroundImage = Global.Payroll_System.My.Resources.Resources._5244832
-        Me.exit1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.exit1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.exit1.FlatAppearance.BorderSize = 0
-        Me.exit1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.exit1.Location = New System.Drawing.Point(1735, 0)
-        Me.exit1.Name = "exit1"
-        Me.exit1.Size = New System.Drawing.Size(47, 50)
-        Me.exit1.TabIndex = 54
-        Me.exit1.TabStop = False
-        Me.exit1.UseVisualStyleBackColor = False
         '
         'GenderTextBox
         '
@@ -773,14 +757,14 @@ Partial Class Form1
         Me.Panel3.Controls.Add(Me.Tab)
         Me.Panel3.Location = New System.Drawing.Point(0, 0)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(1782, 726)
+        Me.Panel3.Size = New System.Drawing.Size(1621, 726)
         Me.Panel3.TabIndex = 103
         '
         'preview
         '
         Me.preview.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.preview.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
-        Me.preview.Location = New System.Drawing.Point(1288, 673)
+        Me.preview.Location = New System.Drawing.Point(1127, 673)
         Me.preview.Name = "preview"
         Me.preview.Size = New System.Drawing.Size(120, 31)
         Me.preview.TabIndex = 14
@@ -791,7 +775,7 @@ Partial Class Form1
         '
         Me.print.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.print.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
-        Me.print.Location = New System.Drawing.Point(1429, 673)
+        Me.print.Location = New System.Drawing.Point(1268, 673)
         Me.print.Name = "print"
         Me.print.Size = New System.Drawing.Size(120, 31)
         Me.print.TabIndex = 15
@@ -814,7 +798,7 @@ Partial Class Form1
         Me.Tab.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Tab.Controls.Add(Me.Database)
         Me.Tab.Controls.Add(Me.PayslipTab)
-        Me.Tab.Location = New System.Drawing.Point(1086, 68)
+        Me.Tab.Location = New System.Drawing.Point(925, 68)
         Me.Tab.Name = "Tab"
         Me.Tab.SelectedIndex = 0
         Me.Tab.Size = New System.Drawing.Size(683, 599)
@@ -986,13 +970,29 @@ Partial Class Form1
         '
         Me.Paid_WorkersTableAdapter.ClearBeforeFill = True
         '
+        'exit1
+        '
+        Me.exit1.AutoSize = True
+        Me.exit1.BackColor = System.Drawing.Color.SteelBlue
+        Me.exit1.BackgroundImage = Global.Payroll_System.My.Resources.Resources._5244832
+        Me.exit1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.exit1.Dock = System.Windows.Forms.DockStyle.Right
+        Me.exit1.FlatAppearance.BorderSize = 0
+        Me.exit1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.exit1.Location = New System.Drawing.Point(1574, 0)
+        Me.exit1.Name = "exit1"
+        Me.exit1.Size = New System.Drawing.Size(47, 50)
+        Me.exit1.TabIndex = 54
+        Me.exit1.TabStop = False
+        Me.exit1.UseVisualStyleBackColor = False
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackColor = System.Drawing.Color.LightGray
-        Me.ClientSize = New System.Drawing.Size(1781, 760)
+        Me.ClientSize = New System.Drawing.Size(1620, 760)
         Me.ControlBox = False
         Me.Controls.Add(Me.Panel3)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
