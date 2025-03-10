@@ -29,11 +29,9 @@ Partial Class Dashboard
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.exit1 = New System.Windows.Forms.Button()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -84,7 +82,7 @@ Partial Class Dashboard
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel2.Location = New System.Drawing.Point(238, 0)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(1294, 50)
+        Me.Panel2.Size = New System.Drawing.Size(1354, 50)
         Me.Panel2.TabIndex = 1
         '
         'exit1
@@ -94,7 +92,7 @@ Partial Class Dashboard
         Me.exit1.Dock = System.Windows.Forms.DockStyle.Right
         Me.exit1.FlatAppearance.BorderSize = 0
         Me.exit1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.exit1.Location = New System.Drawing.Point(1247, 0)
+        Me.exit1.Location = New System.Drawing.Point(1307, 0)
         Me.exit1.Name = "exit1"
         Me.exit1.Size = New System.Drawing.Size(47, 50)
         Me.exit1.TabIndex = 9
@@ -106,28 +104,16 @@ Partial Class Dashboard
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel3.Location = New System.Drawing.Point(238, 50)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(1294, 90)
+        Me.Panel3.Size = New System.Drawing.Size(1354, 90)
         Me.Panel3.TabIndex = 4
-        '
-        'PictureBox2
-        '
-        Me.PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-        Me.PictureBox2.Image = Global.Payroll_System.My.Resources.Resources.Cube360_Banner_Bottom_Right_Corner_3
-        Me.PictureBox2.Location = New System.Drawing.Point(891, 183)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(461, 438)
-        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox2.TabIndex = 3
-        Me.PictureBox2.TabStop = False
         '
         'Dashboard
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.LightGray
-        Me.ClientSize = New System.Drawing.Size(1532, 723)
+        Me.ClientSize = New System.Drawing.Size(1592, 723)
         Me.Controls.Add(Me.Panel3)
-        Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
         Me.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -139,7 +125,6 @@ Partial Class Dashboard
         Me.Panel1.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -148,7 +133,6 @@ Partial Class Dashboard
     Friend WithEvents Button1 As Button
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Panel2 As Panel
-    Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents exit1 As Button
     Friend WithEvents Panel3 As Panel
     Friend WithEvents Button2 As Button
