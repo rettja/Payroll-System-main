@@ -163,8 +163,8 @@
 
     Private Sub Add_Click(sender As Object, e As EventArgs) Handles Add.Click
         PaidWorkersBindingSource.AddNew()
-        EmployeeName.Clear()
         EmployeeName.Text = unpaidemployees.Text
+        Add.Enabled = False
     End Sub
 
     Private Sub Insert_Click(sender As Object, e As EventArgs) Handles Insert.Click
@@ -187,6 +187,7 @@
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         WorkersBindingSource.MoveNext()
         EmployeeName.Text = unpaidemployees.Text
+        Add.Enabled = True
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click

@@ -33,6 +33,8 @@ Partial Class Form1
         Dim EmployeesLabel As System.Windows.Forms.Label
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.EmployeeName = New System.Windows.Forms.TextBox()
+        Me.PaidWorkersBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DatabaseDataSet = New Payroll_System.DatabaseDataSet()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -65,11 +67,13 @@ Partial Class Form1
         Me.Add = New System.Windows.Forms.Button()
         Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog()
         Me.Taxpercent = New System.Windows.Forms.TextBox()
+        Me.EmployeesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.philhealthdeduc = New System.Windows.Forms.TextBox()
         Me.sssdeduc = New System.Windows.Forms.TextBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.exit1 = New System.Windows.Forms.Button()
         Me.GenderTextBox = New System.Windows.Forms.TextBox()
+        Me.WorkersBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.AdressTextBox = New System.Windows.Forms.TextBox()
         Me.Civil_StatusTextBox = New System.Windows.Forms.TextBox()
         Me.AgeTextBox = New System.Windows.Forms.TextBox()
@@ -87,21 +91,7 @@ Partial Class Form1
         Me.Tab = New System.Windows.Forms.TabControl()
         Me.Database = New System.Windows.Forms.TabPage()
         Me.Paid_WorkersDataGridView = New System.Windows.Forms.DataGridView()
-        Me.PayslipTab = New System.Windows.Forms.TabPage()
-        Me.PrintPreviewControl1 = New System.Windows.Forms.PrintPreviewControl()
-        Me.Payslip = New System.Windows.Forms.TextBox()
-        Me.WorkersBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DatabaseDataSet = New Payroll_System.DatabaseDataSet()
-        Me.EmployeesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.PaidWorkersBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.PaidWorkersBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Employees_Unpaid_BindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.TableAdapterManager = New Payroll_System.DatabaseDataSetTableAdapters.TableAdapterManager()
-        Me.TableAdapterManager1 = New Payroll_System.DatabaseDataSetTableAdapters.TableAdapterManager()
-        Me.WorkersTableAdapter = New Payroll_System.DatabaseDataSetTableAdapters.WorkersTableAdapter()
-        Me.Paid_WorkersTableAdapter = New Payroll_System.DatabaseDataSetTableAdapters.Paid_WorkersTableAdapter()
         Me.IDDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PayDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.HoursDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DaysDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -112,6 +102,14 @@ Partial Class Form1
         Me.SSSContributionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TotalDedcutionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NetSalaryDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PaidWorkersBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.PayslipTab = New System.Windows.Forms.TabPage()
+        Me.Payslip = New System.Windows.Forms.TextBox()
+        Me.Employees_Unpaid_BindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.TableAdapterManager = New Payroll_System.DatabaseDataSetTableAdapters.TableAdapterManager()
+        Me.TableAdapterManager1 = New Payroll_System.DatabaseDataSetTableAdapters.TableAdapterManager()
+        Me.WorkersTableAdapter = New Payroll_System.DatabaseDataSetTableAdapters.WorkersTableAdapter()
+        Me.Paid_WorkersTableAdapter = New Payroll_System.DatabaseDataSetTableAdapters.Paid_WorkersTableAdapter()
         GenderLabel = New System.Windows.Forms.Label()
         AdressLabel = New System.Windows.Forms.Label()
         AgeLabel = New System.Windows.Forms.Label()
@@ -120,18 +118,18 @@ Partial Class Form1
         BirthdayLabel = New System.Windows.Forms.Label()
         WorkLabel = New System.Windows.Forms.Label()
         EmployeesLabel = New System.Windows.Forms.Label()
+        CType(Me.PaidWorkersBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DatabaseDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EmployeesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
+        CType(Me.WorkersBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
         Me.Tab.SuspendLayout()
         Me.Database.SuspendLayout()
         CType(Me.Paid_WorkersDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.PayslipTab.SuspendLayout()
-        CType(Me.WorkersBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DatabaseDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.EmployeesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PaidWorkersBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PaidWorkersBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PayslipTab.SuspendLayout()
         CType(Me.Employees_Unpaid_BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -219,6 +217,16 @@ Partial Class Form1
         Me.EmployeeName.Size = New System.Drawing.Size(204, 30)
         Me.EmployeeName.TabIndex = 100
         Me.EmployeeName.TabStop = False
+        '
+        'PaidWorkersBindingSource
+        '
+        Me.PaidWorkersBindingSource.DataMember = "Paid_Workers"
+        Me.PaidWorkersBindingSource.DataSource = Me.DatabaseDataSet
+        '
+        'DatabaseDataSet
+        '
+        Me.DatabaseDataSet.DataSetName = "DatabaseDataSet"
+        Me.DatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'Label2
         '
@@ -544,6 +552,11 @@ Partial Class Form1
         Me.Taxpercent.TabIndex = 51
         Me.Taxpercent.TabStop = False
         '
+        'EmployeesBindingSource
+        '
+        Me.EmployeesBindingSource.DataMember = "Employees"
+        Me.EmployeesBindingSource.DataSource = Me.DatabaseDataSet
+        '
         'philhealthdeduc
         '
         Me.philhealthdeduc.BackColor = System.Drawing.Color.LightGray
@@ -601,6 +614,11 @@ Partial Class Form1
         Me.GenderTextBox.Size = New System.Drawing.Size(100, 20)
         Me.GenderTextBox.TabIndex = 9
         Me.GenderTextBox.TabStop = False
+        '
+        'WorkersBindingSource
+        '
+        Me.WorkersBindingSource.DataMember = "Workers"
+        Me.WorkersBindingSource.DataSource = Me.DatabaseDataSet
         '
         'AdressTextBox
         '
@@ -680,6 +698,7 @@ Partial Class Form1
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(75, 20)
         Me.Button2.TabIndex = 16
+        Me.Button2.TabStop = False
         Me.Button2.Text = "Previous"
         Me.Button2.UseVisualStyleBackColor = True
         '
@@ -764,7 +783,7 @@ Partial Class Form1
         Me.preview.Location = New System.Drawing.Point(1288, 673)
         Me.preview.Name = "preview"
         Me.preview.Size = New System.Drawing.Size(120, 31)
-        Me.preview.TabIndex = 50
+        Me.preview.TabIndex = 14
         Me.preview.Text = "Preview "
         Me.preview.UseVisualStyleBackColor = True
         '
@@ -775,7 +794,7 @@ Partial Class Form1
         Me.print.Location = New System.Drawing.Point(1429, 673)
         Me.print.Name = "print"
         Me.print.Size = New System.Drawing.Size(120, 31)
-        Me.print.TabIndex = 51
+        Me.print.TabIndex = 15
         Me.print.Text = "Print"
         Me.print.UseVisualStyleBackColor = True
         '
@@ -817,116 +836,20 @@ Partial Class Form1
         '
         Me.Paid_WorkersDataGridView.AutoGenerateColumns = False
         Me.Paid_WorkersDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.Paid_WorkersDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IDDataGridViewTextBoxColumn, Me.DataGridViewTextBoxColumn1, Me.PayDataGridViewTextBoxColumn, Me.HoursDataGridViewTextBoxColumn, Me.DaysDataGridViewTextBoxColumn, Me.OvertimeDataGridViewTextBoxColumn, Me.GrossSalaryDataGridViewTextBoxColumn, Me.TaxDeductionDataGridViewTextBoxColumn, Me.DataGridViewTextBoxColumn3, Me.SSSContributionDataGridViewTextBoxColumn, Me.TotalDedcutionDataGridViewTextBoxColumn, Me.NetSalaryDataGridViewTextBoxColumn})
+        Me.Paid_WorkersDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IDDataGridViewTextBoxColumn, Me.PayDataGridViewTextBoxColumn, Me.HoursDataGridViewTextBoxColumn, Me.DaysDataGridViewTextBoxColumn, Me.OvertimeDataGridViewTextBoxColumn, Me.GrossSalaryDataGridViewTextBoxColumn, Me.TaxDeductionDataGridViewTextBoxColumn, Me.DataGridViewTextBoxColumn3, Me.SSSContributionDataGridViewTextBoxColumn, Me.TotalDedcutionDataGridViewTextBoxColumn, Me.NetSalaryDataGridViewTextBoxColumn})
         Me.Paid_WorkersDataGridView.DataSource = Me.PaidWorkersBindingSource1
         Me.Paid_WorkersDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Paid_WorkersDataGridView.Location = New System.Drawing.Point(3, 3)
         Me.Paid_WorkersDataGridView.Name = "Paid_WorkersDataGridView"
         Me.Paid_WorkersDataGridView.Size = New System.Drawing.Size(669, 567)
         Me.Paid_WorkersDataGridView.TabIndex = 0
-        '
-        'PayslipTab
-        '
-        Me.PayslipTab.BackColor = System.Drawing.Color.DarkGray
-        Me.PayslipTab.Controls.Add(Me.PrintPreviewControl1)
-        Me.PayslipTab.Controls.Add(Me.Payslip)
-        Me.PayslipTab.Location = New System.Drawing.Point(4, 22)
-        Me.PayslipTab.Name = "PayslipTab"
-        Me.PayslipTab.Padding = New System.Windows.Forms.Padding(3)
-        Me.PayslipTab.Size = New System.Drawing.Size(675, 573)
-        Me.PayslipTab.TabIndex = 1
-        Me.PayslipTab.Text = "Payslip"
-        '
-        'PrintPreviewControl1
-        '
-        Me.PrintPreviewControl1.AutoZoom = False
-        Me.PrintPreviewControl1.Document = Me.PrintDocument1
-        Me.PrintPreviewControl1.Location = New System.Drawing.Point(0, 0)
-        Me.PrintPreviewControl1.Name = "PrintPreviewControl1"
-        Me.PrintPreviewControl1.Size = New System.Drawing.Size(675, 573)
-        Me.PrintPreviewControl1.TabIndex = 0
-        Me.PrintPreviewControl1.Zoom = 0.7431137724550898R
-        '
-        'Payslip
-        '
-        Me.Payslip.Location = New System.Drawing.Point(256, 173)
-        Me.Payslip.Name = "Payslip"
-        Me.Payslip.Size = New System.Drawing.Size(100, 20)
-        Me.Payslip.TabIndex = 103
-        '
-        'WorkersBindingSource
-        '
-        Me.WorkersBindingSource.DataMember = "Workers"
-        Me.WorkersBindingSource.DataSource = Me.DatabaseDataSet
-        '
-        'DatabaseDataSet
-        '
-        Me.DatabaseDataSet.DataSetName = "DatabaseDataSet"
-        Me.DatabaseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'EmployeesBindingSource
-        '
-        Me.EmployeesBindingSource.DataMember = "Employees"
-        Me.EmployeesBindingSource.DataSource = Me.DatabaseDataSet
-        '
-        'PaidWorkersBindingSource
-        '
-        Me.PaidWorkersBindingSource.DataMember = "Paid_Workers"
-        Me.PaidWorkersBindingSource.DataSource = Me.DatabaseDataSet
-        '
-        'PaidWorkersBindingSource1
-        '
-        Me.PaidWorkersBindingSource1.DataMember = "Paid_Workers"
-        Me.PaidWorkersBindingSource1.DataSource = Me.DatabaseDataSet
-        '
-        'Employees_Unpaid_BindingSource
-        '
-        Me.Employees_Unpaid_BindingSource.DataMember = "Employees(Unpaid)"
-        Me.Employees_Unpaid_BindingSource.DataSource = Me.DatabaseDataSet
-        '
-        'TableAdapterManager
-        '
-        Me.TableAdapterManager.AdminsTableAdapter = Nothing
-        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager.Connection = Nothing
-        Me.TableAdapterManager.Employees_Unpaid_TableAdapter = Nothing
-        Me.TableAdapterManager.EmployeesTableAdapter = Nothing
-        Me.TableAdapterManager.Paid_WorkersTableAdapter = Nothing
-        Me.TableAdapterManager.UpdateOrder = Payroll_System.DatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
-        Me.TableAdapterManager.WorkersTableAdapter = Nothing
-        '
-        'TableAdapterManager1
-        '
-        Me.TableAdapterManager1.AdminsTableAdapter = Nothing
-        Me.TableAdapterManager1.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager1.Connection = Nothing
-        Me.TableAdapterManager1.Employees_Unpaid_TableAdapter = Nothing
-        Me.TableAdapterManager1.EmployeesTableAdapter = Nothing
-        Me.TableAdapterManager1.Paid_WorkersTableAdapter = Nothing
-        Me.TableAdapterManager1.UpdateOrder = Payroll_System.DatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
-        Me.TableAdapterManager1.WorkersTableAdapter = Nothing
-        '
-        'WorkersTableAdapter
-        '
-        Me.WorkersTableAdapter.ClearBeforeFill = True
-        '
-        'Paid_WorkersTableAdapter
-        '
-        Me.Paid_WorkersTableAdapter.ClearBeforeFill = True
+        Me.Paid_WorkersDataGridView.TabStop = False
         '
         'IDDataGridViewTextBoxColumn
         '
         Me.IDDataGridViewTextBoxColumn.DataPropertyName = "ID"
         Me.IDDataGridViewTextBoxColumn.HeaderText = "ID"
         Me.IDDataGridViewTextBoxColumn.Name = "IDDataGridViewTextBoxColumn"
-        '
-        'DataGridViewTextBoxColumn1
-        '
-        Me.DataGridViewTextBoxColumn1.DataPropertyName = "Name"
-        Me.DataGridViewTextBoxColumn1.HeaderText = "name"
-        Me.DataGridViewTextBoxColumn1.MinimumWidth = 230
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        Me.DataGridViewTextBoxColumn1.Width = 230
         '
         'PayDataGridViewTextBoxColumn
         '
@@ -1004,6 +927,65 @@ Partial Class Form1
         Me.NetSalaryDataGridViewTextBoxColumn.Name = "NetSalaryDataGridViewTextBoxColumn"
         Me.NetSalaryDataGridViewTextBoxColumn.Width = 140
         '
+        'PaidWorkersBindingSource1
+        '
+        Me.PaidWorkersBindingSource1.DataMember = "Paid_Workers"
+        Me.PaidWorkersBindingSource1.DataSource = Me.DatabaseDataSet
+        '
+        'PayslipTab
+        '
+        Me.PayslipTab.BackColor = System.Drawing.Color.DarkGray
+        Me.PayslipTab.Controls.Add(Me.Payslip)
+        Me.PayslipTab.Location = New System.Drawing.Point(4, 22)
+        Me.PayslipTab.Name = "PayslipTab"
+        Me.PayslipTab.Padding = New System.Windows.Forms.Padding(3)
+        Me.PayslipTab.Size = New System.Drawing.Size(675, 573)
+        Me.PayslipTab.TabIndex = 1
+        Me.PayslipTab.Text = "Payslip"
+        '
+        'Payslip
+        '
+        Me.Payslip.Location = New System.Drawing.Point(0, 0)
+        Me.Payslip.Multiline = True
+        Me.Payslip.Name = "Payslip"
+        Me.Payslip.Size = New System.Drawing.Size(679, 573)
+        Me.Payslip.TabIndex = 103
+        '
+        'Employees_Unpaid_BindingSource
+        '
+        Me.Employees_Unpaid_BindingSource.DataMember = "Employees(Unpaid)"
+        Me.Employees_Unpaid_BindingSource.DataSource = Me.DatabaseDataSet
+        '
+        'TableAdapterManager
+        '
+        Me.TableAdapterManager.AdminsTableAdapter = Nothing
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.Connection = Nothing
+        Me.TableAdapterManager.Employees_Unpaid_TableAdapter = Nothing
+        Me.TableAdapterManager.EmployeesTableAdapter = Nothing
+        Me.TableAdapterManager.Paid_WorkersTableAdapter = Nothing
+        Me.TableAdapterManager.UpdateOrder = Payroll_System.DatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        Me.TableAdapterManager.WorkersTableAdapter = Nothing
+        '
+        'TableAdapterManager1
+        '
+        Me.TableAdapterManager1.AdminsTableAdapter = Nothing
+        Me.TableAdapterManager1.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager1.Connection = Nothing
+        Me.TableAdapterManager1.Employees_Unpaid_TableAdapter = Nothing
+        Me.TableAdapterManager1.EmployeesTableAdapter = Nothing
+        Me.TableAdapterManager1.Paid_WorkersTableAdapter = Nothing
+        Me.TableAdapterManager1.UpdateOrder = Payroll_System.DatabaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        Me.TableAdapterManager1.WorkersTableAdapter = Nothing
+        '
+        'WorkersTableAdapter
+        '
+        Me.WorkersTableAdapter.ClearBeforeFill = True
+        '
+        'Paid_WorkersTableAdapter
+        '
+        Me.Paid_WorkersTableAdapter.ClearBeforeFill = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1020,8 +1002,12 @@ Partial Class Form1
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Main"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
+        CType(Me.PaidWorkersBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DatabaseDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EmployeesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        CType(Me.WorkersBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         Me.Panel3.ResumeLayout(False)
@@ -1029,13 +1015,9 @@ Partial Class Form1
         Me.Tab.ResumeLayout(False)
         Me.Database.ResumeLayout(False)
         CType(Me.Paid_WorkersDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PaidWorkersBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PayslipTab.ResumeLayout(False)
         Me.PayslipTab.PerformLayout()
-        CType(Me.WorkersBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DatabaseDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.EmployeesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PaidWorkersBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PaidWorkersBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Employees_Unpaid_BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
@@ -1107,7 +1089,6 @@ Partial Class Form1
     Friend WithEvents Database As TabPage
     Friend WithEvents Paid_WorkersDataGridView As DataGridView
     Friend WithEvents PayslipTab As TabPage
-    Friend WithEvents PrintPreviewControl1 As PrintPreviewControl
     Friend WithEvents Payslip As TextBox
     Friend WithEvents preview As Button
     Friend WithEvents PaidWorkersBindingSource1 As BindingSource
