@@ -7,6 +7,7 @@
     Dim s As Integer
     Dim net As Integer
     Dim ot As Integer
+
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
         Try
@@ -33,7 +34,6 @@
                 tax = ans * 0.35
                 Taxpercent.Text = "35%"
             End If
-
 
             MonthlyWageTax.Text = FormatCurrency(tax)
             phil = ans * 0.05
@@ -65,11 +65,13 @@
     End Sub
 
     Private Sub clear_Click(sender As Object, e As EventArgs) Handles preview.Click
+
+
         Dim line As String = "---------------------------------------------------------------------------------------------------------------------------------------------------"
         Try
             Payslip.Text = ""
             Payslip.AppendText(line + vbNewLine)
-            Payslip.AppendText("                                                      Arellano University Andres Bonifacio Campus" + vbNewLine)
+            Payslip.AppendText("                                                     Arellano University Andres Bonifacio Campus" + vbNewLine)
             Payslip.AppendText("====================================================================================" + vbNewLine)
             Payslip.AppendText("                                                                                     Payslip                                                                       " + vbNewLine)
             Payslip.AppendText("====================================================================================" + vbNewLine)
@@ -92,7 +94,7 @@
             Payslip.AppendText("Gross Salary:                                                                                                                              " + FormatCurrency(GrossSalary1.Text) + vbNewLine)
             Payslip.AppendText("" + vbNewLine)
             Payslip.AppendText("====================================================================================" + vbNewLine)
-            Payslip.AppendText("                                                                                  Deductions                                                                     " + vbNewLine)
+            Payslip.AppendText("                                                                                    Deductions                                                                     " + vbNewLine)
             Payslip.AppendText("====================================================================================" + vbNewLine)
             Payslip.AppendText("" + vbNewLine)
             Payslip.AppendText("Tax:                                                                                                                                                 " + Taxpercent.Text + vbNewLine)
@@ -110,17 +112,22 @@
             Payslip.AppendText("Total Deduction:                                                                                                                            " + FormatCurrency(TotalDeduction.Text) + vbNewLine)
             Payslip.AppendText("" + vbNewLine)
             Payslip.AppendText("====================================================================================" + vbNewLine)
-            Payslip.AppendText("                                                                                  Net salary                                                                    " + vbNewLine)
+            Payslip.AppendText("                                                                                   Net salary                                                                    " + vbNewLine)
             Payslip.AppendText("====================================================================================" + vbNewLine)
             Payslip.AppendText("" + vbNewLine)
             Payslip.AppendText("Net salary:                                                                                                                                    " + FormatCurrency(NetSalary.Text) + vbNewLine)
             Payslip.AppendText("" + vbNewLine)
             Payslip.AppendText("====================================================================================" + vbNewLine)
-            Payslip.AppendText("                                                                              DATE & Time                                                                  " + vbNewLine)
-            Payslip.AppendText("                                                                      " + Date.Now + vbNewLine)
+            Payslip.AppendText("                                                                                 DATE & Time                                                                  " + vbNewLine)
+            Payslip.AppendText("                                                                         " + Date.Now + vbNewLine)
             Payslip.AppendText("====================================================================================" + vbNewLine)
+            Payslip.AppendText("" + vbNewLine)
+            Payslip.AppendText("" + vbNewLine)
             Payslip.AppendText("                                                                           __________________                                                                  " + vbNewLine)
-            Payslip.AppendText("                                                                               Signature                                                                  " + vbNewLine)
+            Payslip.AppendText("                                                                                   Signature                                                                  " + vbNewLine)
+            Payslip.AppendText("" + vbNewLine)
+            Payslip.AppendText("" + vbNewLine)
+
 
 
 
@@ -137,16 +144,21 @@
             GrossSalary1.Clear()
             GrossSalary2.Clear()
             NetSalary.Clear()
+
+            Tab.SelectedTab = PayslipTab
+
         Catch ex As Exception
             MessageBox.Show("Please fill-up the requirements correctly")
 
         End Try
 
     End Sub
+    Private Sub PrintDocument1_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles PrintDocument1.PrintPage
+        e.Graphics.DrawString(Payslip.Text, Font, Brushes.Black, 140, 140)
+    End Sub
 
     Private Sub print_Click(sender As Object, e As EventArgs) Handles print.Click
-        Me.TopMost() = True
-        PrintPreviewDialog1.ShowDialog(Payslip)
+        PrintPreviewDialog1.ShowDialog()
     End Sub
 
     Private Sub Add_Click(sender As Object, e As EventArgs) Handles Add.Click
@@ -160,9 +172,6 @@
         Paid_WorkersTableAdapter.Update(DatabaseDataSet.Paid_Workers)
     End Sub
 
-    Private Sub PrintDocument1_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles PrintDocument1.PrintPage
-        e.Graphics.DrawString(Payslip.Text, Font, Brushes.Black, 140, 140)
-    End Sub
 
     Private Sub save_Click(sender As Object, e As EventArgs) Handles save.Click
         Try
@@ -173,10 +182,6 @@
         Catch ex As Exception
             MessageBox.Show("Not Saved")
         End Try
-    End Sub
-
-    Private Sub GroupBox1_Enter(sender As Object, e As EventArgs)
-
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click

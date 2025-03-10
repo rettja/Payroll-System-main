@@ -31,10 +31,16 @@ Partial Class Form3
         Me.exit1 = New System.Windows.Forms.Button()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
-        Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.WorkersDataGridView = New System.Windows.Forms.DataGridView()
-        Me.Paid_WorkersBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Paid_WorkersTableAdapter = New Payroll_System.DatabaseDataSetTableAdapters.Paid_WorkersTableAdapter()
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.Paid_WorkersDataGridView = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -50,23 +56,17 @@ Partial Class Form3
         Me.DataGridViewTextBoxColumn20 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn21 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn22 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Paid_WorkersBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Paid_WorkersTableAdapter = New Payroll_System.DatabaseDataSetTableAdapters.Paid_WorkersTableAdapter()
         CType(Me.DatabaseDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.WorkersBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
-        Me.TabPage2.SuspendLayout()
         CType(Me.WorkersDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Paid_WorkersBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabPage2.SuspendLayout()
         CType(Me.Paid_WorkersDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Paid_WorkersBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'DatabaseDataSet
@@ -135,19 +135,8 @@ Partial Class Form3
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage1.Size = New System.Drawing.Size(1184, 364)
         Me.TabPage1.TabIndex = 0
-        Me.TabPage1.Text = "TabPage1"
+        Me.TabPage1.Text = "Employees"
         Me.TabPage1.UseVisualStyleBackColor = True
-        '
-        'TabPage2
-        '
-        Me.TabPage2.Controls.Add(Me.Paid_WorkersDataGridView)
-        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(1184, 364)
-        Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "TabPage2"
-        Me.TabPage2.UseVisualStyleBackColor = True
         '
         'WorkersDataGridView
         '
@@ -161,14 +150,76 @@ Partial Class Form3
         Me.WorkersDataGridView.Size = New System.Drawing.Size(1178, 358)
         Me.WorkersDataGridView.TabIndex = 0
         '
-        'Paid_WorkersBindingSource
+        'DataGridViewTextBoxColumn1
         '
-        Me.Paid_WorkersBindingSource.DataMember = "Paid_Workers"
-        Me.Paid_WorkersBindingSource.DataSource = Me.DatabaseDataSet
+        Me.DataGridViewTextBoxColumn1.DataPropertyName = "ID"
+        Me.DataGridViewTextBoxColumn1.HeaderText = "ID"
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn1.Width = 50
         '
-        'Paid_WorkersTableAdapter
+        'DataGridViewTextBoxColumn2
         '
-        Me.Paid_WorkersTableAdapter.ClearBeforeFill = True
+        Me.DataGridViewTextBoxColumn2.DataPropertyName = "Employees"
+        Me.DataGridViewTextBoxColumn2.HeaderText = "Employees"
+        Me.DataGridViewTextBoxColumn2.MinimumWidth = 230
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.DataGridViewTextBoxColumn2.Width = 230
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.DataPropertyName = "Age"
+        Me.DataGridViewTextBoxColumn3.HeaderText = "Age"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.Width = 50
+        '
+        'DataGridViewTextBoxColumn4
+        '
+        Me.DataGridViewTextBoxColumn4.DataPropertyName = "Birthday"
+        Me.DataGridViewTextBoxColumn4.HeaderText = "Birthday"
+        Me.DataGridViewTextBoxColumn4.MinimumWidth = 130
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        Me.DataGridViewTextBoxColumn4.Width = 130
+        '
+        'DataGridViewTextBoxColumn5
+        '
+        Me.DataGridViewTextBoxColumn5.DataPropertyName = "Gender"
+        Me.DataGridViewTextBoxColumn5.HeaderText = "Gender"
+        Me.DataGridViewTextBoxColumn5.MinimumWidth = 80
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        Me.DataGridViewTextBoxColumn5.Width = 80
+        '
+        'DataGridViewTextBoxColumn6
+        '
+        Me.DataGridViewTextBoxColumn6.DataPropertyName = "Civil Status"
+        Me.DataGridViewTextBoxColumn6.HeaderText = "Civil Status"
+        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
+        '
+        'DataGridViewTextBoxColumn7
+        '
+        Me.DataGridViewTextBoxColumn7.DataPropertyName = "Work"
+        Me.DataGridViewTextBoxColumn7.HeaderText = "Work"
+        Me.DataGridViewTextBoxColumn7.MinimumWidth = 230
+        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        Me.DataGridViewTextBoxColumn7.Width = 230
+        '
+        'DataGridViewTextBoxColumn8
+        '
+        Me.DataGridViewTextBoxColumn8.DataPropertyName = "Address"
+        Me.DataGridViewTextBoxColumn8.HeaderText = "Address"
+        Me.DataGridViewTextBoxColumn8.MinimumWidth = 300
+        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
+        Me.DataGridViewTextBoxColumn8.Width = 300
+        '
+        'TabPage2
+        '
+        Me.TabPage2.Controls.Add(Me.Paid_WorkersDataGridView)
+        Me.TabPage2.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage2.Name = "TabPage2"
+        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage2.Size = New System.Drawing.Size(1184, 364)
+        Me.TabPage2.TabIndex = 1
+        Me.TabPage2.Text = "Paid_Employees"
+        Me.TabPage2.UseVisualStyleBackColor = True
         '
         'Paid_WorkersDataGridView
         '
@@ -266,65 +317,14 @@ Partial Class Form3
         Me.DataGridViewTextBoxColumn22.HeaderText = "Net_Salary"
         Me.DataGridViewTextBoxColumn22.Name = "DataGridViewTextBoxColumn22"
         '
-        'DataGridViewTextBoxColumn1
+        'Paid_WorkersBindingSource
         '
-        Me.DataGridViewTextBoxColumn1.DataPropertyName = "ID"
-        Me.DataGridViewTextBoxColumn1.HeaderText = "ID"
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        Me.DataGridViewTextBoxColumn1.Width = 50
+        Me.Paid_WorkersBindingSource.DataMember = "Paid_Workers"
+        Me.Paid_WorkersBindingSource.DataSource = Me.DatabaseDataSet
         '
-        'DataGridViewTextBoxColumn2
+        'Paid_WorkersTableAdapter
         '
-        Me.DataGridViewTextBoxColumn2.DataPropertyName = "Employees"
-        Me.DataGridViewTextBoxColumn2.HeaderText = "Employees"
-        Me.DataGridViewTextBoxColumn2.MinimumWidth = 230
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-        Me.DataGridViewTextBoxColumn2.Width = 230
-        '
-        'DataGridViewTextBoxColumn3
-        '
-        Me.DataGridViewTextBoxColumn3.DataPropertyName = "Age"
-        Me.DataGridViewTextBoxColumn3.HeaderText = "Age"
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        Me.DataGridViewTextBoxColumn3.Width = 50
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.DataPropertyName = "Birthday"
-        Me.DataGridViewTextBoxColumn4.HeaderText = "Birthday"
-        Me.DataGridViewTextBoxColumn4.MinimumWidth = 130
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        Me.DataGridViewTextBoxColumn4.Width = 130
-        '
-        'DataGridViewTextBoxColumn5
-        '
-        Me.DataGridViewTextBoxColumn5.DataPropertyName = "Gender"
-        Me.DataGridViewTextBoxColumn5.HeaderText = "Gender"
-        Me.DataGridViewTextBoxColumn5.MinimumWidth = 80
-        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-        Me.DataGridViewTextBoxColumn5.Width = 80
-        '
-        'DataGridViewTextBoxColumn6
-        '
-        Me.DataGridViewTextBoxColumn6.DataPropertyName = "Civil Status"
-        Me.DataGridViewTextBoxColumn6.HeaderText = "Civil Status"
-        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
-        '
-        'DataGridViewTextBoxColumn7
-        '
-        Me.DataGridViewTextBoxColumn7.DataPropertyName = "Work"
-        Me.DataGridViewTextBoxColumn7.HeaderText = "Work"
-        Me.DataGridViewTextBoxColumn7.MinimumWidth = 230
-        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
-        Me.DataGridViewTextBoxColumn7.Width = 230
-        '
-        'DataGridViewTextBoxColumn8
-        '
-        Me.DataGridViewTextBoxColumn8.DataPropertyName = "Address"
-        Me.DataGridViewTextBoxColumn8.HeaderText = "Address"
-        Me.DataGridViewTextBoxColumn8.MinimumWidth = 300
-        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
-        Me.DataGridViewTextBoxColumn8.Width = 300
+        Me.Paid_WorkersTableAdapter.ClearBeforeFill = True
         '
         'Form3
         '
@@ -342,10 +342,10 @@ Partial Class Form3
         Me.Panel2.ResumeLayout(False)
         Me.TabControl1.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
-        Me.TabPage2.ResumeLayout(False)
         CType(Me.WorkersDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Paid_WorkersBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabPage2.ResumeLayout(False)
         CType(Me.Paid_WorkersDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Paid_WorkersBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
