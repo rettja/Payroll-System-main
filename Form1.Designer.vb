@@ -90,29 +90,29 @@ Partial Class Form1
         Me.WorkersTableAdapter = New Payroll_System.DatabaseDataSetTableAdapters.WorkersTableAdapter()
         Me.Paid_WorkersTableAdapter = New Payroll_System.DatabaseDataSetTableAdapters.Paid_WorkersTableAdapter()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.preview = New System.Windows.Forms.Button()
+        Me.print = New System.Windows.Forms.Button()
         Me.Philhealth = New System.Windows.Forms.TextBox()
-        Me.PayslipTab = New System.Windows.Forms.TabPage()
-        Me.Payslip = New System.Windows.Forms.TextBox()
-        Me.PrintPreviewControl1 = New System.Windows.Forms.PrintPreviewControl()
+        Me.Tab = New System.Windows.Forms.TabControl()
         Me.Database = New System.Windows.Forms.TabPage()
         Me.Paid_WorkersDataGridView = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Tab = New System.Windows.Forms.TabControl()
-        Me.print = New System.Windows.Forms.Button()
-        Me.preview = New System.Windows.Forms.Button()
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PayslipTab = New System.Windows.Forms.TabPage()
+        Me.PrintPreviewControl1 = New System.Windows.Forms.PrintPreviewControl()
+        Me.Payslip = New System.Windows.Forms.TextBox()
         GenderLabel = New System.Windows.Forms.Label()
         AdressLabel = New System.Windows.Forms.Label()
         AgeLabel = New System.Windows.Forms.Label()
@@ -129,10 +129,10 @@ Partial Class Form1
         Me.Panel2.SuspendLayout()
         CType(Me.Employees_Unpaid_BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
-        Me.PayslipTab.SuspendLayout()
+        Me.Tab.SuspendLayout()
         Me.Database.SuspendLayout()
         CType(Me.Paid_WorkersDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Tab.SuspendLayout()
+        Me.PayslipTab.SuspendLayout()
         Me.SuspendLayout()
         '
         'GenderLabel
@@ -812,6 +812,28 @@ Partial Class Form1
         Me.Panel3.Size = New System.Drawing.Size(1782, 726)
         Me.Panel3.TabIndex = 103
         '
+        'preview
+        '
+        Me.preview.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.preview.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
+        Me.preview.Location = New System.Drawing.Point(1288, 673)
+        Me.preview.Name = "preview"
+        Me.preview.Size = New System.Drawing.Size(120, 31)
+        Me.preview.TabIndex = 50
+        Me.preview.Text = "Preview "
+        Me.preview.UseVisualStyleBackColor = True
+        '
+        'print
+        '
+        Me.print.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.print.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
+        Me.print.Location = New System.Drawing.Point(1429, 673)
+        Me.print.Name = "print"
+        Me.print.Size = New System.Drawing.Size(120, 31)
+        Me.print.TabIndex = 51
+        Me.print.Text = "Print"
+        Me.print.UseVisualStyleBackColor = True
+        '
         'Philhealth
         '
         Me.Philhealth.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -823,34 +845,16 @@ Partial Class Form1
         Me.Philhealth.TabIndex = 100
         Me.Philhealth.TabStop = False
         '
-        'PayslipTab
+        'Tab
         '
-        Me.PayslipTab.BackColor = System.Drawing.Color.DarkGray
-        Me.PayslipTab.Controls.Add(Me.PrintPreviewControl1)
-        Me.PayslipTab.Controls.Add(Me.Payslip)
-        Me.PayslipTab.Location = New System.Drawing.Point(4, 22)
-        Me.PayslipTab.Name = "PayslipTab"
-        Me.PayslipTab.Padding = New System.Windows.Forms.Padding(3)
-        Me.PayslipTab.Size = New System.Drawing.Size(675, 573)
-        Me.PayslipTab.TabIndex = 1
-        Me.PayslipTab.Text = "Payslip"
-        '
-        'Payslip
-        '
-        Me.Payslip.Location = New System.Drawing.Point(256, 173)
-        Me.Payslip.Name = "Payslip"
-        Me.Payslip.Size = New System.Drawing.Size(100, 20)
-        Me.Payslip.TabIndex = 103
-        '
-        'PrintPreviewControl1
-        '
-        Me.PrintPreviewControl1.AutoZoom = False
-        Me.PrintPreviewControl1.Document = Me.PrintDocument1
-        Me.PrintPreviewControl1.Location = New System.Drawing.Point(0, 0)
-        Me.PrintPreviewControl1.Name = "PrintPreviewControl1"
-        Me.PrintPreviewControl1.Size = New System.Drawing.Size(675, 573)
-        Me.PrintPreviewControl1.TabIndex = 0
-        Me.PrintPreviewControl1.Zoom = 0.7431137724550898R
+        Me.Tab.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Tab.Controls.Add(Me.Database)
+        Me.Tab.Controls.Add(Me.PayslipTab)
+        Me.Tab.Location = New System.Drawing.Point(1086, 68)
+        Me.Tab.Name = "Tab"
+        Me.Tab.SelectedIndex = 0
+        Me.Tab.Size = New System.Drawing.Size(683, 599)
+        Me.Tab.TabIndex = 52
         '
         'Database
         '
@@ -876,77 +880,11 @@ Partial Class Form1
         Me.Paid_WorkersDataGridView.Size = New System.Drawing.Size(669, 567)
         Me.Paid_WorkersDataGridView.TabIndex = 0
         '
-        'DataGridViewTextBoxColumn15
+        'DataGridViewTextBoxColumn1
         '
-        Me.DataGridViewTextBoxColumn15.DataPropertyName = "Net_Salary"
-        Me.DataGridViewTextBoxColumn15.HeaderText = "Net_Salary"
-        Me.DataGridViewTextBoxColumn15.Name = "DataGridViewTextBoxColumn15"
-        '
-        'DataGridViewTextBoxColumn14
-        '
-        Me.DataGridViewTextBoxColumn14.DataPropertyName = "Total_Dedcution"
-        Me.DataGridViewTextBoxColumn14.HeaderText = "Total_Dedcution"
-        Me.DataGridViewTextBoxColumn14.Name = "DataGridViewTextBoxColumn14"
-        '
-        'DataGridViewTextBoxColumn13
-        '
-        Me.DataGridViewTextBoxColumn13.DataPropertyName = "SSS_Contribution"
-        Me.DataGridViewTextBoxColumn13.HeaderText = "SSS_Contribution"
-        Me.DataGridViewTextBoxColumn13.Name = "DataGridViewTextBoxColumn13"
-        '
-        'DataGridViewTextBoxColumn12
-        '
-        Me.DataGridViewTextBoxColumn12.DataPropertyName = "PhilHealth_Contribution"
-        Me.DataGridViewTextBoxColumn12.HeaderText = "PhilHealth_Contribution"
-        Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
-        '
-        'DataGridViewTextBoxColumn11
-        '
-        Me.DataGridViewTextBoxColumn11.DataPropertyName = "Tax Deduction"
-        Me.DataGridViewTextBoxColumn11.HeaderText = "Tax Deduction"
-        Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
-        '
-        'DataGridViewTextBoxColumn10
-        '
-        Me.DataGridViewTextBoxColumn10.DataPropertyName = "Gross_Salary"
-        Me.DataGridViewTextBoxColumn10.HeaderText = "Gross_Salary"
-        Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
-        '
-        'DataGridViewTextBoxColumn9
-        '
-        Me.DataGridViewTextBoxColumn9.DataPropertyName = "Overtime"
-        Me.DataGridViewTextBoxColumn9.HeaderText = "Overtime"
-        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
-        '
-        'DataGridViewTextBoxColumn8
-        '
-        Me.DataGridViewTextBoxColumn8.DataPropertyName = "Special_Holiday"
-        Me.DataGridViewTextBoxColumn8.HeaderText = "Special_Holiday"
-        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
-        '
-        'DataGridViewTextBoxColumn7
-        '
-        Me.DataGridViewTextBoxColumn7.DataPropertyName = "Regular_Holiday"
-        Me.DataGridViewTextBoxColumn7.HeaderText = "Regular_Holiday"
-        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
-        '
-        'DataGridViewTextBoxColumn6
-        '
-        Me.DataGridViewTextBoxColumn6.DataPropertyName = "Days"
-        Me.DataGridViewTextBoxColumn6.HeaderText = "Days"
-        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
-        '
-        'DataGridViewTextBoxColumn5
-        '
-        Me.DataGridViewTextBoxColumn5.DataPropertyName = "Hours"
-        Me.DataGridViewTextBoxColumn5.HeaderText = "Hours"
-        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.DataPropertyName = "Pay"
-        Me.DataGridViewTextBoxColumn4.HeaderText = "Pay"
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        Me.DataGridViewTextBoxColumn1.DataPropertyName = "ID"
+        Me.DataGridViewTextBoxColumn1.HeaderText = "ID"
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
         '
         'DataGridViewTextBoxColumn3
         '
@@ -954,44 +892,106 @@ Partial Class Form1
         Me.DataGridViewTextBoxColumn3.HeaderText = "name"
         Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
         '
-        'DataGridViewTextBoxColumn1
+        'DataGridViewTextBoxColumn4
         '
-        Me.DataGridViewTextBoxColumn1.DataPropertyName = "ID"
-        Me.DataGridViewTextBoxColumn1.HeaderText = "ID"
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.DataGridViewTextBoxColumn4.DataPropertyName = "Pay"
+        Me.DataGridViewTextBoxColumn4.HeaderText = "Pay"
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
         '
-        'Tab
+        'DataGridViewTextBoxColumn5
         '
-        Me.Tab.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Tab.Controls.Add(Me.Database)
-        Me.Tab.Controls.Add(Me.PayslipTab)
-        Me.Tab.Location = New System.Drawing.Point(1086, 68)
-        Me.Tab.Name = "Tab"
-        Me.Tab.SelectedIndex = 0
-        Me.Tab.Size = New System.Drawing.Size(683, 599)
-        Me.Tab.TabIndex = 52
+        Me.DataGridViewTextBoxColumn5.DataPropertyName = "Hours"
+        Me.DataGridViewTextBoxColumn5.HeaderText = "Hours"
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
         '
-        'print
+        'DataGridViewTextBoxColumn6
         '
-        Me.print.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.print.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
-        Me.print.Location = New System.Drawing.Point(1429, 673)
-        Me.print.Name = "print"
-        Me.print.Size = New System.Drawing.Size(120, 31)
-        Me.print.TabIndex = 51
-        Me.print.Text = "Print"
-        Me.print.UseVisualStyleBackColor = True
+        Me.DataGridViewTextBoxColumn6.DataPropertyName = "Days"
+        Me.DataGridViewTextBoxColumn6.HeaderText = "Days"
+        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
         '
-        'preview
+        'DataGridViewTextBoxColumn7
         '
-        Me.preview.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.preview.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
-        Me.preview.Location = New System.Drawing.Point(1288, 673)
-        Me.preview.Name = "preview"
-        Me.preview.Size = New System.Drawing.Size(120, 31)
-        Me.preview.TabIndex = 50
-        Me.preview.Text = "Preview "
-        Me.preview.UseVisualStyleBackColor = True
+        Me.DataGridViewTextBoxColumn7.DataPropertyName = "Regular_Holiday"
+        Me.DataGridViewTextBoxColumn7.HeaderText = "Regular_Holiday"
+        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        '
+        'DataGridViewTextBoxColumn8
+        '
+        Me.DataGridViewTextBoxColumn8.DataPropertyName = "Special_Holiday"
+        Me.DataGridViewTextBoxColumn8.HeaderText = "Special_Holiday"
+        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
+        '
+        'DataGridViewTextBoxColumn9
+        '
+        Me.DataGridViewTextBoxColumn9.DataPropertyName = "Overtime"
+        Me.DataGridViewTextBoxColumn9.HeaderText = "Overtime"
+        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
+        '
+        'DataGridViewTextBoxColumn10
+        '
+        Me.DataGridViewTextBoxColumn10.DataPropertyName = "Gross_Salary"
+        Me.DataGridViewTextBoxColumn10.HeaderText = "Gross_Salary"
+        Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
+        '
+        'DataGridViewTextBoxColumn11
+        '
+        Me.DataGridViewTextBoxColumn11.DataPropertyName = "Tax Deduction"
+        Me.DataGridViewTextBoxColumn11.HeaderText = "Tax Deduction"
+        Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
+        '
+        'DataGridViewTextBoxColumn12
+        '
+        Me.DataGridViewTextBoxColumn12.DataPropertyName = "PhilHealth_Contribution"
+        Me.DataGridViewTextBoxColumn12.HeaderText = "PhilHealth_Contribution"
+        Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
+        '
+        'DataGridViewTextBoxColumn13
+        '
+        Me.DataGridViewTextBoxColumn13.DataPropertyName = "SSS_Contribution"
+        Me.DataGridViewTextBoxColumn13.HeaderText = "SSS_Contribution"
+        Me.DataGridViewTextBoxColumn13.Name = "DataGridViewTextBoxColumn13"
+        '
+        'DataGridViewTextBoxColumn14
+        '
+        Me.DataGridViewTextBoxColumn14.DataPropertyName = "Total_Dedcution"
+        Me.DataGridViewTextBoxColumn14.HeaderText = "Total_Dedcution"
+        Me.DataGridViewTextBoxColumn14.Name = "DataGridViewTextBoxColumn14"
+        '
+        'DataGridViewTextBoxColumn15
+        '
+        Me.DataGridViewTextBoxColumn15.DataPropertyName = "Net_Salary"
+        Me.DataGridViewTextBoxColumn15.HeaderText = "Net_Salary"
+        Me.DataGridViewTextBoxColumn15.Name = "DataGridViewTextBoxColumn15"
+        '
+        'PayslipTab
+        '
+        Me.PayslipTab.BackColor = System.Drawing.Color.DarkGray
+        Me.PayslipTab.Controls.Add(Me.PrintPreviewControl1)
+        Me.PayslipTab.Controls.Add(Me.Payslip)
+        Me.PayslipTab.Location = New System.Drawing.Point(4, 22)
+        Me.PayslipTab.Name = "PayslipTab"
+        Me.PayslipTab.Padding = New System.Windows.Forms.Padding(3)
+        Me.PayslipTab.Size = New System.Drawing.Size(675, 573)
+        Me.PayslipTab.TabIndex = 1
+        Me.PayslipTab.Text = "Payslip"
+        '
+        'PrintPreviewControl1
+        '
+        Me.PrintPreviewControl1.AutoZoom = False
+        Me.PrintPreviewControl1.Document = Me.PrintDocument1
+        Me.PrintPreviewControl1.Location = New System.Drawing.Point(0, 0)
+        Me.PrintPreviewControl1.Name = "PrintPreviewControl1"
+        Me.PrintPreviewControl1.Size = New System.Drawing.Size(675, 573)
+        Me.PrintPreviewControl1.TabIndex = 0
+        Me.PrintPreviewControl1.Zoom = 0.7431137724550898R
+        '
+        'Payslip
+        '
+        Me.Payslip.Location = New System.Drawing.Point(256, 173)
+        Me.Payslip.Name = "Payslip"
+        Me.Payslip.Size = New System.Drawing.Size(100, 20)
+        Me.Payslip.TabIndex = 103
         '
         'Form1
         '
@@ -1020,11 +1020,11 @@ Partial Class Form1
         CType(Me.Employees_Unpaid_BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
-        Me.PayslipTab.ResumeLayout(False)
-        Me.PayslipTab.PerformLayout()
+        Me.Tab.ResumeLayout(False)
         Me.Database.ResumeLayout(False)
         CType(Me.Paid_WorkersDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Tab.ResumeLayout(False)
+        Me.PayslipTab.ResumeLayout(False)
+        Me.PayslipTab.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
