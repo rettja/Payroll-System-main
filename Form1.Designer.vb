@@ -208,7 +208,7 @@ Partial Class Form1
         '
         'EmployeeName
         '
-        Me.EmployeeName.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PaidWorkersBindingSource, "name", True))
+        Me.EmployeeName.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PaidWorkersBindingSource, "name", True, System.Windows.Forms.DataSourceUpdateMode.OnValidation, Nothing, "C2"))
         Me.EmployeeName.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.EmployeeName.Location = New System.Drawing.Point(18, 200)
         Me.EmployeeName.Multiline = True
