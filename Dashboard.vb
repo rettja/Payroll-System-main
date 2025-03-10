@@ -30,10 +30,21 @@
 
 
     Private Function GetStoredPassword(username As String) As String
-        If username = "Francisco" Then
+        If username = "Admin" Then
 
-            Return "Nicosupot"
+            Return "Password"
         End If
         Return Nothing
     End Function
+
+    Private Sub exit1_Click(sender As Object, e As EventArgs) Handles exit1.Click
+        Application.Exit()
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+
+        Dim form3 As New Form3()
+
+        form3.Show()
+    End Sub
 End Class

@@ -22,45 +22,57 @@ Partial Class Form2
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Login = New System.Windows.Forms.Button()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
         Me.exit1 = New System.Windows.Forms.Button()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.GroupBox1.SuspendLayout()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Login = New System.Windows.Forms.Button()
+        Me.AUlogo = New System.Windows.Forms.PictureBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.AUlogo, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
-        'GroupBox1
+        'exit1
         '
-        Me.GroupBox1.BackColor = System.Drawing.Color.SkyBlue
-        Me.GroupBox1.Controls.Add(Me.Label4)
-        Me.GroupBox1.Controls.Add(Me.Login)
-        Me.GroupBox1.Controls.Add(Me.Label3)
-        Me.GroupBox1.Controls.Add(Me.TextBox2)
-        Me.GroupBox1.Controls.Add(Me.Label2)
-        Me.GroupBox1.Controls.Add(Me.TextBox1)
-        Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Location = New System.Drawing.Point(341, 126)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(404, 208)
-        Me.GroupBox1.TabIndex = 0
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Log in to continue."
+        Me.exit1.AutoSize = True
+        Me.exit1.BackColor = System.Drawing.Color.Transparent
+        Me.exit1.BackgroundImage = Global.Payroll_System.My.Resources.Resources._5244832
+        Me.exit1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.exit1.FlatAppearance.BorderSize = 0
+        Me.exit1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.exit1.Location = New System.Drawing.Point(716, 0)
+        Me.exit1.Name = "exit1"
+        Me.exit1.Size = New System.Drawing.Size(47, 41)
+        Me.exit1.TabIndex = 8
+        Me.exit1.UseVisualStyleBackColor = False
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.PictureBox2.Cursor = System.Windows.Forms.Cursors.No
+        Me.PictureBox2.Image = Global.Payroll_System.My.Resources.Resources._03_19_26_213_512
+        Me.PictureBox2.Location = New System.Drawing.Point(49, 63)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(244, 239)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox2.TabIndex = 10
+        Me.PictureBox2.TabStop = False
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(41, 91)
+        Me.Label1.BackColor = System.Drawing.Color.SteelBlue
+        Me.Label1.ForeColor = System.Drawing.Color.PaleGoldenrod
+        Me.Label1.Location = New System.Drawing.Point(6, 34)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(61, 13)
         Me.Label1.TabIndex = 1
@@ -68,134 +80,138 @@ Partial Class Form2
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(99, 88)
+        Me.TextBox1.Location = New System.Drawing.Point(73, 34)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(226, 20)
+        Me.TextBox1.Size = New System.Drawing.Size(201, 20)
         Me.TextBox1.TabIndex = 2
-        '
-        'TextBox2
-        '
-        Me.TextBox2.Location = New System.Drawing.Point(99, 114)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(226, 20)
-        Me.TextBox2.TabIndex = 4
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(41, 117)
+        Me.Label2.BackColor = System.Drawing.Color.SteelBlue
+        Me.Label2.ForeColor = System.Drawing.Color.PaleGoldenrod
+        Me.Label2.Location = New System.Drawing.Point(11, 60)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(56, 13)
         Me.Label2.TabIndex = 3
         Me.Label2.Text = "Password:"
         '
+        'TextBox2
+        '
+        Me.TextBox2.Location = New System.Drawing.Point(73, 57)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(201, 20)
+        Me.TextBox2.TabIndex = 4
+        '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.ForeColor = System.Drawing.Color.Navy
-        Me.Label3.Location = New System.Drawing.Point(170, 137)
+        Me.Label3.BackColor = System.Drawing.Color.Transparent
+        Me.Label3.ForeColor = System.Drawing.Color.PaleGoldenrod
+        Me.Label3.Location = New System.Drawing.Point(518, 252)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(86, 13)
         Me.Label3.TabIndex = 5
         Me.Label3.Text = "Forgot Password"
         '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.BackColor = System.Drawing.Color.SteelBlue
+        Me.Label5.Font = New System.Drawing.Font("Agency FB", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.Color.Khaki
+        Me.Label5.Location = New System.Drawing.Point(441, 98)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(231, 44)
+        Me.Label5.TabIndex = 8
+        Me.Label5.Text = "PAYROLL SYSTEM"
+        '
         'Login
         '
-        Me.Login.Location = New System.Drawing.Point(99, 164)
+        Me.Login.Location = New System.Drawing.Point(434, 279)
         Me.Login.Name = "Login"
         Me.Login.Size = New System.Drawing.Size(226, 23)
         Me.Login.TabIndex = 6
         Me.Login.Text = "Login"
         Me.Login.UseVisualStyleBackColor = True
         '
+        'AUlogo
+        '
+        Me.AUlogo.BackColor = System.Drawing.Color.Transparent
+        Me.AUlogo.Image = Global.Payroll_System.My.Resources.Resources.download
+        Me.AUlogo.Location = New System.Drawing.Point(520, 8)
+        Me.AUlogo.Name = "AUlogo"
+        Me.AUlogo.Size = New System.Drawing.Size(81, 76)
+        Me.AUlogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.AUlogo.TabIndex = 9
+        Me.AUlogo.TabStop = False
+        '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.Label4.Location = New System.Drawing.Point(154, 31)
+        Me.Label4.BackColor = System.Drawing.Color.Transparent
+        Me.Label4.Font = New System.Drawing.Font("Agency FB", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.Color.PaleGoldenrod
+        Me.Label4.Location = New System.Drawing.Point(528, 165)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(111, 33)
+        Me.Label4.Size = New System.Drawing.Size(64, 35)
         Me.Label4.TabIndex = 7
         Me.Label4.Text = "LOGIN"
         '
-        'Label5
+        'GroupBox1
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("MS Gothic", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.Label5.Location = New System.Drawing.Point(399, 44)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(297, 37)
-        Me.Label5.TabIndex = 8
-        Me.Label5.Text = "PAYROLL SYSTEM"
-        '
-        'exit1
-        '
-        Me.exit1.BackgroundImage = Global.Payroll_System.My.Resources.Resources._5244832
-        Me.exit1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.exit1.FlatAppearance.BorderSize = 0
-        Me.exit1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.exit1.Location = New System.Drawing.Point(709, 5)
-        Me.exit1.Name = "exit1"
-        Me.exit1.Size = New System.Drawing.Size(47, 41)
-        Me.exit1.TabIndex = 8
-        Me.exit1.UseVisualStyleBackColor = True
-        '
-        'PictureBox2
-        '
-        Me.PictureBox2.Image = Global.Payroll_System.My.Resources.Resources._03_19_26_213_512
-        Me.PictureBox2.Location = New System.Drawing.Point(40, 64)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(244, 239)
-        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox2.TabIndex = 10
-        Me.PictureBox2.TabStop = False
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.Payroll_System.My.Resources.Resources.download
-        Me.PictureBox1.Location = New System.Drawing.Point(312, 27)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(81, 76)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 9
-        Me.PictureBox1.TabStop = False
+        Me.GroupBox1.BackColor = System.Drawing.Color.SteelBlue
+        Me.GroupBox1.Controls.Add(Me.TextBox1)
+        Me.GroupBox1.Controls.Add(Me.TextBox2)
+        Me.GroupBox1.Controls.Add(Me.Label1)
+        Me.GroupBox1.Controls.Add(Me.Label2)
+        Me.GroupBox1.Location = New System.Drawing.Point(398, 173)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(289, 100)
+        Me.GroupBox1.TabIndex = 11
+        Me.GroupBox1.TabStop = False
         '
         'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.LightBlue
+        Me.BackColor = System.Drawing.Color.LavenderBlush
+        Me.BackgroundImage = Global.Payroll_System.My.Resources.Resources.AUABC
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.CausesValidation = False
         Me.ClientSize = New System.Drawing.Size(761, 353)
-        Me.Controls.Add(Me.exit1)
-        Me.Controls.Add(Me.PictureBox2)
-        Me.Controls.Add(Me.PictureBox1)
-        Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.exit1)
+        Me.Controls.Add(Me.AUlogo)
+        Me.Controls.Add(Me.Login)
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.PictureBox2)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.ImeMode = System.Windows.Forms.ImeMode.[On]
         Me.Name = "Form2"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form2"
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.AUlogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents Label3 As Label
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents Label2 As Label
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents Label1 As Label
     Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
-    Friend WithEvents Label4 As Label
-    Friend WithEvents Login As Button
-    Friend WithEvents Label5 As Label
-    Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents exit1 As Button
+    Friend WithEvents Label1 As Label
+    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Login As Button
+    Friend WithEvents AUlogo As PictureBox
+    Friend WithEvents Label4 As Label
+    Friend WithEvents GroupBox1 As GroupBox
 End Class
