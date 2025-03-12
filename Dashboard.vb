@@ -39,7 +39,7 @@ Public Class Dashboard
         form1.Show()
     End Sub
 
-    Private Sub exit1_Click(sender As Object, e As EventArgs) Handles exit1.Click
+    Private Sub exit1_Click(sender As Object, e As EventArgs) Handles exit1.Click, Button3.Click
         Application.Exit()
     End Sub
 
@@ -48,7 +48,4 @@ Public Class Dashboard
         form3.Show()
     End Sub
 
-    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
-
-    End Sub
 End Class

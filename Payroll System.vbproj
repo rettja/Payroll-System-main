@@ -221,6 +221,8 @@
     <Content Include="Database.accdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\money.png" />
+    <None Include="Resources\multiple-users-silhouette.png" />
     <None Include="Resources\Untitled design %282%29.png" />
     <None Include="Resources\Untitled design %281%29.png" />
     <None Include="Resources\912318.png" />

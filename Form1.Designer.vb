@@ -71,6 +71,7 @@ Partial Class Form1
         Me.philhealthdeduc = New System.Windows.Forms.TextBox()
         Me.sssdeduc = New System.Windows.Forms.TextBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.exit1 = New System.Windows.Forms.Button()
         Me.GenderTextBox = New System.Windows.Forms.TextBox()
         Me.WorkersBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.AdressTextBox = New System.Windows.Forms.TextBox()
@@ -109,7 +110,6 @@ Partial Class Form1
         Me.TableAdapterManager1 = New Payroll_System.DatabaseDataSetTableAdapters.TableAdapterManager()
         Me.WorkersTableAdapter = New Payroll_System.DatabaseDataSetTableAdapters.WorkersTableAdapter()
         Me.Paid_WorkersTableAdapter = New Payroll_System.DatabaseDataSetTableAdapters.Paid_WorkersTableAdapter()
-        Me.exit1 = New System.Windows.Forms.Button()
         GenderLabel = New System.Windows.Forms.Label()
         AdressLabel = New System.Windows.Forms.Label()
         AgeLabel = New System.Windows.Forms.Label()
@@ -590,6 +590,22 @@ Partial Class Form1
         Me.Panel1.Size = New System.Drawing.Size(1621, 50)
         Me.Panel1.TabIndex = 101
         '
+        'exit1
+        '
+        Me.exit1.AutoSize = True
+        Me.exit1.BackColor = System.Drawing.Color.SteelBlue
+        Me.exit1.BackgroundImage = Global.Payroll_System.My.Resources.Resources._5244832
+        Me.exit1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.exit1.Dock = System.Windows.Forms.DockStyle.Right
+        Me.exit1.FlatAppearance.BorderSize = 0
+        Me.exit1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.exit1.Location = New System.Drawing.Point(1574, 0)
+        Me.exit1.Name = "exit1"
+        Me.exit1.Size = New System.Drawing.Size(47, 50)
+        Me.exit1.TabIndex = 54
+        Me.exit1.TabStop = False
+        Me.exit1.UseVisualStyleBackColor = False
+        '
         'GenderTextBox
         '
         Me.GenderTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.WorkersBindingSource, "Gender", True))
@@ -969,22 +985,6 @@ Partial Class Form1
         'Paid_WorkersTableAdapter
         '
         Me.Paid_WorkersTableAdapter.ClearBeforeFill = True
-        '
-        'exit1
-        '
-        Me.exit1.AutoSize = True
-        Me.exit1.BackColor = System.Drawing.Color.SteelBlue
-        Me.exit1.BackgroundImage = Global.Payroll_System.My.Resources.Resources._5244832
-        Me.exit1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.exit1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.exit1.FlatAppearance.BorderSize = 0
-        Me.exit1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.exit1.Location = New System.Drawing.Point(1574, 0)
-        Me.exit1.Name = "exit1"
-        Me.exit1.Size = New System.Drawing.Size(47, 50)
-        Me.exit1.TabIndex = 54
-        Me.exit1.TabStop = False
-        Me.exit1.UseVisualStyleBackColor = False
         '
         'Form1
         '
