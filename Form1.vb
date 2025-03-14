@@ -64,7 +64,7 @@
         'TODO: This line of code loads data into the 'DatabaseDataSet._Employees_Unpaid_' table. You can move, or remove it, as needed.
     End Sub
 
-    Private Sub clear_Click(sender As Object, e As EventArgs) Handles preview.Click
+    Private Sub Clear_Click(sender As Object, e As EventArgs) Handles preview.Click
 
 
         Dim line As String = "---------------------------------------------------------------------------------------------------------------------------------------------------"
@@ -157,11 +157,13 @@
         e.Graphics.DrawString(Payslip.Text, Font, Brushes.Black, 140, 140)
     End Sub
 
-    Private Sub print_Click(sender As Object, e As EventArgs) Handles print.Click
+    Private Sub Print_Click(sender As Object, e As EventArgs) Handles print.Click
         PrintPreviewDialog1.ShowDialog()
     End Sub
 
+#Disable Warning BC40014
     Private Sub Add_Click(sender As Object, e As EventArgs) Handles Add.Click
+#Enable Warning BC40014
         PaidWorkersBindingSource.AddNew()
         EmployeeName.Text = unpaidemployees.Text
         Add.Enabled = False
@@ -173,7 +175,7 @@
     End Sub
 
 
-    Private Sub save_Click(sender As Object, e As EventArgs) Handles save.Click
+    Private Sub Save_Click(sender As Object, e As EventArgs) Handles save.Click
         Try
             PaidWorkersBindingSource.EndEdit()
             Paid_WorkersTableAdapter.Update(DatabaseDataSet.Paid_Workers)
@@ -195,7 +197,7 @@
         EmployeeName.Text = unpaidemployees.Text
     End Sub
 
-    Private Sub exit1_Click(sender As Object, e As EventArgs) Handles exit1.Click
+    Private Sub Exit1_Click(sender As Object, e As EventArgs) Handles exit1.Click
         Close()
     End Sub
 
