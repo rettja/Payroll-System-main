@@ -492,13 +492,15 @@ Partial Class Form1
         'Label17
         '
         Me.Label17.AutoSize = True
+        Me.Label17.BackColor = System.Drawing.Color.SteelBlue
         Me.Label17.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 33.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label17.Font = New System.Drawing.Font("Impact", 33.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label17.ForeColor = System.Drawing.Color.Khaki
         Me.Label17.Location = New System.Drawing.Point(0, 0)
         Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(323, 52)
+        Me.Label17.Size = New System.Drawing.Size(330, 56)
         Me.Label17.TabIndex = 56
-        Me.Label17.Text = "Payroll System"
+        Me.Label17.Text = "PAYROLL SYSTEM"
         '
         'Insert
         '
@@ -581,7 +583,7 @@ Partial Class Form1
         '
         'Panel1
         '
-        Me.Panel1.BackColor = System.Drawing.Color.Maroon
+        Me.Panel1.BackColor = System.Drawing.Color.SteelBlue
         Me.Panel1.Controls.Add(Me.Label17)
         Me.Panel1.Controls.Add(Me.exit1)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
